@@ -36,3 +36,6 @@ $RECYCLE.BIN/
 
 # GitHub Actions workflow
 .github/workflows/github-pages.yml
+
+# CNAME
+CNAME

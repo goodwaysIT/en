@@ -2,8 +2,8 @@
 title: Goodways IT Team
 description: >-
   Technical blog of Goodways IT Team, specializing in Oracle database and Oracle GoldenGate solutions.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://goodwaysit.github.io/en" # the base hostname & protocol
+baseurl: "/en" # the subpath of your site, e.g. /blog
+url: "https://goodwaysit.github.io/" # the base hostname & protocol
 # future_url: "http://it.goodways.co.jp/" # Future URL for the site
 
 # Company information
