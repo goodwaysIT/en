@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+<div class="home-header">
+  <div class="container">
+    <h1 class="site-title" style="font-size: 3.5rem; font-weight: bold;">{{ site.title }}</h1>
+    <p class="site-description">{{ site.description }}</p>
+  </div>
+</div>
+
+<div class="expertise-section">
+  <div class="container">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="expertise-grid">
+      {% for expertise in site.company.expertise %}
+        <div class="expertise-item">
+          <i class="expertise-icon icon-{{ expertise | slugify }}"></i>
+          <h3>{{ expertise }}</h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="blog-section">
+  <div class="container">
+    <h2 class="section-title">Latest Blog Posts</h2>
+    <div class="post-grid">
+      {% for post in site.posts limit:6 %}
+        <div class="post-card">
+          <div class="post-meta">
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          </div>
+          <h3 class="post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <div class="post-excerpt">
+            {{ post.excerpt | truncatewords: 25 }}
+          </div>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="view-all">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">View All Posts</a>
+    </div>
+  </div>
+</div>
+
+<div class="services-section">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      {% for service in site.services limit:3 %}
+        <div class="service-card">
+          {% if service.icon %}
+            <div class="service-icon">
+              <i class="icon-{{ service.icon }}"></i>
+            </div>
+          {% endif %}
+          <h3 class="service-title">{{ service.title }}</h3>
+          <div class="service-description">{{ service.excerpt }}</div>
+          <a href="{{ service.url | relative_url }}" class="btn btn-secondary">Learn More</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

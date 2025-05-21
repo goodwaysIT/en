@@ -1,0 +1,56 @@
+---
+layout: page
+title: Blog
+description: Latest articles, tutorials, and insights on Oracle Database and GoldenGate technologies.
+---
+
+<div class="blog-listing">
+  <div class="post-grid">
+    {% for post in paginator.posts %}
+      <div class="post-card">
+        <div class="post-meta">
+          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <div class="post-excerpt">
+          {{ post.excerpt | truncatewords: 25 }}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
+        <i class="fas fa-chevron-left"></i> Previous
+      </a>
+    {% else %}
+      <span class="previous disabled">
+        <i class="fas fa-chevron-left"></i> Previous
+      </span>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="page-number current">{{ page }}</span>
+      {% else %}
+        <a href="{% if page == 1 %}{{ '/blog/' | relative_url }}{% else %}{{ site.paginate_path | relative_url | replace: ':num', page }}{% endif %}" class="page-number">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">
+        Next <i class="fas fa-chevron-right"></i>
+      </a>
+    {% else %}
+      <span class="next disabled">
+        Next <i class="fas fa-chevron-right"></i>
+      </span>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

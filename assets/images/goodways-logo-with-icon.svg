@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="50" viewBox="0 0 240 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .main-text { fill: #0055a4; font-size: 24px; }
+    .sub-text { fill: #666666; font-size: 14px; }
+  </style>
+  <!-- Logo Icon - Stylized G with Database Symbol -->
+  <g transform="translate(5, 5)">
+    <!-- Database icon base -->
+    <ellipse cx="18" cy="15" rx="15" ry="8" fill="#0055a4" />
+    <rect x="3" y="15" width="30" height="20" fill="#0055a4" />
+    <ellipse cx="18" cy="35" rx="15" ry="8" fill="#0055a4" />
+    
+    <!-- Orange accent layer -->
+    <path d="M18,7 C25,7 30,10 30,15 L30,35 C30,31 25,28 18,28 C11,28 6,31 6,35 L6,15 C6,10 11,7 18,7z" fill="#ff6600" opacity="0.8" />
+    
+    <!-- Center ring -->
+    <ellipse cx="18" cy="22" rx="8" ry="4" fill="white" opacity="0.3" />
+  </g>
+  
+  <!-- Company Name -->
+  <g>
+    <text x="50" y="30" class="logo-text main-text">Goodways</text>
+    <text x="50" y="45" class="logo-text sub-text">IT Team</text>
+  </g>
+</svg>

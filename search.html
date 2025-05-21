@@ -1,0 +1,168 @@
+---
+layout: page
+title: Search
+description: Search through our articles, services, and projects.
+permanentlink: /search/
+---
+
+<div class="search-container" style="margin-top: 2rem; margin-bottom: 2rem;">
+  <div class="search-form">
+    <input type="text" id="search-input" placeholder="Search the blog...">
+    <button id="search-button" class="btn btn-primary">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+  
+  <div id="search-results" class="search-results">
+    <!-- Results will be dynamically populated here -->
+  </div>
+</div>
+
+<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js"></script>
+<script>
+  // Search functionality using lunr.js
+  (function() {
+    function displaySearchResults(results, store) {
+      var searchResults = document.getElementById('search-results');
+      
+      if (results.length) {
+        var resultList = '';
+        
+        // Loop through results
+        for (var i = 0; i < results.length; i++) {
+          var item = store[results[i].ref];
+          resultList += '<div class="search-result-item">';
+          resultList += '<h3><a href="' + item.url + '">' + item.title + '</a></h3>';
+          resultList += '<p class="search-result-category">' + item.category + '</p>';
+          resultList += '<p class="search-result-excerpt">' + item.excerpt + '</p>';
+          resultList += '</div>';
+        }
+        
+        searchResults.innerHTML = resultList;
+      } else {
+        searchResults.innerHTML = '<div class="search-no-results"><p>No results found. Please try a different search term.</p></div>';
+      }
+    }
+    
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split('&');
+      
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        
+        if (pair[0] === variable) {
+          return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+        }
+      }
+    }
+    
+    var searchTerm = getQueryVariable('query');
+    var searchInput = document.getElementById('search-input');
+    
+    if (searchTerm) {
+      searchInput.value = searchTerm;
+      
+      // Fetch search data
+      fetch('/search-data.json')
+        .then(response => response.json())
+        .then(data => {
+          var store = data;
+          
+          // Initialize lunr index
+          var idx = lunr(function() {
+            this.field('id');
+            this.field('title', { boost: 10 });
+            this.field('category');
+            this.field('content');
+            
+            // Add documents to index
+            for (var key in store) {
+              this.add({
+                'id': key,
+                'title': store[key].title,
+                'category': store[key].category,
+                'content': store[key].content
+              });
+            }
+          });
+          
+          var results = idx.search(searchTerm);
+          displaySearchResults(results, store);
+        });
+    }
+    
+    // Handle search form submission
+    document.getElementById('search-button').addEventListener('click', function() {
+      var searchTerm = document.getElementById('search-input').value;
+      if (searchTerm) {
+        window.location.href = '/search/?query=' + encodeURIComponent(searchTerm);
+      }
+    });
+    
+    // Handle Enter key press in search input
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        var searchTerm = document.getElementById('search-input').value;
+        if (searchTerm) {
+          window.location.href = '/search/?query=' + encodeURIComponent(searchTerm);
+        }
+      }
+    });
+  })();
+</script>
+
+<style>
+  .search-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .search-form {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  
+  #search-input {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  #search-button {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .search-results {
+    margin-top: 2rem;
+  }
+  
+  .search-result-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-result-item h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-result-category {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-result-excerpt {
+    color: #333;
+  }
+  
+  .search-no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+  }
+</style>

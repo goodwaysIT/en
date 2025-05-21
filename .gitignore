@@ -1,0 +1,38 @@
+# Jekyll generated files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Bundler config and gems
+.bundle/
+vendor/bundle/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS specific files
+.DS_Store
+Thumbr.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Log files
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# GitHub Actions workflow
+.github/workflows/github-pages.yml

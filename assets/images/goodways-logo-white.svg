@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .main-text { fill: #ffffff; font-size: 24px; }
+    .sub-text { fill: #f0f0f0; font-size: 14px; }
+  </style>
+  <g>
+    <text x="10" y="30" class="logo-text main-text">Goodways</text>
+    <text x="10" y="45" class="logo-text sub-text">IT Team</text>
+  </g>
+</svg>

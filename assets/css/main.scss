@@ -1,0 +1,730 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// Variables
+$primary-color: #0055a4;
+$secondary-color: #ff6600;
+$accent-color: #0099cc;
+$text-color: #333333;
+$light-gray: #f5f5f5;
+$medium-gray: #dddddd;
+$dark-gray: #888888;
+$white: #ffffff;
+$black: #000000;
+
+$font-family-sans: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-mono: 'Source Code Pro', monospace;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Base styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $white;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+code {
+  font-family: $font-family-mono;
+  background-color: $light-gray;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: $light-gray;
+  border-radius: 5px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &.btn-primary {
+    background-color: $primary-color;
+    color: $white;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: $secondary-color;
+    color: $white;
+    
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+// Header styles
+.site-header {
+  background-color: $primary-color;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .site-logo {
+    display: block;
+    max-height: 50px;
+    
+    img {
+      height: 40px;
+    }
+  }
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  
+  .nav-trigger {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $primary-color;
+  }
+  
+  .page-link {
+    color: $text-color;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    .menu-icon {
+      display: block;
+    }
+    
+    .trigger {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $white;
+      padding: 1rem;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      flex-direction: column;
+      
+      .page-link {
+        margin: 0.5rem 0;
+        display: block;
+      }
+    }
+    
+    .nav-trigger:checked ~ .trigger {
+      display: flex;
+    }
+  }
+}
+
+.language-selector {
+  position: relative;
+  margin-left: 1.5rem;
+  
+  .current-lang {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+    background-color: $light-gray;
+    
+    span {
+      margin-right: 0.5rem;
+      font-weight: 500;
+    }
+  }
+  
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style-type: none;
+    min-width: 100px;
+    z-index: 10;
+    
+    &.active {
+      display: block;
+    }
+    
+    li {
+      padding: 0;
+      
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: $text-color;
+        
+        &:hover {
+          background-color: $light-gray;
+        }
+        
+        &.active {
+          background-color: $primary-color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Home page styles
+.page-header {
+  background-color: $primary-color;
+  padding: 4.5rem 0;
+  margin-bottom: 3.5rem;
+  color: $white;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: $primary-color;
+  font-weight: 700;
+}
+
+.search-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.search-form {
+  display: flex;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  
+  &:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: $secondary-color;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.expertise-section,
+.blog-section,
+.services-section {
+  padding: 4rem 0;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  
+  .expertise-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: $light-gray;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .expertise-icon {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.post-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.post-card {
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .post-meta {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: $dark-gray;
+  }
+  
+  .post-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    
+    a {
+      color: $text-color;
+      
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  .post-excerpt {
+    margin-bottom: 1rem;
+    color: $dark-gray;
+  }
+  
+  .read-more {
+    font-weight: 500;
+    color: $primary-color;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.view-all {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.service-card {
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .service-icon {
+    font-size: 3rem;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-title {
+    margin-bottom: 1rem;
+  }
+  
+  .service-description {
+    margin-bottom: 1.5rem;
+    color: $dark-gray;
+  }
+}
+
+// Footer styles
+.site-footer {
+  background-color: $primary-color;
+  color: $white;
+  padding: 4rem 0 2rem;
+  
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .footer-logo {
+    max-height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .footer-heading {
+    color: $white;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: $secondary-color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  
+  .footer-list,
+  .footer-contact-list {
+    list-style-type: none;
+    
+    li {
+      margin-bottom: 0.8rem;
+      
+      a {
+        color: rgba(255,255,255,0.8);
+        
+        &:hover {
+          color: $white;
+        }
+      }
+      
+      span {
+        color: rgba(255,255,255,0.8);
+      }
+    }
+  }
+  
+  .footer-contact-list {
+    li {
+      display: flex;
+      align-items: center;
+      
+      i {
+        margin-right: 0.8rem;
+        color: $secondary-color;
+      }
+    }
+  }
+  
+  .social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: $white;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: $secondary-color;
+        transform: translateY(-3px);
+      }
+    }
+  }
+  
+  .footer-bottom {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+}
+
+// Blog page styles
+.page-banner {
+  background-color: $primary-color;
+  color: $white;
+  padding: 3rem 0;
+  text-align: center;
+  
+  .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-description {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.8;
+  }
+}
+
+.blog-post {
+  padding: 4rem 0;
+  
+  .post-header {
+    margin-bottom: 2rem;
+  }
+  
+  .post-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    color: $dark-gray;
+    
+    .post-date {
+      display: flex;
+      align-items: center;
+      
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  .post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    img {
+      display: block;
+      margin: 2rem auto;
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    
+    blockquote {
+      border-left: 4px solid $primary-color;
+      padding-left: 1.5rem;
+      margin-left: 0;
+      color: $dark-gray;
+      font-style: italic;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  
+  .page-number,
+  .previous,
+  .next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    margin: 0 0.3rem;
+    padding: 0 0.8rem;
+    border-radius: 4px;
+    background-color: $light-gray;
+    color: $text-color;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
+    
+    &.current {
+      background-color: $primary-color;
+      color: $white;
+    }
+    
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .home-header {
+    padding: 3rem 0;
+    
+    .site-title {
+      font-size: 3.5rem;
+    }
+    
+    .site-description {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .expertise-section,
+  .blog-section,
+  .services-section {
+    padding: 3rem 0;
+  }
+  
+  .blog-post {
+    padding: 3rem 0;
+    
+    .post-title {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .home-header {
+    padding: 2.5rem 0;
+    
+    .site-title {
+      font-size: 1.8rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+  
+  .expertise-section,
+  .blog-section,
+  .services-section {
+    padding: 2.5rem 0;
+  }
+  
+  .blog-post {
+    padding: 2.5rem 0;
+    
+    .post-title {
+      font-size: 1.8rem;
+    }
+    
+    .post-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+---
+layout: page
+title: Our Services
+description: Comprehensive Oracle Database and GoldenGate solutions for your business.
+---
+
+<div class="services-listing">
+  {% assign sorted_services = site.services | sort: 'order' %}
+  <div class="services-grid">
+    {% for service in sorted_services %}
+      <div class="service-card">
+        {% if service.icon %}
+          <div class="service-icon">
+            <i class="fas fa-{{ service.icon }}"></i>
+          </div>
+        {% endif %}
+        <h3 class="service-title">{{ service.title }}</h3>
+        <div class="service-description">{{ service.excerpt }}</div>
+        <a href="{{ service.url | relative_url }}" class="btn btn-secondary">Learn More</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

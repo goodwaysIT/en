@@ -1,0 +1,35 @@
+---
+layout: page
+title: Our Projects
+description: Featured projects and case studies showcasing our expertise in action.
+---
+
+<div class="projects-listing">
+  {% assign sorted_projects = site.projects | sort: 'order' %}
+  <div class="project-grid">
+    {% for project in sorted_projects %}
+      <div class="project-card">
+        {% if project.image %}
+        <div class="project-image">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+        </div>
+        {% endif %}
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <div class="project-description">{{ project.excerpt }}</div>
+          <a href="{{ project.url | relative_url }}" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Placeholder for when no projects exist yet -->
+{% unless site.projects.size > 0 %}
+<div class="coming-soon">
+  <div class="container">
+    <h2>Upcoming Projects</h2>
+    <p>We're working on adding our project case studies. Check back soon to see examples of our work with Oracle Database and GoldenGate technologies.</p>
+  </div>
+</div>
+{% endunless %}

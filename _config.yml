@@ -1,0 +1,59 @@
+# Site settings
+title: Goodways IT Team
+description: >-
+  Technical blog of Goodways IT Team, specializing in Oracle database and Oracle GoldenGate solutions.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://goodwaysit.github.io/en" # the base hostname & protocol
+future_url: "https://it.goodways.co.jp" # Future URL for the site
+
+# Company information
+company:
+  name: Goodways IT Team
+  description: Specialists in Oracle Database and GoldenGate solutions
+  expertise:
+    - Oracle Database Administration
+    - Oracle GoldenGate
+    - Data Replication
+    - High Availability Solutions
+    - Database Migration
+    - Performance Tuning
+
+# 语言设置
+lang: en
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination settings
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /services/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - CONTRIBUTING.md

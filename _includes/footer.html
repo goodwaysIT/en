@@ -1,0 +1,60 @@
+<footer class="site-footer" style="padding: 2rem 0 1rem; background-color: transparent; border-top: 1px solid rgba(0,0,0,0.1);">
+  <div class="container">
+    <div class="footer-inner" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; margin-bottom: 1rem;">
+      <div class="footer-column" style="flex: 1 1 250px; max-width: 300px; padding: 1rem 0.5rem; min-height: 180px;">
+        <img src="{{ '/assets/images/goodways-logo-with-icon.svg' | relative_url }}" alt="{{ site.title }}" class="footer-logo" style="height: 35px; margin-bottom: 1rem;" />
+        <p class="footer-description" style="font-size: 0.9rem; color: #666666; line-height: 2; margin: 1rem 0; height: auto; overflow: visible; min-height: 3rem; display: block; word-break: break-word; padding: 0.3rem 0;">Specialists in Oracle Database and GoldenGate solutions</p>
+      </div>
+      
+      <div class="footer-column" style="flex: 1 1 200px; min-height: 180px; padding: 0.5rem;">
+        <h3 class="footer-heading" style="font-size: 1rem; margin-bottom: 0.75rem; color: #333333;">Our Expertise</h3>
+        <ul class="footer-list" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem; height: auto; overflow: visible; min-height: 2.5rem; display: flex;">
+            <span style="color: #666666; font-size: 0.9rem; line-height: 1.8; padding: 0.3rem 0; display: block; word-break: break-word;">Oracle Database Administration</span>
+          </li>
+          <li style="margin-bottom: 1rem; height: auto; overflow: visible; min-height: 2.5rem; display: flex;">
+            <span style="color: #666666; font-size: 0.9rem; line-height: 1.8; padding: 0.3rem 0; display: block; word-break: break-word;">Oracle GoldenGate</span>
+          </li>
+          <li style="margin-bottom: 1rem; height: auto; overflow: visible; min-height: 2.5rem; display: flex;">
+            <span style="color: #666666; font-size: 0.9rem; line-height: 1.8; padding: 0.3rem 0; display: block; word-break: break-word;">Data Replication</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="footer-column" style="flex: 1 1 150px; min-height: 180px; padding: 0.5rem;">
+        <h3 class="footer-heading" style="font-size: 1rem; margin-bottom: 0.75rem; color: #333333;">Quick Links</h3>
+        <ul class="footer-list" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.8rem; min-height: 1.5rem;"><a href="{{ '/' | relative_url }}" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; display: block; padding: 0.2rem 0;">Home</a></li>
+          <li style="margin-bottom: 0.8rem; min-height: 1.5rem;"><a href="{{ '/blog/' | relative_url }}" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; display: block; padding: 0.2rem 0;">Blog</a></li>
+          <li style="margin-bottom: 0.8rem; min-height: 1.5rem;"><a href="{{ '/services/' | relative_url }}" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; display: block; padding: 0.2rem 0;">Services</a></li>
+          <li style="margin-bottom: 0.8rem; min-height: 1.5rem;"><a href="{{ '/about/' | relative_url }}" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; display: block; padding: 0.2rem 0;">About</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column" style="flex: 1 1 200px; min-height: 180px; padding: 0.5rem;">
+        <h3 class="footer-heading" style="font-size: 1rem; margin-bottom: 0.75rem; color: #333333;">Contact Us</h3>
+        <ul class="footer-contact-list" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.8rem; min-height: 2rem; display: flex; align-items: center;">
+            <i class="fas fa-envelope" style="color: #666666; margin-right: 0.5rem; flex-shrink: 0;"></i>
+            <a href="mailto:info@goodways.co.jp" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; padding: 0.3rem 0; display: inline-block; word-break: break-all;">info@goodways.co.jp</a>
+          </li>
+          <li style="margin-bottom: 0.8rem; min-height: 2rem; display: flex; align-items: center;">
+            <i class="fas fa-globe" style="color: #666666; margin-right: 0.5rem; flex-shrink: 0;"></i>
+            <a href="{{ site.future_url }}" target="_blank" style="color: #666666; font-size: 0.9rem; text-decoration: none; line-height: 1.8; padding: 0.3rem 0; display: inline-block; word-break: break-all;">https://it.goodways.co.jp</a>
+          </li>
+        </ul>
+        <div class="social-links" style="margin-top: 0.75rem;">
+          <a href="#" target="_blank" aria-label="GitHub" style="color: #0055a4; margin-right: 1rem;"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank" aria-label="LinkedIn" style="color: #0055a4; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
+          <a href="#" target="_blank" aria-label="Twitter" style="color: #0055a4;"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1rem; margin-top: 0.5rem;">
+      <div class="copyright" style="color: #666666; font-size: 0.85rem; text-align: center;">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.company.name }}. All Rights Reserved
+      </div>
+    </div>
+  </div>
+</footer>

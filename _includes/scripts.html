@@ -1,0 +1,21 @@
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Site JavaScript -->
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+<script>
+  // Language dropdown toggle
+  $(document).ready(function() {
+    $('.current-lang').click(function() {
+      $('.lang-dropdown').toggleClass('active');
+    });
+    
+    // Close the dropdown when clicking outside
+    $(document).click(function(e) {
+      if (!$(e.target).closest('.language-selector').length) {
+        $('.lang-dropdown').removeClass('active');
+      }
+    });
+  });
+</script>

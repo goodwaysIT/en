@@ -1,0 +1,38 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% for page in site.pages %}
+  {% unless page.url contains '.xml' or page.url contains 'assets' or page.url contains '.json' %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    {% if page.date %}
+    <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+    {% else %}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {% endif %}
+
+  </url>
+  {% endunless %}
+  {% endfor %}
+  
+  {% for post in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+
+  </url>
+  {% endfor %}
+  
+  {% for collection in site.collections %}
+  {% if collection.output and collection.label != 'posts' %}
+  {% for doc in collection.docs %}
+  <url>
+    <loc>{{ site.url }}{{ doc.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</urlset>
