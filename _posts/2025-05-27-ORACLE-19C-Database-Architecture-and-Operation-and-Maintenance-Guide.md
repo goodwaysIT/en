@@ -15,7 +15,7 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 
 19C version database operation and maintenance system:
 
-![db_architecture](https://goodwaysit.github.io/en/assets/images/database/db_architecture.png#pic_left)  
+![db_architecture](https://goodwaysit.github.io/en/assets/images/database/db_architecture.png align = "left")  
 
 ### 1.2	Hardware environment
 
