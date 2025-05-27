@@ -65,7 +65,7 @@ According to the Oracle database product lifecycle support policy, as shown in t
 
 ### 2.2	Architecture
 #### 2.2.1	Database Architecture
-<TABLE width="3000">
+<TABLE width="500">
 <TR>
 <TD align="left">
 <FONT><strong>NON-CDB Architecture</strong></FONT>
@@ -168,7 +168,7 @@ Version 19C has been analyzed, and detailed patch analysis and patch installatio
 Whether it is an upgrade or a daily application version change, the application SQL statements should be audited, which can be done through software product auditing or manual auditing.
 As can be seen from recent failures, uncontrolled application SQL has caused many production failures.
 
-**Current situation:**  
+##### Current situation:   
 There is no complete SQL audit or standardized process for manual DBA audit, which has caused many production failures.
 
 **For example:**  
@@ -176,10 +176,8 @@ There is no complete SQL audit or standardized process for manual DBA audit, whi
 **Problem phenomenon:**    
 There are a large number of statements in the DB that do not use bind variables, resulting in abnormally high "version count" and frequent "reload"s, such as:  
 `select zno from branch where zno = '982052'`  
-
 **Cause analysis:**  
 SQL development specification problem - no use of bind variables  
-
 
 * Tablespace cannot be extend  
 **Problem phenomenon:**  
@@ -204,12 +202,9 @@ WHEN SUBSTR(a.PRO_TYPE,1,4)='2012' THEN
 **Cause analysis:**  
 SQL is not written in a standardized way: query statements without conditions; unnecessary table associations; full table scans
 
----
-**Suggestions:**
+#### Suggestions:  
 1. Introduce SQL audit products, conduct audit checks on the corresponding SQL before the application goes online, and avoid SQL problems in advance.
-
 2. The program must be audited by DBA before it goes online (multi-department cooperation is required).
----
 
 ### 2.5	Stability and Performance Evaluation
 To ensure the stable operation of the database, necessary monitoring and maintenance are required. Some common monitoring and maintenance scenarios are listed below:  
@@ -231,7 +226,7 @@ The existing monitoring includes ORACLE EM and a third-party monitoring, and the
 
 ### 2.6	Operation and maintenance guidance manual and emergency guidance manual  
 > In order to cope with daily operation and maintenance and emergency situations, in addition to the regular inspection manual, the emergency manual for regular operation and maintenance and emergency handling should be improved, such as:  
-> ![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg#pic_left))  
+> ![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg#pic_left)  
 
 **Current situation:**  
 There are inspection and routine operation and maintenance manuals.
@@ -251,7 +246,7 @@ Based on the serious GC waiting during batch running of some systems, if a singl
 
 # Appendix: Example of configuring resource isolation parameters under CDB  
 > Comparison of resource control version control levels:  
-> ![resource management](https://goodwaysit.github.io/en/assets/images/database/resource.jpg#pic_left))  
+> ![resource management](https://goodwaysit.github.io/en/assets/images/database/resource.jpg#pic_left)  
 
 ### Case1: A bank  
 
@@ -259,7 +254,7 @@ Based on the serious GC waiting during batch running of some systems, if a singl
 CDB parameter setting resource manager, to enforce CPU resource allocation, you must set the CDB-level "RESOURCE_MANAGER_PLAN" to "DEFAULT_CDB_PLAN".  
 (1) The CPU usage of the PDB is limited by the CPU_COUNT count of the PDB, starting from 12.2.  
 (2) Based on the CPU_COUNT count of the PDB, the system automatically sets the CPU scheduling share of the PDB, starting from 18.1.  
-> ![task plans](https://goodwaysit.github.io/en/assets/images/database/plan.jpg#pic_left))
+> ![task plans](https://goodwaysit.github.io/en/assets/images/database/plan.jpg#pic_left)
 
 *	autotask：
 ```bash
@@ -267,9 +262,8 @@ shares: -1
 utilization_limit: 90  
 parallel_server_limit: 100  
 ```
-
-shares = -1 means that the automatic maintenance task uses 20% of the  system resources.  
-v$rsrcmgrmetric_history records the allocation and usage of resources.
+> shares = -1 means that the automatic maintenance task uses 20% of the  system resources.  
+> v$rsrcmgrmetric_history records the allocation and usage of resources.
 
 *	default_pdb_directive：
 ```bash
@@ -277,40 +271,40 @@ new_shares: 1
 utilization_limit: 100
 parallel_server_limit: 100
 ```  
-
-**Note:** Shares=1  
-Default_pdb_directive allocates all resources to the created PDB by default. Currently, cpu_count is used to limit resource allocation. Shares defaults to 1.  
+> **Note:** Shares=1  
+> Default_pdb_directive allocates all resources to the created PDB by default. Currently, cpu_count is used to limit resource allocation. Shares defaults to 1.  
 
 **Documentation reference:**  
-How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1  
+> How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1  
 
 #### PDB memory resource management  
 **Functional description:**  
 Using multiple PDBs will inevitably cause resource contention. Oracle 12.2 can effectively control and coordinate the use of various resources.  
 > Parameters that need to be set for PDB memory management:  
-> ![resource limit](https://goodwaysit.github.io/en/assets/images/database/resource_limit.JPG#pic_left))
+> ![resource limit](https://goodwaysit.github.io/en/assets/images/database/resource_limit.JPG#pic_left)
 
 **Parameter annotation:**  
 *	`PDB: SGA_TARGET PDB maximum memory usage parameter`  
-This parameter is smaller than the CDB parameter setting
+> This parameter is smaller than the CDB parameter setting
 
 *	`PDB: DB_CACHE_SIZE PBD data cache, set this parameter, memory will not be "stolen"`  
-ASMM memory management mode, minimum configuration of data cache 20%SGA-30%SGA
+> ASMM memory management mode, minimum configuration of data cache 20%SGA-30%SGA
 
 *	`PDB: SHARED_POOL_SIZE PDB shared pool cache, set this parameter, memory will not be "stolen"`  
-ASMM memory management mode, minimum configuration of shared pool 30%SGA-20%SGA  
-Shared pool priority principle: <50%* SGA_TARGET, ensure that shared pool memory is sufficient
+> ASMM memory management mode, minimum configuration of shared pool 30%SGA-20%SGA  
+> Shared pool priority principle: <50%* SGA_TARGET, ensure that shared pool memory is sufficient
 
 *	`PDB: PGA_AGGREGATE_LIMIT, [2G, sessions*3M]`  
-PDB parameter setting, small CDB parameter setting  
-PDB parameter setting is not less than twice the setting of PGA_AGGREGATE_TARGET
+> PDB parameter setting, small CDB parameter setting  
+> PDB parameter setting is not less than twice the setting of PGA_AGGREGATE_TARGET
 
 *	`PDB: PGA_AGGREGATE_TARGET, [< PGA_AGGREGATE_LIMIT/2]`  
 The parameter setting at the PDB level is less than the parameter setting at the CDB level  
 The parameter setting at the PDB level is less than PDB PGA_AGGREGATE_LIMIT*50%  
 
 **Document reference:**  
-How to Control and Monitor the Memory Usage (Both SGA and PGA) Among the PDBs in Mutitenant Database- 12.2 New Feature (Doc ID 2170772.1)  How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 1270867.1)  
+> How to Control and Monitor the Memory Usage (Both SGA and PGA) Among the PDBs in Mutitenant Database- 12.2 New Feature (Doc ID 2170772.1)
+> How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 1270867.1)  
 
 #### PDB IO resource management  
 PDB-level IO usage control:  
@@ -323,8 +317,8 @@ SQL> alter system set MAX_MBPS=500;   -- Maximum value in stress test
 ```  
 
 **Document reference:**  
-I/O Rate Limits for PDBs 12.2 New feature . (Doc ID 2164827.1)  
-It is recommended to set these parameters when IO performance problems occur.    
+> I/O Rate Limits for PDBs 12.2 New feature . (Doc ID 2164827.1)  
+> It is recommended to set these parameters when IO performance problems occur.    
 
 ### Case 2: A certain operator  
 
@@ -344,23 +338,20 @@ It is recommended to set these parameters when IO performance problems occur.
 #### Resource management at the PDB level  
 There are three levels of PDB resource planning in the database, which are used to limit CPU and parallel queries.  
 
----
-|Gold Silver Bronze Plan 	        |Share            |ut limit             |parallel limit |
-|:----                              |:----            |:----                |:----          |
-|GOLD           			        |8                |100                  |100            |
-|SILVER      		       		    |4                |40                   |40             |
-|BRONZE    			        	    |2                |20                   |20             |
----
+> |Gold Silver Bronze Plan 	        |Share            |ut limit             |parallel limit |
+> |:----                              |:----            |:----                |:----          |
+> |GOLD           			        |8                |100                  |100            |
+> |SILVER      		       		    |4                |40                   |40             |
+> |BRONZE    			        	    |2                |20                   |20             |
 
 #### CPU control at CDB and PDB level  
-
-CPU control at CDB and PDB level can also be achieved by modifying cpu_count.
+> CPU control at CDB and PDB level can also be achieved by modifying cpu_count.
 
 #### IO control at PDB level  
-PDB level IO is dynamically controlled using parameters:
-*    MAX_IOPS
-*    MAX_MBPS
-Memory resource control at PDB level  
+> PDB level IO is dynamically controlled using parameters:
+> *    MAX_IOPS
+> *    MAX_MBPS
+> Memory resource control at PDB level  
 
 ## Summary of recommendations  
 *	In order to avoid the redundant background process problems caused by small and independent databases, it is recommended to integrate some scattered small databases through the CDB architecture. Whether the core database is NON-CDB or CDB, it is recommended to use a dedicated database.
