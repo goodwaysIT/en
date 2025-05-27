@@ -42,38 +42,10 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 </TABLE>
 
 ### 1.3	Software Environment  
-<TABLE border="1">
+<TABLE>
 <TR>
 <TD align="left">
-<FONT><strong>Version</strong></FONT>
-</TD>
-<TD align="left">
-<FONT><strong>Sets</strong></FONT>
-</TD>
-<TD align="left">
-<FONT><strong>Patch information</strong></FONT>
-</TD>
-</TR>
-<TR>
-<TD align="left">
-<FONT>12.2.0.1</FONT>
-</TD>
-<TD align="left">
-<FONT>20</FONT>
-</TD>
-<TD align="left">
-<FONT>170814</FONT>
-</TD>
-</TR>
-<TR>
-<TD align="left">
-<FONT>19C</FONT>
-</TD>
-<TD align="left">
-<FONT>6</FONT>
-</TD>
-<TD align="left">
-<FONT>19.7</FONT>
+<img src="https://goodwaysit.github.io/en/assets/images/database/version.png" style="float:left;" />
 </TD>
 </TR>
 </TABLE>
