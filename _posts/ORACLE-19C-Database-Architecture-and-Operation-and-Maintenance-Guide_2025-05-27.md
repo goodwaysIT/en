@@ -37,10 +37,10 @@ NON-CDB Architecture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![support timelines](https://github.com/goodwaysIT/en/blob/main/assets/images/database/non-cdb.jpg) &nbsp;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&nbsp;![support timelines](https://github.com/goodwaysIT/en/blob/main/assets/images/database/cdb.jpg)
 
-`NON-CDB:`  
+**NON-CDB:**  
 A large enterprise faces hundreds or even thousands of databases to manage. Generally speaking, these databases will run on multiple physical servers and may be on different platforms. As hardware technology improves, especially the number of CPUs increases, servers can support heavier loads. This means that a database only consumes a small part of the resources of a server, which wastes a lot of hardware and human resources. A team of DBAs needs to manage the SGA, database files, accounts, security, etc. of each database separately.
 
-`CDB:`  
+**CDB:**  
 1. Each application can have its own PDB
 * Application operation does not need to be changed
 * New PDBs can be quickly generated through replication, and migration is fast
@@ -53,10 +53,10 @@ A large enterprise faces hundreds or even thousands of databases to manage. Gene
 3. Shared memory and background processes
 * Because each DB does not need to have its own SGA/PGA and background processes as in the past, it is equivalent to saving memory, and each server can have more applications
 
-`Current status:`  
+**Current status:**  
 The current production database architecture is mainly NON-CDB architecture, and most of them are the same physical machine running multiple instances. The databases are very small and relatively scattered small databases.
 
-`Solution:`  
+**Solution:**  
 CDB architecture is particularly suitable for some relatively small scattered databases to avoid resource waste caused by single database and single instance. Starting from 20C, Oracle no longer supports NON-CDB architecture by default. The only architecture option is CDB architecture. To adapt to the CDB software architecture of Oracle database, it is recommended to use CDB software architecture to deploy database in the future. Hardware resources can be more fully utilized, and the efficiency of operation and maintenance can be greatly improved.
 
 #### 2.2.2	Maximum Availability Architecture (MAA)
@@ -69,10 +69,10 @@ Oracle Maximum Availability Architecture (MAA) is Oracle's best practices approa
 * MAA is independent of hardware and operating systems.  
 ![MMA](https://github.com/goodwaysIT/en/blob/main/assets/images/database/mma.jpg)  
 
-`Current status:`  
+**Current status:**  
 In the existing environment, the core database is equipped with ADG, which complies with the MAA architecture.
 
-`Solution:`  
+**Solution:**  
 The secondary core database does not have ADG, and it is recommended to configure it if the hardware allows.
 
 ### 2.3	Environment Baseline
@@ -81,10 +81,10 @@ To ensure the stability of subsequent database operation, it is recommended to f
 Parameter and patch baselines need to be done in depth and in detail. It is recommended to spend man-days to do it in detail and perform parameter performance evaluation through stress testing.
 
 #### 2.3.1	19C Standard Operating Procedure
-`Current status:`  
+**Current status:**  
 There is no relatively complete 19C installation guide
 
-`Solution:`  
+**Solution:**  
 Improve the 19C installation guide, covering different platforms, RAC, Alone and single instance scenarios.
 
 #### 2.3.2	Parameter baseline
@@ -97,10 +97,10 @@ Parameter baselines should include the following key points:
 *	DRM and ACS related features
 *	New feature parameters
 
-`Current status:`  
+**Current status:**  
 19C parameter analysis has been completed.
 
-`Solution:`  
+**Solution:**  
 Based on the specific CDB architecture, further improve the parameter recommendations of the CDB architecture.
 
 #### 2.3.3	Patches
@@ -114,11 +114,11 @@ Among the recent failures, two of them were caused by outdated patch RUs, which 
 **Bug 28681153 - ORA-600: [qosdexpstatread: expcnt mismatch] (Doc ID 28681153.8)**  
 ![Bug 28681153](https://github.com/goodwaysIT/en/blob/main/assets/images/database/Bug_28681153.jpg)
 
-`Current status:`  
+**Current status:**  
 Version 12.2: No detailed patch analysis has been conducted, and the patch RU currently in production is still in August 2017.
 Version 19C: Patch analysis based on 19.7 has been completed recently.
 
-`Solution:`  
+**Solution:**  
 Version 19C has been analyzed, and detailed patch analysis and patch installation are recommended for version 12.2.
 
 ### 2.4	Application Testing and SQL Auditing
@@ -126,46 +126,44 @@ Whether it is an upgrade or a daily application version change, the application 
 
 As can be seen from recent failures, uncontrolled application SQL has caused many production failures.
 
-`Current situation:`  
+**Current situation:**  
 There is no complete SQL audit or standardized process for manual DBA audit, which has caused many production failures.
 
 **For example:**  
 
 * Exadata login is slow  
-`Problem phenomenon:`   
-There are a large number of statements in the DB that do not use bind variables, resulting in abnormally high "version count" and frequent "reload"s, such as:
-```sql
-select zno from branch where zno = '982052'
-```
-`Cause analysis:`  
-SQL development specification problem - no use of bind variables
+**Problem phenomenon:**    
+There are a large number of statements in the DB that do not use bind variables, resulting in abnormally high "version count" and frequent "reload"s, such as:  
+`select zno from branch where zno = '982052'`  
+**Cause analysis:**  
+SQL development specification problem - no use of bind variables  
 
 
 * Tablespace cannot be extend  
-`Problem phenomenon:`  
+**Problem phenomenon:**  
 Data in the business table (INFO_TAB) cannot be inserted normally. It is found in the warning log that DATA_TBS cannot normally extend the space required for the table.  
-`Cause analysis:`  
+**Cause analysis:**  
 SQL development is not standardized, the fragmentation rate is high, and there are frequent insert and delete operations. Temporary tables and truncate technology are not used for temporary operations.
 
 * RAC Hang problem  
-`Problem phenomenon:`  
+**Problem phenomenon:**  
 top event is “cr request retry”  
-`current sql:`  
-      select a.CUsT CODE,
-      b.PRO_TYPE,
-      b.type,
-      from app_info a
-      inner join (
-      SELECT a.CUST CODE,
-      CASE
-      WHEN SUBSTR(a.PRO_TYPE,1,4)='2012' THEN
-      '锟斤拷锟斤'
-
-      sys@clmdb> select * from cwm.remp_info where rownum < 2;
-`Cause analysis:`  
+**current sql:**  
+`select a.CUsT CODE,
+b.PRO_TYPE,
+b.type,
+from app_info a
+inner join (
+SELECT a.CUST CODE,
+CASE
+WHEN SUBSTR(a.PRO_TYPE,1,4)='2012' THEN
+'锟斤拷锟斤'`;  
+`sys@clmdb> select * from cwm.remp_info where rownum < 2;`  
+**Cause analysis:**  
 SQL is not written in a standardized way: query statements without conditions; unnecessary table associations; full table scans
+
 ---
-`Suggestions:`
+**Suggestions:**
 1. Introduce SQL audit products, conduct audit checks on the corresponding SQL before the application goes online, and avoid SQL problems in advance.
 
 2. The program must be audited by DBA before it goes online (multi-department cooperation is required).
@@ -181,10 +179,10 @@ To ensure the stable operation of the database, necessary monitoring and mainten
 **Maintenance category:**  
 A good data cleanup plan, slim down the database, and confirm that the database is running in the best state.
 
-`Current situation:`
+**Current situation:**
 The existing monitoring includes ORACLE EM and a third-party monitoring, and the key monitoring is not very complete.
 
-`Suggestions:`
+**Suggestions:**
 1. Improve relevant monitoring. (High priority)
 2. Develop a complete data cleanup and slimming plan (low priority).
 
@@ -192,10 +190,10 @@ The existing monitoring includes ORACLE EM and a third-party monitoring, and the
 In order to cope with daily operation and maintenance and emergency situations, in addition to the regular inspection manual, the emergency manual for regular operation and maintenance and emergency handling should be improved, such as:  
 ![](https://github.com/goodwaysIT/en/blob/main/assets/images/database/maintenance.jpg)  
 
-`Current situation:`  
+**Current situation:**  
 There are inspection and routine operation and maintenance manuals.
 
-`Suggestions:`  
+**Suggestions:**  
 Improve the emergency manual and continue to improve it.
 
 ### 2.7	Baseline Improvement
@@ -205,7 +203,7 @@ With the continuous operation, the baselines related to parameters and patches w
 ORACLE ZDLRA online backup + tape backup offline storage, the backup architecture is relatively complete and does not need to be adjusted.
 
 ### 2.9	Other suggestions
-Configure Service:  
+**Configure Service:**  
 Based on the serious GC waiting during batch running of some systems, if a single node can meet the load requirements, it is recommended to use the Service method to run the business on one node to avoid GC contention.  
 
 # Appendix: Example of configuring resource isolation parameters under CDB  
@@ -227,7 +225,8 @@ shares: -1
 utilization_limit: 90  
 parallel_server_limit: 100  
 ```
-shares = -1 means that the automatic maintenance task uses 20% of the  system resources.
+
+shares = -1 means that the automatic maintenance task uses 20% of the  system resources.  
 v$rsrcmgrmetric_history records the allocation and usage of resources.
 
 *	default_pdb_directive：
@@ -235,25 +234,25 @@ v$rsrcmgrmetric_history records the allocation and usage of resources.
 new_shares: 1
 utilization_limit: 100
 parallel_server_limit: 100
-```
-`Note:` Shares=1  
-Default_pdb_directive allocates all resources to the created PDB by default. Currently, cpu_count is used to limit resource allocation. Shares defaults to 1.  
-`Documentation reference:`  
-How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1
+```  
 
+**Note:** Shares=1  
+Default_pdb_directive allocates all resources to the created PDB by default. Currently, cpu_count is used to limit resource allocation. Shares defaults to 1.  
+
+**Documentation reference:**  
+How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1  
 
 #### PDB memory resource management
 
-`Functional description:`  
+**Functional description:**  
 Using multiple PDBs will inevitably cause resource contention. Oracle 12.2 can effectively control and coordinate the use of various resources.  
 
 Parameters that need to be set for PDB memory management:  
 ![resource limit](https://github.com/goodwaysIT/en/blob/main/assets/images/database/resource_limit.JPG)
 
-Parameter annotation:
+**Parameter annotation:**  
 *	`PDB: SGA_TARGET PDB maximum memory usage parameter`  
 This parameter is smaller than the CDB parameter setting
-
 
 *	`PDB: DB_CACHE_SIZE PBD data cache, set this parameter, memory will not be "stolen"`  
 ASMM memory management mode, minimum configuration of data cache 20%SGA-30%SGA
@@ -268,8 +267,9 @@ PDB parameter setting is not less than twice the setting of PGA_AGGREGATE_TARGET
 
 *	`PDB: PGA_AGGREGATE_TARGET, [< PGA_AGGREGATE_LIMIT/2]`  
 The parameter setting at the PDB level is less than the parameter setting at the CDB level  
-The parameter setting at the PDB level is less than PDB PGA_AGGREGATE_LIMIT*50%
-`Document reference:`  
+The parameter setting at the PDB level is less than PDB PGA_AGGREGATE_LIMIT*50%  
+
+**Document reference:**  
 How to Control and Monitor the Memory Usage (Both SGA and PGA) Among the PDBs in Mutitenant Database- 12.2 New Feature (Doc ID 2170772.1)  
 How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 1270867.1)
 
@@ -277,13 +277,15 @@ How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 
 PDB-level IO usage control:  
 *	PDB: MAX_IOPS, PDB maximum IO request per second, unit: times, can be modified dynamically  
 *	PDB: MAX_MBPS, PDB maximum IO request per second, unit: M, can be modified dynamically  
-```sql
+
+```sql  
 SQL> alter system set MAX_IOPS=1000;   -- Maximum value in stress test
 SQL> alter system set MAX_MBPS=500;   -- Maximum value in stress test
-```
-`Document reference:`  
-I/O Rate Limits for PDBs 12.2 New feature . (Doc ID 2164827.1)
-It is recommended to set these parameters when IO performance problems occur.  
+```  
+
+**Document reference:**  
+I/O Rate Limits for PDBs 12.2 New feature . (Doc ID 2164827.1)  
+It is recommended to set these parameters when IO performance problems occur.    
 
 ### Case 2: A certain operator  
 
@@ -296,7 +298,7 @@ It is recommended to set these parameters when IO performance problems occur.
 * Set up "dbplan" to manage resource allocation between databases using "share", "limit", and "flashcachesize" attributes.  
 `share`- Specifies the relative priority of databases.  
 `limit`- Specifies the maximum disk utilization of a database. This is ideal for "pay for performance" use cases and should not be used to achieve fairness between workloads.  
-`flashcachesize`- Specifies a fixed allocation in the flash cache reserved for the database.
+`flashcachesize`- Specifies a fixed allocation in the flash cache reserved for the database.  
 
 ![resource profile](https://github.com/goodwaysIT/en/blob/main/assets/images/database/profile.JPG)
 
