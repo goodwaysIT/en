@@ -16,8 +16,10 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 * ![db_architecture](https://goodwaysit.github.io/en/assets/images/database/db_architecture.png#pic_left)  
 
 ### 1.2	Hardware environment
-> Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
-> ![Exadata](https://goodwaysit.github.io/en/assets/images/database/exadata.JPG#pic_left)
+
+Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
+
+![Exadata](https://goodwaysit.github.io/en/assets/images/database/exadata.JPG#pic_left)
 
 ### 1.3	Software Environment  
 
