@@ -1,5 +1,5 @@
 # ORACLE 19C Database Architecture and Operation and Maintenance Guide
-> Author: Leo.wang Published: 2025-05-27
+> Author: Leo.Wang Published: 2025-05-27
 ## 一、	Overview  
 ### 1.1	Project Background
 With the product conversion from DB2 to Oracle database, more and more Oracle databases are put into use. Since ORACLE 12c&19C databases were implemented and deployed earlier and have been put into production for a long time, many problems have been encountered during use. In order to improve the stability of Oracle databases and ensure the healthy and continuous operation of business, based on the existing product and future architecture trends, the following guidance suggestions are given.
