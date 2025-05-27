@@ -13,8 +13,12 @@ author: Leo.Wang
 ### 1.1	Project Background
 
 With the product conversion from DB2 to Oracle database, more and more Oracle databases are put into use. Since ORACLE 12c&19C databases were implemented and deployed earlier and have been put into production for a long time, many problems have been encountered during use. In order to improve the stability of Oracle databases and ensure the healthy and continuous operation of business, based on the existing product and future architecture trends, the following guidance suggestions are given.  
-19C version database operation and maintenance system:  
 <TABLE>
+<TR>
+<TD align="left">
+<FONT><strong>19C version database operation and maintenance system:</strong></FONT>
+</TD>
+</TR>
 <TR>
 <TD align="left">
 <img src="https://goodwaysit.github.io/en/assets/images/database/db_architecture.png" style="float:left;" />
@@ -24,16 +28,57 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 
     
 ### 1.2	Hardware environment
-Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
-![Exadata](https://goodwaysit.github.io/en/assets/images/database/exadata.JPG)
+<TABLE>
+<TR>
+<TD align="left">
+<FONT><strong>Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)</strong></FONT>
+</TD>
+</TR>
+<TR>
+<TD align="left">
+<img src="https://goodwaysit.github.io/en/assets/images/database/exadata.JPG" style="float:left;" />
+</TD>
+</TR>
+</TABLE>
 
 ### 1.3	Software Environment  
 
-| Version   | Sets     | Patch information |  
-|-----------|----------|-------------------|  
-| 12.2.0.1  | 20       | 170814            |  
-| 19C       | 6        | 19.7              |  
 
+<TABLE>
+<TR>
+<TD align="left">
+<FONT><strong>Version</strong></FONT>
+</TD>
+<TD align="left">
+<FONT><strong>Sets</strong></FONT>
+</TD>
+<TD align="left">
+<FONT><strong>Patch information</strong></FONT>
+</TD>
+</TR>
+<TR>
+<TD align="left">
+<FONT>12.2.0.1</FONT>
+</TD>
+<TD align="left">
+<FONT>20</FONT>
+</TD>
+<TD align="left">
+<FONT>170814</FONT>
+</TD>
+</TR>
+<TR>
+<TD align="left">
+<FONT>19C</FONT>
+</TD>
+<TD align="left">
+<FONT>6</FONT>
+</TD>
+<TD align="left">
+<FONT>19.7</FONT>
+</TD>
+</TR>
+</TABLE>
 
 ## 二、	Multi-dimensional analysis and suggestions
 ### 2.1	Version
