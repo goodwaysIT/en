@@ -340,8 +340,9 @@ There are three levels of PDB resource planning in the database, which are used 
 |GOLD                                       |    8                |    100                 |    100            |
 |SILVER                                     |    4                |    40                  |    40             |
 |BRONZE                                     |    2                |    20                  |    20             |
-  
-  
+
+> 
+
 #### CPU control at CDB and PDB level  
 ```bash
 CPU control at CDB and PDB level can also be achieved by modifying cpu_count.
