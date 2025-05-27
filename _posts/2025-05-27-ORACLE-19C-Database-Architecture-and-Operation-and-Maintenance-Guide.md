@@ -65,8 +65,24 @@ According to the Oracle database product lifecycle support policy, as shown in t
 
 ### 2.2	Architecture
 #### 2.2.1	Database Architecture
-> NON-CDB Architecture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDB Architecture
-> ![support timelines](https://goodwaysit.github.io/en/assets/images/database/non-cdb.jpg#pic_left)&nbsp;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&nbsp;![support timelines](https://goodwaysit.github.io/en/assets/images/database/cdb.jpg#pic_left)
+<TABLE>
+<TR>
+<TD align="left">
+<FONT><strong>NON-CDB Architecture</strong></FONT>
+</TD>
+<TD align="left">
+<FONT><strong>CDB Architecture</strong></FONT>
+</TD>
+</TR>
+<TR>
+<TD align="left">
+<img src="https://goodwaysit.github.io/en/assets/images/database/non-cdb.jpg" style="float:left;" />
+</TD>
+<TD align="left">
+<img src="https://goodwaysit.github.io/en/assets/images/database/cdb.jpg" style="float:left;" />
+</TD>
+</TR>
+</TABLE>
 
 **NON-CDB:**  
 A large enterprise faces hundreds or even thousands of databases to manage. Generally speaking, these databases will run on multiple physical servers and may be on different platforms. As hardware technology improves, especially the number of CPUs increases, servers can support heavier loads. This means that a database only consumes a small part of the resources of a server, which wastes a lot of hardware and human resources. A team of DBAs needs to manage the SGA, database files, accounts, security, etc. of each database separately.
