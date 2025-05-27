@@ -21,11 +21,12 @@ Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
 
 ![Exadata](https://github.com/goodwaysIT/en/blob/main/assets/images/database/exadata.JPG)
 
-### 1.3	Software Environment
-| Version   | Sets     | Patch information |
-| :-----    | :------: | -----:            |
-| 12.2.0.1  | 20       | 170814            |
-| 19C       | 6        | 19.7              |
+### 1.3	Software Environment  
+
+| Version   | Sets     | Patch information |  
+|-----------|----------|-------------------|  
+| 12.2.0.1  | 20       | 170814            |  
+| 19C       | 6        | 19.7              |  
 
 
 ## 二、	Multi-dimensional analysis and suggestions
