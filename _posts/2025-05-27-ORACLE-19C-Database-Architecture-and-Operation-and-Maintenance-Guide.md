@@ -42,9 +42,7 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 </TABLE>
 
 ### 1.3	Software Environment  
-
-
-<TABLE>
+<TABLE border="1">
 <TR>
 <TD align="left">
 <FONT><strong>Version</strong></FONT>
