@@ -13,8 +13,8 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag", "= 2.8.0"
   gem "jekyll-sitemap", "= 1.4.0"
   gem "jekyll-paginate", "= 1.1.0"
-  # 多语言插件已移除
-  # gem "jekyll-assets", "~> 3.0.12" # 禁用，与Ruby 3.4不兼容
+  # Multi-language plugin removed
+  # gem "jekyll-assets", "~> 3.0.12" # Disable, not compatible with Ruby 3.4
   gem "kramdown-parser-gfm", "= 1.1.0"
  end
 
@@ -29,13 +29,13 @@ end
 # wdm 0.1.1与Ruby 3.4不兼容，暂时注释掉
 # gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-# 使用更简单的解决方案来监控目录变化
+# Use a simple solution to monitor directory changes
 gem "webrick"
 
-# Ruby 3.4兼容性所需的gem
+# Gems required for Ruby 3.4 compatibility
 gem "csv"
 gem "bigdecimal"
-#gem "fiddle"  # 需要解决fiddle/import警告
+#gem "fiddle"  # Need to resolve fiddle/import warning
 
 # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
 # do not have a Java counterpart.

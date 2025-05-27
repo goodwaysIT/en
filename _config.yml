@@ -11,15 +11,17 @@ company:
   name: Goodways IT Team
   description: Specialists in Oracle Database and GoldenGate solutions
   expertise:
-    - Oracle Database Administration
-    - Oracle GoldenGate
-    - Data Replication
+    - Oracle Database Consulting
+    - Oracle GoldenGate Implementation
+    - Oracle RAC & Exadata Solutions
     - High Availability Solutions
     - Database Migration
     - Performance Tuning
+    - Disaster Recovery Planning
+    - Real-Time Data Integration
 
 
-# 语言设置
+# Language settings
 lang: en
 
 # Build settings
