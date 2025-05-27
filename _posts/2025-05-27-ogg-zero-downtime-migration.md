@@ -4,7 +4,7 @@ title: "Oracle GoldenGate in Action: 15 Years of Zero-Downtime Migration & Upgra
 excerpt: "A veteran's deep dive into Oracle GoldenGate for zero-downtime migrations and upgrades, sharing 15 years of real-world experiences, critical configurations, and a behind-the-scenes look at successful (and sometimes challenging) projects."
 date: 2025-05-27 10:00:00 +0800
 categories: [Oracle, GoldenGate, Data Migration]
-tags: [zero-downtime, data replication, oracle goldengate, database upgrade, high availability, Shane]
+tags: [zero-downtime, data replication, oracle goldengate, database upgrade, high availability]
 image: /assets/images/posts/ogg-zero-downtime-migration.jpg
 author: Shane
 ---
@@ -19,14 +19,16 @@ Hello everyone, I'm Shane. I've been navigating the IT landscape for nearly two 
 
 A successful OGG zero-downtime migration or upgrade project hinges on meticulous upfront planning. It's far more than just installing software and tweaking a few parameters.
 
-### Thorough Current State Assessment & Clear Objectives (The "Know Your Battlefield" Principle)
+### Thorough Current State Assessment & Clear Objectives 
+
 We must first act like detectives, thoroughly understanding the "assets" of the source database: version, patch level, character set, operating system, storage type, network topology, data volume (especially for very large tables and LOB objects), and transaction load (TPS, redo generation rate). The same applies to the target environment, paying special attention to potential compatibility issues arising from version differences. I once encountered a project migrating from Oracle 11g on AIX to 19c on Linux, with different character sets. The preliminary compatibility testing itself took considerable effort.
 
 OGG is not a silver bullet. In the project's initial phase, it's crucial to consult the official documentation meticulously to identify any unsupported or restricted data types (like certain user-defined types, or specific storage methods for XMLType) or database features (such as certain encryption methods). Discovering these early allows for timely alternative solutions (e.g., pre-conversion, custom handling), avoiding last-minute scrambles.
 
 "Zero-downtime" is a relative concept. Does it mean completely imperceptible to users? Or does it allow for a brief read-only period or connection switch at the application layer? This directly impacts the subsequent cutover strategy. It's essential to communicate fully with business stakeholders and reach a consensus.
 
-### Initial Load Strategy: The First Step of a Thousand-Mile Journey (The "First Step" Dilemma)
+### Initial Load Strategy: The First Step of a Thousand-Mile Journey
+
 Initial load, as the name suggests, is the process of "moving" the existing data from the source database to the target, forming the baseline for subsequent incremental synchronization.
 
 Common methods and my preferences include:
@@ -36,7 +38,8 @@ Common methods and my preferences include:
 
 Consideration factors include data volume, network bandwidth, allowed initial load window, and source system pressure.
 
-### Incremental Synchronization Design: Building the Real-Time Data Pipeline (The "Data Highway" Construction)
+### Incremental Synchronization Design: Building the Real-Time Data Pipeline
+
 Supplemental Logging is OGG's "eyes." Sufficient supplemental logging must be enabled on the source for all tables to be replicated, ensuring OGG can capture all necessary information for changed data (like primary keys, unique index columns, all columns) from the Redo Logs. I've seen cases where improper supplemental logging configuration caused Replicat to ABEND frequently due to missing data.
 
 For the **Extract Process**, the source of data capture:
@@ -74,13 +77,13 @@ OGG has hundreds of parameters, but a few key ones often determine a project's s
 
 With everything prepared, only the cutover remains. This is the most intense and exciting part of the project, and also the ultimate test of teamwork and adaptability.
 
-### Final Pre-Cutover Preparations (The "Final Countdown")
+### Final Pre-Cutover Preparations
 *   **Repeated Drills:** Conduct multiple full cutover drills in the test environment to familiarize the team with every step and record the time taken for each.
 *   **Data Consistency Verification Scripts/Tools:** Prepare tools like OGG Veridata, or custom SQL scripts to compare row counts, SUM/AVG of key fields in core tables. This is crucial for building confidence.
 *   **Application Layer Coordination:** Communicate closely with the application team to determine the precise timing for stopping/setting applications to read-only, and the method for pointing applications to the new database after cutover (e.g., modifying connection strings, DNS switch).
 *   **Minimize Lag:** Ensure OGG lag is minimized, ideally to zero, before the cutover window. This can be achieved by temporarily increasing Replicat parallelism, optimizing the network, etc.
 
-### Cutover Execution (The "Moment of Truth")
+### Cutover Execution 
 1.  Stop application writes on the source system, ensuring all transactions are completed.
 2.  Monitor OGG Extract to ensure all Redo Logs have been captured.
 3.  Monitor OGG Replicat to ensure all Trail Files have been applied (lag is zero).
@@ -88,7 +91,7 @@ With everything prepared, only the cutover remains. This is the most intense and
 5.  Switch application connections to the new database.
 6.  Open the application and conduct business function validation.
 
-### Rollback Plan (The "Plan B")
+### Rollback Plan 
 Even with utmost confidence in the plan, a comprehensive rollback plan is essential. It's a contingency for serious issues arising post-cutover that cannot be resolved quickly, allowing a swift revert of business operations to the source system. Key points include how to quickly synchronize incremental data from the new database back to the old one (may require pre-configuring a reverse OGG link), or directly abandon the new database and switch applications back to the old one. The rollback plan also needs to be rehearsed!
 
 ## Conclusion: The OGG Journey – A Quest for Perfection
