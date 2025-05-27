@@ -16,7 +16,7 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 <TABLE>
 <TR>
 <TD align="left">
-<FONT><strong>19C version database operation and maintenance system:</strong></FONT>
+<FONT><strong>19C version database operation and maintenance architecture:</strong></FONT>
 </TD>
 </TR>
 <TR>
@@ -229,7 +229,7 @@ The existing monitoring includes ORACLE EM and a third-party monitoring, and the
 > ![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg#pic_left)  
 
 **Current situation:**  
-There are inspection and routine operation and maintenance manuals.
+Daily inspection and maintenance manuals already exist.
 
 **Suggestions:**  
 Improve the emergency manual and continue to improve it.
