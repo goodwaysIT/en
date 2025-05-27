@@ -17,9 +17,8 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 > ![db_architecture](https://goodwaysit.github.io/en/assets/images/database/db_architecture.png#pic_left)
 
 ### 1.2	Hardware environment
-Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
-
-![Exadata](https://goodwaysit.github.io/en/assets/images/database/exadata.JPG)
+> Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
+> ![Exadata](https://goodwaysit.github.io/en/assets/images/database/exadata.JPG)
 
 ### 1.3	Software Environment  
 
@@ -33,8 +32,9 @@ Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
 ### 2.1	Version
 From the existing database list, the main database version currently in use is 12.2.0.1, and the RU patch version basically stays in 2017. From the official Oracle database version support cycle, the standard support for version 12.2 expires at the end of March 2020. In order to better provide product support, it is recommended to consider version 19C for subsequent database version selection, and upgrade or migrate the existing 12c version database to 19C through medium- and short-term plans.
 
-The product support life cycle diagram of each version is given below:  
- ![support timelines](https://goodwaysit.github.io/en/assets/images/database/timelines.jpg)  
+> The product support life cycle diagram of each version is given below:  
+> ![support timelines](https://goodwaysit.github.io/en/assets/images/database/timelines.jpg)
+
 According to the Oracle database product lifecycle support policy, as shown in the figure above, we can see that:  
 
     The standard support period for version 12.2.0.1 ends on March 31, 2020, and is extended to March 31, 2022 (extended support must be purchased separately)  
@@ -43,9 +43,8 @@ According to the Oracle database product lifecycle support policy, as shown in t
 
 ### 2.2	Architecture
 #### 2.2.1	Database Architecture
-NON-CDB Architecture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDB Architecture
-
-![support timelines](https://goodwaysit.github.io/en/assets/images/database/non-cdb.jpg)&nbsp;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&nbsp;![support timelines](https://goodwaysit.github.io/en/assets/images/database/cdb.jpg)
+> NON-CDB Architecture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDB Architecture
+> ![support timelines](https://goodwaysit.github.io/en/assets/images/database/non-cdb.jpg)&nbsp;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&nbsp;![support timelines](https://goodwaysit.github.io/en/assets/images/database/cdb.jpg)
 
 **NON-CDB:**  
 A large enterprise faces hundreds or even thousands of databases to manage. Generally speaking, these databases will run on multiple physical servers and may be on different platforms. As hardware technology improves, especially the number of CPUs increases, servers can support heavier loads. This means that a database only consumes a small part of the resources of a server, which wastes a lot of hardware and human resources. A team of DBAs needs to manage the SGA, database files, accounts, security, etc. of each database separately.
@@ -77,7 +76,7 @@ Oracle Maximum Availability Architecture (MAA) is Oracle's best practices approa
 * MAA uses lower-cost servers and storage.  
 * MAA continues to evolve with new Oracle versions and features.  
 * MAA is independent of hardware and operating systems.  
-![MMA](https://goodwaysit.github.io/en/assets/images/database/mma.jpg)  
+> ![MMA](https://goodwaysit.github.io/en/assets/images/database/mma.jpg)  
 
 **Current status:**  
 In the existing environment, the core database is equipped with ADG, which complies with the MAA architecture.
@@ -119,10 +118,10 @@ Based on the OS platform and database version, combined with the experience of O
 Among the recent failures, two of them were caused by outdated patch RUs, which led to production failures. The details are as follows:
 
 **Bug 27162390 - RAC LMS Process Hits ORA-600 [kclantilock_17] Error and Instance Crashes (Doc ID 27162390.8)**  
-![Bug 27162390](https://goodwaysit.github.io/en/assets/images/database/Bug_27162390.jpg)
+> ![Bug 27162390](https://goodwaysit.github.io/en/assets/images/database/Bug_27162390.jpg)
 
 **Bug 28681153 - ORA-600: [qosdexpstatread: expcnt mismatch] (Doc ID 28681153.8)**  
-![Bug 28681153](https://goodwaysit.github.io/en/assets/images/database/Bug_28681153.jpg)
+> ![Bug 28681153](https://goodwaysit.github.io/en/assets/images/database/Bug_28681153.jpg)
 
 **Current status:**  
 Version 12.2: No detailed patch analysis has been conducted, and the patch RU currently in production is still in August 2017.
@@ -197,8 +196,8 @@ The existing monitoring includes ORACLE EM and a third-party monitoring, and the
 2. Develop a complete data cleanup and slimming plan (low priority).
 
 ### 2.6	Operation and maintenance guidance manual and emergency guidance manual
-In order to cope with daily operation and maintenance and emergency situations, in addition to the regular inspection manual, the emergency manual for regular operation and maintenance and emergency handling should be improved, such as:  
-![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg)  
+> In order to cope with daily operation and maintenance and emergency situations, in addition to the regular inspection manual, the emergency manual for regular operation and maintenance and emergency handling should be improved, such as:  
+> ![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg)  
 
 **Current situation:**  
 There are inspection and routine operation and maintenance manuals.
@@ -217,8 +216,8 @@ ORACLE ZDLRA online backup + tape backup offline storage, the backup architectur
 Based on the serious GC waiting during batch running of some systems, if a single node can meet the load requirements, it is recommended to use the Service method to run the business on one node to avoid GC contention.  
 
 # Appendix: Example of configuring resource isolation parameters under CDB  
-Comparison of resource control version control levels:  
-![resource management](https://goodwaysit.github.io/en/assets/images/database/resource.jpg)  
+> Comparison of resource control version control levels:  
+> ![resource management](https://goodwaysit.github.io/en/assets/images/database/resource.jpg)  
 
 ### Case1: A bank  
 
@@ -227,7 +226,7 @@ CDB parameter setting resource manager, to enforce CPU resource allocation, you 
 
 (1) The CPU usage of the PDB is limited by the CPU_COUNT count of the PDB, starting from 12.2.  
 (2) Based on the CPU_COUNT count of the PDB, the system automatically sets the CPU scheduling share of the PDB, starting from 18.1.  
-![task plans](https://goodwaysit.github.io/en/assets/images/database/plan.jpg)
+> ![task plans](https://goodwaysit.github.io/en/assets/images/database/plan.jpg)
 
 *	autotask：
 ```sql
@@ -257,8 +256,8 @@ How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1
 **Functional description:**  
 Using multiple PDBs will inevitably cause resource contention. Oracle 12.2 can effectively control and coordinate the use of various resources.  
 
-Parameters that need to be set for PDB memory management:  
-![resource limit](https://goodwaysit.github.io/en/assets/images/database/resource_limit.JPG)
+> Parameters that need to be set for PDB memory management:  
+> ![resource limit](https://goodwaysit.github.io/en/assets/images/database/resource_limit.JPG)
 
 **Parameter annotation:**  
 *	`PDB: SGA_TARGET PDB maximum memory usage parameter`  
@@ -310,7 +309,7 @@ It is recommended to set these parameters when IO performance problems occur.
 `limit`- Specifies the maximum disk utilization of a database. This is ideal for "pay for performance" use cases and should not be used to achieve fairness between workloads.  
 `flashcachesize`- Specifies a fixed allocation in the flash cache reserved for the database.  
 
-![resource profile](https://goodwaysit.github.io/en/assets/images/database/profile.JPG)
+> ![resource profile](https://goodwaysit.github.io/en/assets/images/database/profile.JPG)
 
 #### Resource management at the PDB level  
 There are three levels of PDB resource planning in the database, which are used to limit CPU and parallel queries.  
