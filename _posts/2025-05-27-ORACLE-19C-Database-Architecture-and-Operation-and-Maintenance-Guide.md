@@ -334,6 +334,7 @@ It is recommended to set these parameters when IO performance problems occur.
 
 #### Resource management at the PDB level  
 There are three levels of PDB resource planning in the database, which are used to limit CPU and parallel queries.  
+
 |Gold Silver Bronze Plan                    |Share            |ut limit            |parallel limit |
 |:----                                      |:----            |:----               |:----          |
 |GOLD                                       |8                |100                 |100            |
@@ -361,10 +362,3 @@ Memory resource control at PDB level
 *	Improve related monitoring, object level, such as core table fragmentation rate, index fragmentation rate, index splitting, etc.; SQL level, such as TOP SQL, hard parsing, hard parsing if the execution plan has changed; memory pool, such as Shared Pool, Buffer Cache.
 *	Configure Service. When a single node can carry the business, use Service to run the business on a single node to avoid some problems of waiting for GC when running batches.
 *	The 19C operation and maintenance manual is improved, especially for PDB scenarios.
-
-> ⭐️ **Tip:** If you have any questions, send an email to leo.wang@goodways.co.jp
-
-
-
----
-<center>&copy;2025 GOODWAYS Inc. All rights reserved.</center>
