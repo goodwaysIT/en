@@ -335,11 +335,12 @@ It is recommended to set these parameters when IO performance problems occur.
 #### Resource management at the PDB level  
 There are three levels of PDB resource planning in the database, which are used to limit CPU and parallel queries.  
 
-|Gold Silver Bronze Plan                    |Share            |ut limit            |parallel limit |
-|:----                                      |:----            |:----               |:----          |
-|GOLD                                       |8                |100                 |100            |
-|SILVER                                     |4                |40                  |40             |
-|BRONZE                                     |2                |20                  |20             |
+|Gold Silver Bronze Plan                    |    Share            |    ut limit            |    parallel limit |
+|:----                                      |    :----            |    :----               |    :----          |
+|GOLD                                       |    8                |    100                 |    100            |
+|SILVER                                     |    4                |    40                  |    40             |
+|BRONZE                                     |    2                |    20                  |    20             |
+
 
 #### CPU control at CDB and PDB level  
 ```bash
