@@ -15,7 +15,9 @@ With the product conversion from DB2 to Oracle database, more and more Oracle da
 
 19C version database operation and maintenance system:  
 
-<div align=left><img src="https://goodwaysit.github.io/en/assets/images/database/db_architecture.png"/></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p align = "left">
+<img src="https://goodwaysit.github.io/en/assets/images/database/db_architecture.png"  />
+</p>
 
 ### 1.2	Hardware environment
 Exadata(X6-2、 X7-2、 X8-2) + PC Server (several)
