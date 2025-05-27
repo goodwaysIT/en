@@ -65,7 +65,7 @@ According to the Oracle database product lifecycle support policy, as shown in t
 
 ### 2.2	Architecture
 #### 2.2.1	Database Architecture
-<TABLE>
+<TABLE width="3000">
 <TR>
 <TD align="left">
 <FONT><strong>NON-CDB Architecture</strong></FONT>
@@ -107,8 +107,7 @@ The current production database architecture is mainly NON-CDB architecture, and
 CDB architecture is particularly suitable for some relatively small scattered databases to avoid resource waste caused by single database and single instance. Starting from 20C, Oracle no longer supports NON-CDB architecture by default. The only architecture option is CDB architecture. To adapt to the CDB software architecture of Oracle database, it is recommended to use CDB software architecture to deploy database in the future. Hardware resources can be more fully utilized, and the efficiency of operation and maintenance can be greatly improved.
 
 #### 2.2.2	Maximum Availability Architecture (MAA)
-Oracle Maximum Availability Architecture (MAA) is Oracle's best practices approach, based on proven Oracle high availability technologies and recommendations. The purpose of MAA is to achieve the best high availability architecture at the lowest cost and complexity.
-
+Oracle Maximum Availability Architecture (MAA) is Oracle's best practices approach, based on proven Oracle high availability technologies and recommendations. The purpose of MAA is to achieve the best high availability architecture at the lowest cost and complexity.  
 * MAA best practices involve Oracle Database, Oracle Application Server, Oracle Applications, and Grid Control.  
 * MAA takes into account a variety of business requirements to make these best practices as widely applicable as possible.  
 * MAA uses lower-cost servers and storage.  
@@ -123,8 +122,7 @@ In the existing environment, the core database is equipped with ADG, which compl
 The secondary core database does not have ADG, and it is recommended to configure it if the hardware allows.
 
 ### 2.3	Environment Baseline
-To ensure the stability of subsequent database operation, it is recommended to formulate parameter and patch implementation baselines in a best practice manner to provide a unified reference guide for subsequent database environment deployment. A stable environment can ensure the stable operation of the database.
-
+To ensure the stability of subsequent database operation, it is recommended to formulate parameter and patch implementation baselines in a best practice manner to provide a unified reference guide for subsequent database environment deployment. A stable environment can ensure the stable operation of the database.  
 Parameter and patch baselines need to be done in depth and in detail. It is recommended to spend man-days to do it in detail and perform parameter performance evaluation through stress testing.
 
 #### 2.3.1	19C Standard Operating Procedure
@@ -134,10 +132,9 @@ There is no relatively complete 19C installation guide
 **Solution:**  
 Improve the 19C installation guide, covering different platforms, RAC, Alone and single instance scenarios.
 
-#### 2.3.2	Parameter baseline
-Parameter baselines should be subdivided into NON-CDB and CDB according to the database software architecture.
-
-Parameter baselines should include the following key points:
+#### 2.3.2	Parameter baseline  
+Parameter baselines should be subdivided into NON-CDB and CDB according to the database software architecture.  
+Parameter baselines should include the following key points:  
 *	Two baseline standards for NON-CDB and CDB
 *	CDB architecture, PDB resource allocation and isolation
 *	CDB architecture, memory configuration (SGA/PGA)
@@ -145,21 +142,20 @@ Parameter baselines should include the following key points:
 *	New feature parameters
 
 **Current status:**  
-19C parameter analysis has been completed.
+19C parameter analysis has been completed.  
 
 **Solution:**  
-Based on the specific CDB architecture, further improve the parameter recommendations of the CDB architecture.
+Based on the specific CDB architecture, further improve the parameter recommendations of the CDB architecture.  
 
 #### 2.3.3	Patches
-Based on the OS platform and database version, combined with the experience of Oracle users around the world, we have compiled the best patch recommendations to avoid programmatic bugs as much as possible.
-
-Among the recent failures, two of them were caused by outdated patch RUs, which led to production failures. The details are as follows:
+Based on the OS platform and database version, combined with the experience of Oracle users around the world, we have compiled the best patch recommendations to avoid programmatic bugs as much as possible.  
+Among the recent failures, two of them were caused by outdated patch RUs, which led to production failures. The details are as follows:  
 
 **Bug 27162390 - RAC LMS Process Hits ORA-600 [kclantilock_17] Error and Instance Crashes (Doc ID 27162390.8)**  
 > ![Bug 27162390](https://goodwaysit.github.io/en/assets/images/database/Bug_27162390.jpg#pic_left)
 
 **Bug 28681153 - ORA-600: [qosdexpstatread: expcnt mismatch] (Doc ID 28681153.8)**  
-> ![Bug 28681153](https://goodwaysit.github.io/en/assets/images/database/Bug_28681153.jpg#pic_left))
+> ![Bug 28681153](https://goodwaysit.github.io/en/assets/images/database/Bug_28681153.jpg#pic_left)
 
 **Current status:**  
 Version 12.2: No detailed patch analysis has been conducted, and the patch RU currently in production is still in August 2017.
@@ -168,20 +164,19 @@ Version 19C: Patch analysis based on 19.7 has been completed recently.
 **Solution:**  
 Version 19C has been analyzed, and detailed patch analysis and patch installation are recommended for version 12.2.
 
-### 2.4	Application Testing and SQL Auditing
+### 2.4	Application Testing and SQL Auditing  
 Whether it is an upgrade or a daily application version change, the application SQL statements should be audited, which can be done through software product auditing or manual auditing.
-
 As can be seen from recent failures, uncontrolled application SQL has caused many production failures.
 
 **Current situation:**  
 There is no complete SQL audit or standardized process for manual DBA audit, which has caused many production failures.
 
 **For example:**  
-
 * Exadata login is slow  
 **Problem phenomenon:**    
 There are a large number of statements in the DB that do not use bind variables, resulting in abnormally high "version count" and frequent "reload"s, such as:  
 `select zno from branch where zno = '982052'`  
+
 **Cause analysis:**  
 SQL development specification problem - no use of bind variables  
 
@@ -215,6 +210,7 @@ SQL is not written in a standardized way: query statements without conditions; u
 
 2. The program must be audited by DBA before it goes online (multi-department cooperation is required).
 ---
+
 ### 2.5	Stability and Performance Evaluation
 To ensure the stable operation of the database, necessary monitoring and maintenance are required. Some common monitoring and maintenance scenarios are listed below:  
 
@@ -233,7 +229,7 @@ The existing monitoring includes ORACLE EM and a third-party monitoring, and the
 1. Improve relevant monitoring. (High priority)
 2. Develop a complete data cleanup and slimming plan (low priority).
 
-### 2.6	Operation and maintenance guidance manual and emergency guidance manual
+### 2.6	Operation and maintenance guidance manual and emergency guidance manual  
 > In order to cope with daily operation and maintenance and emergency situations, in addition to the regular inspection manual, the emergency manual for regular operation and maintenance and emergency handling should be improved, such as:  
 > ![maintenance](https://goodwaysit.github.io/en/assets/images/database/maintenance.jpg#pic_left))  
 
@@ -243,7 +239,7 @@ There are inspection and routine operation and maintenance manuals.
 **Suggestions:**  
 Improve the emergency manual and continue to improve it.
 
-### 2.7	Baseline Improvement
+### 2.7	Baseline Improvement  
 With the continuous operation, the baselines related to parameters and patches will be continuously improved. A dedicated person or process is needed to implement the maintenance of the baseline.
 
 ### 2.8	Backup
@@ -261,13 +257,12 @@ Based on the serious GC waiting during batch running of some systems, if a singl
 
 #### PDB CPU resource management  
 CDB parameter setting resource manager, to enforce CPU resource allocation, you must set the CDB-level "RESOURCE_MANAGER_PLAN" to "DEFAULT_CDB_PLAN".  
-
 (1) The CPU usage of the PDB is limited by the CPU_COUNT count of the PDB, starting from 12.2.  
 (2) Based on the CPU_COUNT count of the PDB, the system automatically sets the CPU scheduling share of the PDB, starting from 18.1.  
 > ![task plans](https://goodwaysit.github.io/en/assets/images/database/plan.jpg#pic_left))
 
 *	autotask：
-```sql
+```bash
 shares: -1  
 utilization_limit: 90  
 parallel_server_limit: 100  
@@ -277,7 +272,7 @@ shares = -1 means that the automatic maintenance task uses 20% of the  system re
 v$rsrcmgrmetric_history records the allocation and usage of resources.
 
 *	default_pdb_directive：
-```sql
+```bash
 new_shares: 1
 utilization_limit: 100
 parallel_server_limit: 100
@@ -289,11 +284,9 @@ Default_pdb_directive allocates all resources to the created PDB by default. Cur
 **Documentation reference:**  
 How to Provision PDBs, based on CPU_COUNT Doc ID 2326708.1  
 
-#### PDB memory resource management
-
+#### PDB memory resource management  
 **Functional description:**  
 Using multiple PDBs will inevitably cause resource contention. Oracle 12.2 can effectively control and coordinate the use of various resources.  
-
 > Parameters that need to be set for PDB memory management:  
 > ![resource limit](https://goodwaysit.github.io/en/assets/images/database/resource_limit.JPG#pic_left))
 
@@ -317,8 +310,7 @@ The parameter setting at the PDB level is less than the parameter setting at the
 The parameter setting at the PDB level is less than PDB PGA_AGGREGATE_LIMIT*50%  
 
 **Document reference:**  
-How to Control and Monitor the Memory Usage (Both SGA and PGA) Among the PDBs in Mutitenant Database- 12.2 New Feature (Doc ID 2170772.1)  
-How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 1270867.1)
+How to Control and Monitor the Memory Usage (Both SGA and PGA) Among the PDBs in Mutitenant Database- 12.2 New Feature (Doc ID 2170772.1)  How To Deal With "SGA: allocation forcing component growth" Wait Events (Doc ID 1270867.1)  
 
 #### PDB IO resource management  
 PDB-level IO usage control:  
@@ -352,22 +344,23 @@ It is recommended to set these parameters when IO performance problems occur.
 #### Resource management at the PDB level  
 There are three levels of PDB resource planning in the database, which are used to limit CPU and parallel queries.  
 
-|Gold Silver Bronze Plan 	|Share    |ut limit     |parallel limit |
-|:----                    |:----    |:----        |:----          |
-|GOLD           			    |8        |100          |100            |
-|SILVER      		       		|4        |40           |40             |
-|BRONZE    			        	|2        |20           |20             |
+---
+|Gold Silver Bronze Plan 	        |Share            |ut limit             |parallel limit |
+|:----                              |:----            |:----                |:----          |
+|GOLD           			        |8                |100                  |100            |
+|SILVER      		       		    |4                |40                   |40             |
+|BRONZE    			        	    |2                |20                   |20             |
+---
 
 #### CPU control at CDB and PDB level  
 
-    CPU control at CDB and PDB level can also be achieved by modifying cpu_count.
+CPU control at CDB and PDB level can also be achieved by modifying cpu_count.
 
 #### IO control at PDB level  
-
-      PDB level IO is dynamically controlled using parameters:
-      *	MAX_IOPS
-      *	MAX_MBPS
-      Memory resource control at PDB level  
+PDB level IO is dynamically controlled using parameters:
+*    MAX_IOPS
+*    MAX_MBPS
+Memory resource control at PDB level  
 
 ## Summary of recommendations  
 *	In order to avoid the redundant background process problems caused by small and independent databases, it is recommended to integrate some scattered small databases through the CDB architecture. Whether the core database is NON-CDB or CDB, it is recommended to use a dedicated database.
