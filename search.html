@@ -2,7 +2,7 @@
 layout: page
 title: Search
 description: Search through our articles, services, and projects.
-permanentlink: /search/
+permalink: /search/
 ---
 
 <div class="search-container" style="margin-top: 2rem; margin-bottom: 2rem;">
@@ -64,7 +64,7 @@ permanentlink: /search/
       searchInput.value = searchTerm;
       
       // Fetch search data
-      fetch('/search-data.json')
+      fetch('{{ "/search-data.json" | relative_url }}')
         .then(response => response.json())
         .then(data => {
           var store = data;
@@ -96,7 +96,7 @@ permanentlink: /search/
     document.getElementById('search-button').addEventListener('click', function() {
       var searchTerm = document.getElementById('search-input').value;
       if (searchTerm) {
-        window.location.href = '/search/?query=' + encodeURIComponent(searchTerm);
+        window.location.href = '{{ site.baseurl }}/search/?query=' + encodeURIComponent(searchTerm);
       }
     });
     
@@ -105,7 +105,7 @@ permanentlink: /search/
       if (e.key === 'Enter') {
         var searchTerm = document.getElementById('search-input').value;
         if (searchTerm) {
-          window.location.href = '/search/?query=' + encodeURIComponent(searchTerm);
+          window.location.href = '{{ site.baseurl }}/search/?query=' + encodeURIComponent(searchTerm);
         }
       }
     });
