@@ -6,7 +6,6 @@ date: 2025-05-27 16:36:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle, Leo.Wang]
 image: /assets/images/posts/ORACLE-19C-Database-Architecture-and-Operation-and-Maintenance-Guide.jpg
-author: Leo.Wang
 ---
 
 ## 一、	Overview  
