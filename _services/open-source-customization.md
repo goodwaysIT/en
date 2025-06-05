@@ -13,7 +13,7 @@ Goodways IT Team has developed a suite of powerful open source tools for Oracle 
 
 ## Our Open Source Portfolio
 
-### check4oracle
+### inspect4oracle
 
 - Lightweight Oracle database health check tool for private environments
 - Automated inspection and reporting of database health metrics
