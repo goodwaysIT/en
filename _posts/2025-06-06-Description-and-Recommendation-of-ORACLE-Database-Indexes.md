@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Description and Recommendation of ORACLE Database Indexes"
+title: "Introduction and Recommendation of ORACLE Database Indexes"
 excerpt: "This document aims to introduce the classification, application scenarios, and recommended usage of indexes associated with partitioned tables in ORACLE databases through a Q&A format."
 date: 2025-06-06 16:03:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
-image: /assets/images/posts/Description-and-recommendation-of-ORACLE-database-index.jpg
+image: /assets/images/posts/Introduction-and-recommendation-of-ORACLE-database-index.jpg
 ---
 
 This document aims to introduce the classification, application scenarios, and recommended usage of indexes associated with partitioned tables in ORACLE databases through a Q&A format.  
