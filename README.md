@@ -81,4 +81,4 @@ We welcome contributions and sharing of knowledge. If you wish to add a new blog
 ## Contact Us
 
 Interested in learning more about how Goodways IT Team can help your organization, or have questions about our content?
-Please [Contact us](/contact/).
+Please [Contact us](https://goodwaysit.github.io/en/contact/).
