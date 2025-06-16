@@ -1,14 +1,13 @@
 ---
 layout: post
-title: "Best Practices for Gathering Optimizer Statistics with Oracle Database (Part 1)"
+title: "Best Practices - How to Gather Statistics with Oracle Database"
 excerpt: "This paper will discuss in detail, when and how to gather statistics for the most common scenarios seen in an Oracle Database."
 date: 2025-06-16 17:51:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
-image: /assets/images/posts/Best-Practices-for-Gathering-Optimizer-Statistics-with-Oracle-Database.jpg
+image: /assets/images/posts/How-to-Gather-Statistics-with-Oracle-Database.jpg
 ---
 
-## How to Gather Statistics
 **Strategy**   
 The preferred method for gathering statistics in Oracle is to use the automatic statistics gathering. If you already
 have a well-established, manual statistics gathering procedure then you might prefer to use that instead. Whatever
