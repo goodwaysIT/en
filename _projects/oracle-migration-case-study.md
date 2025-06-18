@@ -66,4 +66,3 @@ We implemented a comprehensive migration strategy using Oracle GoldenGate for ze
 >
 > — CIO, Financial Services Institution
 
-*Note: This is a sample case study. Actual client information has been anonymized for confidentiality reasons.*

@@ -1,0 +1,172 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a3a52">
+    Mainframe Query Offload to Oracle Exadata Architecture
+  </text>
+  
+  <!-- Mainframe Section -->
+  <g id="mainframe">
+    <!-- Mainframe Box -->
+    <rect x="80" y="180" width="280" height="200" rx="10" fill="#2c5282" stroke="#1a3a52" stroke-width="2"/>
+    <rect x="80" y="180" width="280" height="40" rx="10" fill="#1a3a52"/>
+    
+    <!-- Mainframe Icon -->
+    <rect x="160" y="240" width="120" height="80" fill="#4a7ba7" stroke="#2c5282" stroke-width="2"/>
+    <circle cx="180" cy="260" r="5" fill="#90cdf4"/>
+    <circle cx="200" cy="260" r="5" fill="#90cdf4"/>
+    <circle cx="180" cy="280" r="5" fill="#90cdf4"/>
+    <circle cx="200" cy="280" r="5" fill="#90cdf4"/>
+    <rect x="230" y="250" width="40" height="3" fill="#e0e7ff" rx="1"/>
+    <rect x="230" y="260" width="40" height="3" fill="#e0e7ff" rx="1"/>
+    <rect x="230" y="270" width="40" height="3" fill="#e0e7ff" rx="1"/>
+    
+    <!-- Labels -->
+    <text x="220" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Mainframe
+    </text>
+    <text x="220" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#2c5282">
+      Source System
+    </text>
+    <text x="220" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4a7ba7">
+      Core Transaction Processing
+    </text>
+  </g>
+  
+  <!-- Oracle Exadata Section -->
+  <g id="exadata">
+    <!-- Exadata Box -->
+    <rect x="840" y="180" width="280" height="200" rx="10" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+    <rect x="840" y="180" width="280" height="40" rx="10" fill="#c2410c"/>
+    
+    <!-- Exadata Icon -->
+    <rect x="920" y="240" width="120" height="80" fill="#fb923c" stroke="#ea580c" stroke-width="2"/>
+    <!-- Storage cells representation -->
+    <rect x="930" y="250" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="960" y="250" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="990" y="250" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="930" y="270" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="960" y="270" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="990" y="270" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="930" y="290" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="960" y="290" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="990" y="290" width="25" height="15" fill="#fed7aa" stroke="#fb923c"/>
+    
+    <!-- Labels -->
+    <text x="980" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Oracle Exadata
+    </text>
+    <text x="980" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ea580c">
+      Target System
+    </text>
+    <text x="980" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#fb923c">
+      Query &amp; Analytics Platform
+    </text>
+  </g>
+  
+  <!-- Oracle GoldenGate Section -->
+  <g id="goldengate">
+    <!-- GoldenGate Box -->
+    <rect x="480" y="240" width="240" height="80" rx="10" fill="#10b981" stroke="#059669" stroke-width="2"/>
+    
+    <!-- GoldenGate Icon -->
+    <circle cx="520" cy="280" r="15" fill="#34d399"/>
+    <circle cx="680" cy="280" r="15" fill="#34d399"/>
+    <path d="M 535 280 L 665 280" stroke="#059669" stroke-width="2" fill="none"/>
+    
+    <!-- Label -->
+    <text x="600" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Oracle GoldenGate
+    </text>
+    <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#10b981">
+      Near Real-time Data Replication
+    </text>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <!-- Main data replication flow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#059669"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- Data replication arrow -->
+  <path d="M 360 280 L 480 280" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 720 280 L 840 280" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Bidirectional sync indicator -->
+  <path d="M 600 250 L 600 240" stroke="#059669" stroke-width="2" fill="none"/>
+  <path d="M 595 245 L 600 240 L 605 245" stroke="#059669" stroke-width="2" fill="none"/>
+  <path d="M 600 310 L 600 320" stroke="#059669" stroke-width="2" fill="none"/>
+  <path d="M 595 315 L 600 320 L 605 315" stroke="#059669" stroke-width="2" fill="none"/>
+  
+  <!-- Query Traffic -->
+  <g id="query-traffic">
+    <!-- Users/Applications -->
+    <rect x="480" y="460" width="240" height="60" rx="10" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+    <text x="600" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4338ca">
+      Users / Applications
+    </text>
+    <text x="600" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6366f1">
+      Query Requests
+    </text>
+    
+    <!-- Main query arrow to Exadata -->
+    <path d="M 680 460 L 880 390" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+    <text x="780" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2563eb" font-weight="bold">
+      Primary Query Traffic
+    </text>
+    
+    <!-- Limited query arrow to Mainframe -->
+    <path d="M 520 460 L 320 390" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead-gray)" stroke-dasharray="5,5"/>
+    <text x="420" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">
+      Limited Queries
+    </text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="480" width="280" height="80" rx="5" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="60" y="500" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">
+      Legend:
+    </text>
+    <line x1="60" y1="510" x2="100" y2="510" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="110" y="515" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      Data Replication Flow
+    </text>
+    <line x1="60" y1="530" x2="100" y2="530" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowhead-blue)"/>
+    <text x="110" y="535" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      Primary Query Traffic
+    </text>
+    <line x1="60" y1="550" x2="100" y2="550" stroke="#9ca3af" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-gray)"/>
+    <text x="110" y="555" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      Limited Query Traffic
+    </text>
+  </g>
+  
+  <!-- Key Benefits Box -->
+  <g id="benefits">
+    <rect x="870" y="480" width="280" height="80" rx="5" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="880" y="500" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">
+      Key Benefits:
+    </text>
+    <text x="880" y="520" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • Offload query workload from Mainframe
+    </text>
+    <text x="880" y="540" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • Improved query performance on Exadata
+    </text>
+    <text x="880" y="560" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • Near real-time data synchronization
+    </text>
+  </g>
+</svg>

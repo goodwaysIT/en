@@ -5,11 +5,11 @@ layout: null
   {% assign posts = site.posts | concat: site.services | concat: site.projects %}
   {% for post in posts %}
     "{{ post.url | slugify }}": {
-      "title": "{{ post.title | xml_escape }}",
-      "url": "{{ post.url | relative_url | xml_escape }}",
+      "title": {{ post.title | strip_newlines | jsonify }},
+      "url": {{ post.url | relative_url | strip_newlines | jsonify }},
       "category": "{% if post.collection == 'posts' %}Blog{% elsif post.collection == 'services' %}Service{% elsif post.collection == 'projects' %}Project{% endif %}",
       "content": {{ post.content | strip_html | strip_newlines | strip | jsonify }},
-      "excerpt": "{{ post.excerpt | strip_html | strip_newlines | strip | truncatewords: 25 | xml_escape }}"
+      "excerpt": {{ post.excerpt | strip_html | strip_newlines | strip | truncatewords: 25 | jsonify }}
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 }

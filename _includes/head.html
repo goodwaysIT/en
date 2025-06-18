@@ -7,6 +7,11 @@
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} | Oracle Database & GoldenGate Solutions{% endif %}</title>
   
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+  <!-- Load project-specific CSS only on the projects page -->
+  {% if page.url == '/projects/' or page.url == '/projects/index.html' %}
+  <link rel="stylesheet" href="{{ "/assets/css/project.css" | relative_url }}">
+  {% endif %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
   
