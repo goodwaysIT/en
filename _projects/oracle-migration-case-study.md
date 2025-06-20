@@ -2,11 +2,15 @@
 layout: page
 title: "Oracle Database Migration Case Study"
 description: "How we helped a financial institution migrate to Oracle 19c with zero downtime using GoldenGate."
-excerpt: "Case study of a successful Oracle Database migration from 11g to 19c for a financial institution with zero downtime using GoldenGate replication."
+excerpt: "This case study details a successful, zero-downtime Oracle Database migration from 11g to 19c for a major financial institution. By leveraging Oracle GoldenGate for real-time replication, we addressed the critical challenge of ensuring 24/7 business continuity while achieving a 30% performance boost and future-proofing their core systems."
 order: 1
+image: /assets/images/case-studies/oracle-migration-case-study.svg
+tags: ["Oracle", "Oracle 11g", "Oracle 19c", "GoldenGate", "Database Migration", "Business Continuity"]
 ---
 
 # Oracle Database Migration Case Study
+
+![Oracle Database Migration from 11g to 19c with GoldenGate]({{ '/assets/images/case-studies/oracle-migration-case-study.svg' | relative_url }})
 
 ## Client Overview
 

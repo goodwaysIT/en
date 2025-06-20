@@ -2,12 +2,15 @@
 layout: page
 title: "Oracle Database Backup Optimization And Upgrade Project"
 description: "This chapter mainly introduces how we help customers optimize the existing backup strategy and backup architecture to solve problems such as long backup/recovery time, large archive log volume, untimely backup, scattered backup jobs, data loss risks, and difficult backup management."
-excerpt: "Financial institutions - Oracle database backup optimization and upgrade, Oracle Zdlra all-in-one zero data loss project"
+excerpt: "We upgraded a financial institution's Oracle backup system using Oracle ZDLRA to resolve issues of slow recovery and data loss risk. The project introduced an efficient incremental backup strategy, achieved true Zero Data Loss (RPO=0) with real-time log protection, and centralized management via OEM, resulting in significantly faster recovery times and robust data security."
 order: 3
+image: /assets/images/case-studies/oracle-backup-optimization-architecture.svg
 tags: ["Oracle", "Oracle Exadata", "Backup Strategy Optimization", "Centralized Management", "Faster Recovery", "Zero Data Loss"]
 ---
 
 # ORACLE Database Backup Optimization and Upgrade Project  
+
+![Oracle Database Backup Optimization Architecture]({{ '/assets/images/case-studies/oracle-backup-optimization-architecture.svg' | relative_url }})
 
 ## Project Background  
 With the continuous development of customer business operations, the data volume in each database has gradually increased. Concurrently, due to rapid growth in new business, approximately 3–8 new databases are deployed monthly. Database backup and recovery face significant challenges:  
