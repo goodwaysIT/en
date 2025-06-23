@@ -16,9 +16,9 @@ As an Oracle DBA or database developer, have you ever been troubled by these iss
 
 Now, these troubles will be a thing of the past! Today, we are proud to introduce an open-source Oracle database inspection artifact—**Inspect4Oracle**!
 
-[Placeholder: Inspect4Oracle Tool Logo or a cool Banner Image]
+![Inspect4Oracle Tool Logo]({{ '/assets/images/inspect4oracle/inspect4oracle-logo.svg' | relative_url }})
 
-`Inspect4Oracle` is a powerful, user-friendly, and completely open-source Oracle database inspection tool based on the **[MIT License](LICENSE)**. It is tailor-made for Database Administrators (DBAs), developers, and operations engineers, designed to help users quickly and comprehensively understand the operational status and health of their Oracle databases.
+`Inspect4Oracle` is a powerful, user-friendly, and completely open-source Oracle database inspection tool based on the **[MIT License](http://github.com/goodwaysIT/inspect4oracle/blob/main/LICENSE)**. It is tailor-made for Database Administrators (DBAs), developers, and operations engineers, designed to help users quickly and comprehensively understand the operational status and health of their Oracle databases.
 
 ## 🌟 Inspect4Oracle: Why It Will Become Your New Favorite
 
