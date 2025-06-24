@@ -6,9 +6,11 @@ description: Featured projects and case studies showcasing our expertise in acti
 
 
 
+
+
 <div class="projects-listing">
   {% assign sorted_projects = site.projects | sort: 'order' %}
-  <div class="project-list-container">
+  <div class="project-grid">
     {% for project in sorted_projects %}
       <div class="project-card">
         {% if project.image %}

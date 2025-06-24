@@ -1,0 +1,234 @@
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ca3af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b7280;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    
+    <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6b7280"/>
+    </marker>
+    
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#16a34a"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="800" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">
+    System Architecture Upgrade Comparison
+  </text>
+  
+  <!-- Before Section -->
+  <g id="before-section">
+    <!-- Section Title -->
+    <rect x="50" y="80" width="600" height="50" rx="25" fill="#fee2e2"/>
+    <text x="350" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#991b1b">
+      Before Upgrade
+    </text>
+    
+    <!-- Traditional Monolithic System -->
+    <g transform="translate(150, 200)">
+      <rect x="0" y="0" width="400" height="300" rx="10" fill="url(#grayGradient)" filter="url(#shadow)"/>
+      
+      <!-- System Label -->
+      <rect x="0" y="0" width="400" height="60" rx="10" fill="#4b5563"/>
+      <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+        Traditional Monolithic System
+      </text>
+      <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e5e7eb">
+        (IBM Power + DB2)
+      </text>
+      
+      <!-- IBM Power + DB2 -->
+      <g transform="translate(100, 100)">
+        <rect x="0" y="0" width="200" height="120" rx="5" fill="#374151" opacity="0.8"/>
+        <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+          IBM Power
+        </text>
+        <rect x="20" y="50" width="160" height="50" rx="5" fill="#1f2937"/>
+        <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">
+          DB2 Database
+        </text>
+      </g>
+      
+      <!-- Performance Bottleneck Icon -->
+      <g transform="translate(300, 200)">
+        <circle cx="0" cy="0" r="30" fill="url(#redGradient)" filter="url(#shadow)"/>
+        <path d="M 0 -15 L 0 5 M 0 10 L 0 15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="bold">
+          Performance
+        </text>
+        <text x="0" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">
+          Bottleneck
+        </text>
+      </g>
+    </g>
+    
+    <!-- Input Arrows -->
+    <g id="before-inputs">
+      <!-- Quick Payment -->
+      <path d="M 50 250 L 150 250" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowBlue)"/>
+      <rect x="20" y="230" width="100" height="40" rx="20" fill="#dbeafe"/>
+      <text x="70" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1e40af">
+        Quick Payment
+      </text>
+      
+      <!-- Other Services -->
+      <path d="M 50 350 L 150 350" stroke="#6b7280" stroke-width="3" fill="none" marker-end="url(#arrowGray)"/>
+      <rect x="20" y="330" width="100" height="40" rx="20" fill="#e5e7eb"/>
+      <text x="70" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+        Other Services
+      </text>
+      
+      <!-- More Services -->
+      <path d="M 50 450 L 150 450" stroke="#6b7280" stroke-width="3" fill="none" marker-end="url(#arrowGray)"/>
+      <rect x="20" y="430" width="100" height="40" rx="20" fill="#e5e7eb"/>
+      <text x="70" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+        More Services
+      </text>
+    </g>
+  </g>
+  
+  <!-- After Section -->
+  <g id="after-section">
+    <!-- Section Title -->
+    <rect x="750" y="80" width="600" height="50" rx="25" fill="#dcfce7"/>
+    <text x="1050" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#14532d">
+      After Upgrade
+    </text>
+    
+    <!-- Modern Payment Gateway -->
+    <g transform="translate(850, 200)">
+      <rect x="0" y="0" width="400" height="180" rx="10" fill="url(#blueGradient)" filter="url(#shadow)"/>
+      
+      <!-- System Label -->
+      <rect x="0" y="0" width="400" height="50" rx="10" fill="#1e40af"/>
+      <text x="200" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+        Modern Payment Gateway
+      </text>
+      <text x="200" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#dbeafe">
+        (x86 + Oracle)
+      </text>
+      
+      <!-- x86 + Oracle -->
+      <g transform="translate(100, 70)">
+        <rect x="0" y="0" width="200" height="80" rx="5" fill="#2563eb" opacity="0.8"/>
+        <text x="100" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+          x86 Server
+        </text>
+        <rect x="20" y="35" width="160" height="35" rx="5" fill="#1e3a8a"/>
+        <text x="100" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#93c5fd">
+          Oracle Database
+        </text>
+      </g>
+      
+      <!-- Performance Icon -->
+      <g transform="translate(320, 100)">
+        <circle cx="0" cy="0" r="25" fill="#22c55e" opacity="0.2"/>
+        <path d="M -10 5 L -5 -5 L 0 0 L 5 -10 L 10 5" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    
+    <!-- Legacy System (Smaller) -->
+    <g transform="translate(850, 420)">
+      <rect x="0" y="0" width="400" height="120" rx="10" fill="#e5e7eb" filter="url(#shadow)"/>
+      
+      <!-- System Label -->
+      <rect x="0" y="0" width="400" height="40" rx="10" fill="#9ca3af"/>
+      <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+        Legacy System
+      </text>
+      
+      <!-- Simplified content -->
+      <rect x="150" y="55" width="100" height="50" rx="5" fill="#d1d5db"/>
+      <text x="200" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">
+        Other Services
+      </text>
+    </g>
+    
+    <!-- Input Arrows for After -->
+    <g id="after-inputs">
+      <!-- Quick Payment to New System -->
+      <path d="M 750 280 L 850 280" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowBlue)"/>
+      <rect x="720" y="260" width="100" height="40" rx="20" fill="#dbeafe"/>
+      <text x="770" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1e40af">
+        Quick Payment
+      </text>
+      
+      <!-- Other Services to Legacy -->
+      <path d="M 750 480 L 850 480" stroke="#6b7280" stroke-width="3" fill="none" marker-end="url(#arrowGray)"/>
+      <rect x="720" y="460" width="100" height="40" rx="20" fill="#e5e7eb"/>
+      <text x="770" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+        Other Services
+      </text>
+    </g>
+    
+    <!-- Migration Arrow -->
+    <g id="migration">
+      <path d="M 950 540 Q 950 600 1050 600 Q 1150 600 1150 380" 
+            stroke="url(#greenGradient)" stroke-width="6" fill="none" 
+            marker-end="url(#arrowGreen)" stroke-dasharray="10,5"/>
+      
+      <!-- Migration Label -->
+      <rect x="900" y="620" width="300" height="60" rx="30" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+      <text x="1050" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#14532d">
+        Zero Downtime Migration
+      </text>
+      <text x="1050" y="658" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#15803d">
+        (Goodways GoldenGate Solution)
+      </text>
+    </g>
+  </g>
+  
+  <!-- Divider Line -->
+  <line x1="700" y1="150" x2="700" y2="700" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Key Benefits -->
+  <g transform="translate(700, 720)">
+    <rect x="-200" y="0" width="400" height="60" rx="25" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="0" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#0369a1">
+      Key Benefits:
+    </text>
+    <text x="0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0284c7">
+      <tspan x="0" dy="0">Decoupled Architecture | Performance Improvement</tspan>
+      <tspan x="0" dy="1.2em">Zero Downtime | Flexible Scaling</tspan>
+    </text>
+  </g>
+</svg>
