@@ -1,0 +1,104 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">Setting MAX_STRING_SIZE=EXTENDED in Oracle 19c</text>
+  
+  <!-- Start Node -->
+  <rect x="400" y="60" width="200" height="50" fill="#4CAF50" stroke="#333" stroke-width="2" rx="25"/>
+  <text x="500" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="white">START</text>
+  <text x="500" y="105" text-anchor="middle" font-size="10" fill="white">Set MAX_STRING_SIZE</text>
+  
+  <!-- Arrow -->
+  <line x1="500" y1="110" x2="500" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision: Database Type -->
+  <polygon points="500,140 600,190 500,240 400,190" fill="#FFD700" stroke="#333" stroke-width="2"/>
+  <text x="500" y="195" text-anchor="middle" font-size="14" font-weight="bold">Database</text>
+  <text x="500" y="210" text-anchor="middle" font-size="14" font-weight="bold">Type?</text>
+  
+  <!-- Non-CDB Branch -->
+  <line x1="400" y1="190" x2="250" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="325" y="185" text-anchor="middle" font-size="12" fill="#333">Non-CDB</text>
+  
+  <rect x="100" y="170" width="150" height="40" fill="#87CEEB" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="175" y="195" text-anchor="middle" font-size="14" font-weight="bold">Non-CDB Process</text>
+  
+  <!-- Non-CDB Steps -->
+  <rect x="50" y="240" width="250" height="160" fill="#E6F3FF" stroke="#2C5282" stroke-width="2" rx="5"/>
+  <text x="175" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#2C5282">Steps:</text>
+  <text x="60" y="280" font-size="11" fill="#333">1. SHUTDOWN IMMEDIATE</text>
+  <text x="60" y="300" font-size="11" fill="#333">2. STARTUP UPGRADE</text>
+  <text x="60" y="320" font-size="11" fill="#333">3. ALTER SYSTEM ... SPFILE</text>
+  <text x="60" y="340" font-size="11" fill="#333">4. @utl32k.sql</text>
+  <text x="60" y="360" font-size="11" fill="#333">5. SHUTDOWN / STARTUP</text>
+  <text x="60" y="380" font-size="11" fill="#333">6. Recompile invalid objects</text>
+  
+  <!-- CDB Branch -->
+  <line x1="600" y1="190" x2="750" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="675" y="185" text-anchor="middle" font-size="12" fill="#333">CDB</text>
+  
+  <!-- CDB Decision: Level -->
+  <polygon points="750,160 850,210 750,260 650,210" fill="#FFD700" stroke="#333" stroke-width="2"/>
+  <text x="750" y="215" text-anchor="middle" font-size="14" font-weight="bold">Setting</text>
+  <text x="750" y="230" text-anchor="middle" font-size="14" font-weight="bold">Level?</text>
+  
+  <!-- CDB-Level Branch (Not Recommended) -->
+  <line x1="650" y1="210" x2="550" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="580" y="250" text-anchor="middle" font-size="11" fill="#333">CDB-Level</text>
+  <text x="580" y="265" text-anchor="middle" font-size="10" fill="#9B2C2C">(Affects all PDBs)</text>
+  
+  <rect x="400" y="320" width="300" height="180" fill="#FFE6E6" stroke="#9B2C2C" stroke-width="2" rx="5"/>
+  <text x="550" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#9B2C2C">CDB$ROOT Process (NOT Recommended)</text>
+  <text x="410" y="360" font-size="11" fill="#333">1. Connect to CDB$ROOT</text>
+  <text x="410" y="380" font-size="11" fill="#333">2. SHUTDOWN IMMEDIATE</text>
+  <text x="410" y="400" font-size="11" fill="#333">3. STARTUP UPGRADE</text>
+  <text x="410" y="420" font-size="11" fill="#333">4. ALTER SYSTEM ... SPFILE</text>
+  <text x="410" y="440" font-size="11" fill="#333">5. @utl32k.sql (propagates to all PDBs)</text>
+  <text x="410" y="460" font-size="11" fill="#333">6. SHUTDOWN / STARTUP</text>
+  <text x="410" y="480" font-size="11" fill="#333">7. Recompile each PDB separately</text>
+  
+  <!-- PDB-Level Branch (Recommended) -->
+  <line x1="850" y1="210" x2="900" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="875" y="250" text-anchor="middle" font-size="11" fill="#333">PDB-Level</text>
+  <text x="875" y="265" text-anchor="middle" font-size="10" fill="#2E7D32">(Target PDB only)</text>
+  
+  <rect x="750" y="320" width="230" height="180" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" rx="5"/>
+  <text x="865" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#2E7D32">PDB Process (BEST PRACTICE)</text>
+  <text x="760" y="360" font-size="11" fill="#333">1. Connect to target PDB</text>
+  <text x="760" y="380" font-size="11" fill="#333">2. ALTER PLUGGABLE</text>
+  <text x="770" y="395" font-size="11" fill="#333">   DATABASE OPEN UPGRADE</text>
+  <text x="760" y="415" font-size="11" fill="#333">3. ALTER SYSTEM ... SPFILE</text>
+  <text x="760" y="435" font-size="11" fill="#333">4. @utl32k.sql</text>
+  <text x="760" y="455" font-size="11" fill="#333">5. ALTER PLUGGABLE CLOSE/OPEN</text>
+  <text x="760" y="475" font-size="11" fill="#333">6. Recompile this PDB only</text>
+  
+  <!-- Convergence to End -->
+  <line x1="175" y1="400" x2="175" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="550" y1="500" x2="550" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="865" y1="500" x2="865" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="175" y1="550" x2="500" y2="550" stroke="#333" stroke-width="2"/>
+  <line x1="550" y1="550" x2="500" y2="550" stroke="#333" stroke-width="2"/>
+  <line x1="865" y1="550" x2="500" y2="550" stroke="#333" stroke-width="2"/>
+  <line x1="500" y1="550" x2="500" y2="580" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- End Node -->
+  <rect x="400" y="580" width="200" height="50" fill="#F44336" stroke="#333" stroke-width="2" rx="25"/>
+  <text x="500" y="610" text-anchor="middle" font-size="14" font-weight="bold" fill="white">END</text>
+  
+  <!-- Legend -->
+  <rect x="30" y="480" width="250" height="100" fill="#F5F5F5" stroke="#333" stroke-width="1" rx="5"/>
+  <text x="40" y="500" font-size="14" font-weight="bold" fill="#333">Legend:</text>
+  <rect x="40" y="510" width="20" height="15" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="65" y="523" font-size="12" fill="#333">Recommended (PDB-Level)</text>
+  <rect x="40" y="535" width="20" height="15" fill="#FFE6E6" stroke="#9B2C2C" stroke-width="2"/>
+  <text x="65" y="548" font-size="12" fill="#333">Not Recommended (CDB-Level)</text>
+  <rect x="40" y="560" width="20" height="15" fill="#E6F3FF" stroke="#2C5282" stroke-width="2"/>
+  <text x="65" y="573" font-size="12" fill="#333">Standard Process (Non-CDB)</text>
+  
+  <!-- Arrow Definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

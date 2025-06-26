@@ -1,0 +1,83 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">STANDARD vs EXTENDED Storage Architecture</text>
+  
+  <!-- STANDARD Mode Section -->
+  <g id="standard-mode">
+    <text x="225" y="70" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c5282">STANDARD Mode</text>
+    <text x="225" y="90" text-anchor="middle" font-size="14" fill="#666">VARCHAR2(4000)</text>
+    
+    <!-- Data Block -->
+    <rect x="50" y="110" width="350" height="180" fill="#e6f3ff" stroke="#2c5282" stroke-width="2" rx="5"/>
+    <text x="225" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c5282">Data Block</text>
+    
+    <!-- Row Data -->
+    <rect x="70" y="160" width="310" height="100" fill="#fff" stroke="#4a90e2" stroke-width="2" rx="3"/>
+    <text x="225" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Row Data</text>
+    
+    <!-- Columns -->
+    <rect x="80" y="195" width="70" height="50" fill="#ffd700" stroke="#333" stroke-width="1"/>
+    <text x="115" y="215" text-anchor="middle" font-size="11" fill="#333">COL1</text>
+    <text x="115" y="230" text-anchor="middle" font-size="9" fill="#666">100B</text>
+    
+    <rect x="155" y="195" width="140" height="50" fill="#90ee90" stroke="#333" stroke-width="2"/>
+    <text x="225" y="215" text-anchor="middle" font-size="11" fill="#333">VARCHAR2_COL</text>
+    <text x="225" y="230" text-anchor="middle" font-size="9" fill="#666">(3000 bytes)</text>
+    
+    <rect x="300" y="195" width="70" height="50" fill="#ffd700" stroke="#333" stroke-width="1"/>
+    <text x="335" y="215" text-anchor="middle" font-size="11" fill="#333">COL3</text>
+    <text x="335" y="230" text-anchor="middle" font-size="9" fill="#666">200B</text>
+    
+    <!-- Annotation -->
+    <text x="225" y="320" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c5282">≤ 4000 Bytes, Stored INLINE</text>
+    <text x="225" y="340" text-anchor="middle" font-size="12" fill="#666">All data in same block</text>
+  </g>
+  
+  <!-- EXTENDED Mode Section -->
+  <g id="extended-mode">
+    <text x="675" y="70" text-anchor="middle" font-size="20" font-weight="bold" fill="#9b2c2c">EXTENDED Mode</text>
+    <text x="675" y="90" text-anchor="middle" font-size="14" fill="#666">VARCHAR2(15000)</text>
+    
+    <!-- Main Data Block -->
+    <rect x="500" y="110" width="350" height="180" fill="#ffe6e6" stroke="#9b2c2c" stroke-width="2" rx="5"/>
+    <text x="675" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#9b2c2c">Data Block (Primary)</text>
+    
+    <!-- Row Data with pointer -->
+    <rect x="520" y="160" width="310" height="100" fill="#fff" stroke="#e24a4a" stroke-width="2" rx="3"/>
+    <text x="675" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Row Data</text>
+    
+    <!-- Columns -->
+    <rect x="530" y="195" width="70" height="50" fill="#ffd700" stroke="#333" stroke-width="1"/>
+    <text x="565" y="215" text-anchor="middle" font-size="11" fill="#333">COL1</text>
+    <text x="565" y="230" text-anchor="middle" font-size="9" fill="#666">100B</text>
+    
+    <rect x="605" y="195" width="140" height="50" fill="#ffb3b3" stroke="#9b2c2c" stroke-width="2"/>
+    <text x="675" y="210" text-anchor="middle" font-size="11" fill="#333">VARCHAR2_COL</text>
+    <text x="675" y="225" text-anchor="middle" font-size="9" fill="#666">(First 4000B)</text>
+    <text x="675" y="240" text-anchor="middle" font-size="9" font-weight="bold" fill="#9b2c2c">+ Pointer</text>
+    
+    <rect x="750" y="195" width="70" height="50" fill="#ffd700" stroke="#333" stroke-width="1"/>
+    <text x="785" y="215" text-anchor="middle" font-size="11" fill="#333">COL3</text>
+    <text x="785" y="230" text-anchor="middle" font-size="9" fill="#666">200B</text>
+    
+    <!-- Arrow pointing to overflow block -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#9b2c2c"/>
+      </marker>
+    </defs>
+    <line x1="675" y1="260" x2="675" y2="360" stroke="#9b2c2c" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Overflow Data Block -->
+    <rect x="500" y="380" width="350" height="120" fill="#ffe6e6" stroke="#9b2c2c" stroke-width="2" rx="5" stroke-dasharray="5,5"/>
+    <text x="675" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#9b2c2c">Data Block (Overflow)</text>
+    
+    <rect x="520" y="420" width="310" height="60" fill="#ffb3b3" stroke="#9b2c2c" stroke-width="2" rx="3"/>
+    <text x="675" y="445" text-anchor="middle" font-size="11" fill="#333">VARCHAR2_COL (continued)</text>
+    <text x="675" y="460" text-anchor="middle" font-size="9" fill="#666">Remaining 11000 bytes</text>
+    
+    <!-- Annotation -->
+    <text x="675" y="530" text-anchor="middle" font-size="16" font-weight="bold" fill="#9b2c2c">&gt; 4000 Bytes: Row Chaining</text>
+    <text x="675" y="550" text-anchor="middle" font-size="12" fill="#666">INLINE Header + Pointer + OUT-OF-LINE Chunks</text>
+  </g>
+</svg>
