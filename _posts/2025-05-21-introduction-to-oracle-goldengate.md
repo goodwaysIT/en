@@ -5,7 +5,7 @@ excerpt: "An overview of Oracle GoldenGate, its architecture, and how it enables
 date: 2025-05-21 08:00:00 +0800
 categories: [Oracle, GoldenGate]
 tags: [data replication, real-time data, oracle, goldengate]
-image: /assets/images/posts/goldengate-intro.jpg
+author: Shane
 ---
 
 # Introduction to Oracle GoldenGate

@@ -4,6 +4,7 @@ title: "\"Database Hung\": A Case Study of a Critical ERP Outage Caused by Full 
 excerpt: "A detailed case study of a critical ERP system outage triggered by full Oracle archive logs. This post walks through the emergency response, analyzes the impact, and outlines crucial preventative measures focusing on monitoring, robust backup strategies, and proactive capacity planning to avoid similar database disasters."
 date: 2025-06-13 10:00:00 +0800
 categories: [Oracle, Database Administration, Incident Management, Case Study]
+author: Shane
 tags: [oracle, database hung, archive log full, ORA-15041, ORA-00257, ERP outage, RAC, ASM, RMAN, database monitoring, backup strategy, capacity planning, incident response, critical system]
 # image: /assets/images/posts/your-image-here.jpg
 ---

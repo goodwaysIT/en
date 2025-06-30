@@ -6,6 +6,7 @@ date: 2025-06-26 13:50:00 +0800
 categories: [Oracle, Database]
 tags: [Oracle, Database, MAX_STRING_SIZE, Extended Data Types, 19c]
 image: /assets/images/posts/MAX_STRING_SZIE-EXTENDED-ultimate-guide.jpg
+author: Shane
 ---
 
 

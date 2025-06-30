@@ -5,6 +5,7 @@ excerpt: "Introducing Inspect4Oracle: A powerful, open-source Oracle database in
 date: 2025-06-19 15:26:00 +0800
 categories: [Oracle, Tools]
 tags: [oracle, dba, performance, monitoring, open-source]
+author: Shane
 ---
 
 As an Oracle DBA or database developer, have you ever been troubled by these issues?
