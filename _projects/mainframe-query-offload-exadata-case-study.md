@@ -4,7 +4,7 @@ title: "Mainframe Modernization: Core Query Offload to Oracle Exadata"
 description: "Case study: How our team successfully offloaded Mainframe query applications to Oracle Exadata using GoldenGate, dramatically reducing costs and boosting performance for a key client."
 excerpt: "Explore how our expertise in Mainframe offloading and Oracle GoldenGate enabled a client to alleviate Mainframe system pressure, enhance query speeds, and achieve significant cost savings by migrating core query functionalities to Oracle Exadata. This impactful project (March 2018 - September 2018) highlights our ability to deliver complex, high-impact solutions."
 order: 2
-image: /assets/images/case-studies/mainframe-exadata-offload-overview.svg # 替换为项目主图
+image: /assets/images/case-studies/mainframe-exadata-offload-overview.svg 
 tags: ["Mainframe Modernization", "Oracle Exadata", "GoldenGate", "Cost Optimization", "Performance Tuning", "EBCDIC", "Legacy System Migration"]
 ---
 
