@@ -34,7 +34,7 @@ plugins:
   - jekyll-paginate
 
 # Pagination settings
-paginate: 10
+paginate: 9
 paginate_path: "/blog/page:num/"
 
 # Collections
