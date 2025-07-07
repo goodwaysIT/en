@@ -1,0 +1,127 @@
+<svg viewBox="0 0 900 950" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="1" dy="1" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+    
+    <!-- Gradient for outcome boxes -->
+    <linearGradient id="outcomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BBDEFB;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Start Box -->
+  <rect x="325" y="20" width="250" height="50" rx="5" fill="#4CAF50" filter="url(#shadow)"/>
+  <text x="450" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Start: Choose Extract Mode</text>
+  
+  <!-- Arrow from Start to First Decision -->
+  <path d="M 450 70 L 450 110" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- First Decision Diamond: DB Version -->
+  <path d="M 450 120 L 550 170 L 450 220 L 350 170 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Oracle DB Version</text>
+  <text x="450" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">>= 11.2.0.4?</text>
+  
+  <!-- No path from DB Version -->
+  <path d="M 350 170 L 150 170 L 150 250" stroke="#D32F2F" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="250" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#D32F2F">No</text>
+  
+  <!-- Outcome: Use Classic Extract -->
+  <rect x="50" y="250" width="200" height="80" rx="5" fill="url(#outcomeGradient)" stroke="#1976D2" stroke-width="3" filter="url(#shadow)"/>
+  <text x="150" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">Use Classic Extract</text>
+  <text x="150" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#0D47A1">(Only Option)</text>
+  <circle cx="150" cy="310" r="3" fill="#0D47A1"/>
+  
+  <!-- Yes path from DB Version to RAC Decision -->
+  <path d="M 450 220 L 450 280" stroke="#388E3C" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="470" y="250" text-anchor="start" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#388E3C">Yes</text>
+  
+  <!-- Second Decision Diamond: RAC Environment -->
+  <path d="M 450 290 L 550 340 L 450 390 L 350 340 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Is it a RAC</text>
+  <text x="450" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Environment?</text>
+  
+  <!-- Yes path from RAC -->
+  <path d="M 550 340 L 700 340 L 700 420" stroke="#388E3C" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="625" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#388E3C">Yes</text>
+  
+  <!-- Outcome: Strongly Recommend Integrated -->
+  <rect x="575" y="420" width="250" height="100" rx="5" fill="url(#outcomeGradient)" stroke="#1976D2" stroke-width="3" filter="url(#shadow)"/>
+  <text x="700" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">Strongly Recommend</text>
+  <text x="700" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">Integrated Extract</text>
+  <text x="700" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0D47A1">(Avoids Performance Issues)</text>
+  <circle cx="700" cy="500" r="3" fill="#0D47A1"/>
+  
+  <!-- No path from RAC to DDL Decision -->
+  <path d="M 450 390 L 450 450" stroke="#D32F2F" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="470" y="420" text-anchor="start" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#D32F2F">No</text>
+  
+  <!-- Third Decision Diamond: Frequent DDL -->
+  <path d="M 450 460 L 550 510 L 450 560 L 350 510 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Frequent DDL</text>
+  <text x="450" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Changes?</text>
+  
+  <!-- Yes path from DDL -->
+  <path d="M 350 510 L 200 510 L 200 630" stroke="#388E3C" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="275" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#388E3C">Yes</text>
+  
+  <!-- Outcome: Choose Integrated for Management -->
+  <rect x="75" y="630" width="250" height="100" rx="5" fill="url(#outcomeGradient)" stroke="#1976D2" stroke-width="3" filter="url(#shadow)"/>
+  <text x="200" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">Choose Integrated Extract</text>
+  <text x="200" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0D47A1">(For Simplified</text>
+  <text x="200" y="698" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0D47A1">Management)</text>
+  <circle cx="200" cy="710" r="3" fill="#0D47A1"/>
+  
+  <!-- No path from DDL -->
+  <path d="M 450 560 L 450 600 L 600 600 L 600 630" stroke="#D32F2F" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="525" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#D32F2F">No</text>
+  
+  <!-- Outcome: Integrated is Best Practice -->
+  <rect x="440" y="630" width="320" height="120" rx="5" fill="url(#outcomeGradient)" stroke="#1976D2" stroke-width="3" filter="url(#shadow)"/>
+  <text x="600" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">Integrated Extract is still</text>
+  <text x="600" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0D47A1">the Best Practice</text>
+  <text x="600" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0D47A1">Consider Classic only for very</text>
+  <text x="600" y="723" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0D47A1">specific legacy reasons</text>
+  <circle cx="600" cy="735" r="3" fill="#0D47A1"/>
+  
+  <!-- Arrow definitions -->
+  <defs>
+    <!-- Standard arrow -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+    
+    <!-- Green arrow for Yes -->
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#388E3C"/>
+    </marker>
+    
+    <!-- Red arrow for No -->
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#D32F2F"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 820)">
+    <rect x="0" y="0" width="120" height="80" rx="5" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="1"/>
+    <text x="60" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#616161">Legend</text>
+    <!-- First row: Yes Path -->
+    <line x1="10" y1="35" x2="40" y2="35" stroke="#388E3C" stroke-width="2" marker-end="url(#arrowhead-green)"/>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="11" fill="#388E3C">Yes Path</text>
+    <!-- Second row: No Path -->
+    <line x1="10" y1="55" x2="40" y2="55" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+    <text x="50" y="60" font-family="Arial, sans-serif" font-size="11" fill="#D32F2F">No Path</text>
+  </g>
+</svg>
