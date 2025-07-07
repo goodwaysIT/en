@@ -1,0 +1,169 @@
+<svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景渐变和图案 -->
+  <defs>
+    <!-- 主背景渐变 -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 底部波浪渐变 -->
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#4a90e2" stop-opacity="0.3" />
+    </linearGradient>
+    
+    <!-- 网格线模式 -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+    </pattern>
+    
+    <!-- 圆点模式 -->
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#4a90e2" fill-opacity="0.3" />
+    </pattern>
+    
+    <!-- 数据流动画 -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+        markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  
+  <!-- 主背景 -->
+  <rect width="1200" height="400" fill="url(#bg-gradient)" />
+  
+  <!-- 底部波浪装饰 -->
+  <path d="M0,400 C200,350 400,380 600,350 C800,320 1000,370 1200,340 L1200,400 L0,400 Z" fill="url(#wave-gradient)" />
+  
+  <!-- 网格和圆点背景 -->
+  <rect width="1200" height="400" fill="url(#grid)" opacity="0.3" />
+  <rect width="1200" height="400" fill="url(#dots)" opacity="0.5" />
+  
+  <!-- 装饰性圆形 -->
+  <circle cx="100" cy="50" r="80" fill="#4a90e2" fill-opacity="0.05" />
+  <circle cx="1100" cy="350" r="100" fill="#4a90e2" fill-opacity="0.05" />
+  
+  <!-- 标题 -->
+  <text x="600" y="50" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#003366" text-anchor="middle">Bank Core Online Project</text>
+  
+  <!-- 左侧：银行大楼 -->
+  <g id="bank-building">
+    <!-- 大楼主体 -->
+    <rect x="150" y="120" width="180" height="220" fill="#003366" />
+    
+    <!-- 大楼顶部 -->
+    <polygon points="150,120 330,120 240,80" fill="#003366" />
+    
+    <!-- 窗户 -->
+    <rect x="170" y="140" width="30" height="30" fill="#ffcc00" />
+    <rect x="210" y="140" width="30" height="30" fill="#ffcc00" />
+    <rect x="250" y="140" width="30" height="30" fill="#ffcc00" />
+    <rect x="170" y="180" width="30" height="30" fill="#ffcc00" />
+    <rect x="210" y="180" width="30" height="30" fill="#ffcc00" />
+    <rect x="250" y="180" width="30" height="30" fill="#ffcc00" />
+    <rect x="170" y="220" width="30" height="30" fill="#ffcc00" />
+    <rect x="210" y="220" width="30" height="30" fill="#ffcc00" />
+    <rect x="250" y="220" width="30" height="30" fill="#ffcc00" />
+    
+    <!-- 门 -->
+    <rect x="210" y="280" width="60" height="60" fill="#66CCFF" />
+    
+    <!-- 金库 -->
+    <circle cx="240" cy="320" r="40" fill="#666666" stroke="#444444" stroke-width="3" />
+    <circle cx="240" cy="320" r="30" fill="#888888" stroke="#444444" stroke-width="2" />
+    <circle cx="240" cy="320" r="5" fill="#444444" />
+    <line x1="240" y1="320" x2="260" y2="320" stroke="#444444" stroke-width="3" />
+  </g>
+  
+  <!-- 云和WiFi信号 -->
+  <g id="cloud-wifi">
+    <!-- 云 -->
+    <ellipse cx="180" cy="80" rx="25" ry="15" fill="white" stroke="#003366" stroke-width="1" />
+    <ellipse cx="210" cy="70" rx="30" ry="20" fill="white" stroke="#003366" stroke-width="1" />
+    <ellipse cx="240" cy="80" rx="25" ry="15" fill="white" stroke="#003366" stroke-width="1" />
+    <rect x="180" y="80" width="60" height="15" fill="white" />
+    
+    <!-- WiFi信号 -->
+    <path d="M 300 90 A 40 40 0 0 1 340 90" fill="none" stroke="#003366" stroke-width="3" />
+    <path d="M 310 100 A 30 30 0 0 1 330 100" fill="none" stroke="#003366" stroke-width="3" />
+    <path d="M 315 110 A 20 20 0 0 1 325 110" fill="none" stroke="#003366" stroke-width="3" />
+    <circle cx="320" cy="120" r="3" fill="#003366" />
+  </g>
+  
+  <!-- 源端DB2数据库 -->
+  <g id="source-db2">
+    <rect x="400" y="180" width="120" height="80" rx="10" ry="10" fill="#4169E1" stroke="#00008B" stroke-width="2" />
+    <ellipse cx="460" cy="180" rx="60" ry="15" fill="#4169E1" stroke="#00008B" stroke-width="2" />
+    <ellipse cx="460" cy="260" rx="60" ry="15" fill="#4169E1" stroke="#00008B" stroke-width="2" />
+    <text x="460" y="225" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">DB2</text>
+    <text x="460" y="245" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Source</text>
+  </g>
+  
+  <!-- 数据流动画 -->
+  <g id="data-flow">
+    <path d="M 520 220 C 550 220, 580 180, 600 180" fill="none" stroke="#0066cc" stroke-width="3" stroke-dasharray="5,3" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M 520 220 C 550 220, 580 220, 600 220" fill="none" stroke="#0066cc" stroke-width="3" stroke-dasharray="5,3" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M 520 220 C 550 220, 580 260, 600 260" fill="none" stroke="#0066cc" stroke-width="3" stroke-dasharray="5,3" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
+    </path>
+  </g>
+  
+  <!-- 右侧：3节点RAC架构 -->
+  <g id="rac-architecture">
+    <!-- 节点A -->
+    <rect x="600" y="140" width="140" height="80" rx="10" ry="10" fill="#66CCFF" stroke="#003366" stroke-width="2" />
+    <text x="670" y="175" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#003366" text-anchor="middle">Node A</text>
+    <text x="670" y="195" font-family="Arial, sans-serif" font-size="12" fill="#003366" text-anchor="middle">Primary Site</text>
+    
+    <!-- 节点B -->
+    <rect x="600" y="240" width="140" height="80" rx="10" ry="10" fill="#66CCFF" stroke="#003366" stroke-width="2" />
+    <text x="670" y="275" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#003366" text-anchor="middle">Node B</text>
+    <text x="670" y="295" font-family="Arial, sans-serif" font-size="12" fill="#003366" text-anchor="middle">Primary Site</text>
+    
+    <!-- 节点C（灾备中心） -->
+    <rect x="800" y="190" width="140" height="80" rx="10" ry="10" fill="#FFA07A" stroke="#8B0000" stroke-width="2" />
+    <text x="870" y="225" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8B0000" text-anchor="middle">Node C</text>
+    <text x="870" y="245" font-family="Arial, sans-serif" font-size="12" fill="#8B0000" text-anchor="middle">Disaster Recovery</text>
+    
+    <!-- RAC标识 -->
+    <ellipse cx="720" cy="210" rx="100" ry="120" fill="none" stroke="#003366" stroke-width="1" stroke-dasharray="5,5" />
+    <text x="720" y="100" font-family="Arial, sans-serif" font-size="16" fill="#003366" text-anchor="middle">Oracle RAC</text>
+    
+    <!-- 心跳线 -->
+    <path d="M 670 220 C 690 230, 650 250, 670 260" fill="none" stroke="#FF0000" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M 670 260 C 690 250, 650 230, 670 220" fill="none" stroke="#FF0000" stroke-width="2" stroke-dasharray="5,3" />
+    
+    <!-- 与灾备节点的连接 -->
+    <path d="M 740 180 C 760 190, 780 200, 800 210" fill="none" stroke="#8B0000" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M 740 280 C 760 270, 780 250, 800 240" fill="none" stroke="#8B0000" stroke-width="2" stroke-dasharray="5,3" />
+    
+    <!-- Oracle数据库图标 -->
+    <g transform="translate(670, 330) scale(0.5)">
+      <ellipse cx="0" cy="0" rx="40" ry="20" fill="#FF0000" />
+      <rect x="-40" y="0" width="80" height="30" fill="#FF0000" />
+      <ellipse cx="0" cy="30" rx="40" ry="20" fill="#FF0000" />
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">ORACLE</text>
+    </g>
+    
+    <!-- 灾备中心图标 -->
+    <g transform="translate(950, 230)">
+      <rect x="0" y="-30" width="60" height="60" fill="#FFA07A" stroke="#8B0000" stroke-width="1" />
+      <path d="M 0 -30 L 30 -50 L 60 -30" fill="#FFA07A" stroke="#8B0000" stroke-width="1" />
+      <rect x="20" y="0" width="20" height="30" fill="white" stroke="#8B0000" stroke-width="1" />
+      <text x="30" y="-5" font-family="Arial, sans-serif" font-size="10" fill="#8B0000" text-anchor="middle">DR Site</text>
+    </g>
+  </g>
+  
+  <!-- 底部文字 -->
+  <text x="600" y="370" font-family="Arial, sans-serif" font-size="18" fill="#003366" text-anchor="middle">High Availability &amp; Distributed Oracle Database Solution</text>
+  
+  <!-- 货币符号 -->
+  <text x="100" y="200" font-family="Arial, sans-serif" font-size="40" fill="#ffcc00" text-anchor="middle">$</text>
+  <text x="100" y="250" font-family="Arial, sans-serif" font-size="40" fill="#ffcc00" text-anchor="middle">€</text>
+  <text x="100" y="300" font-family="Arial, sans-serif" font-size="40" fill="#ffcc00" text-anchor="middle">¥</text>
+</svg>
