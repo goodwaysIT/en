@@ -4,6 +4,7 @@ title: "Bank core online project"
 description: "New core projects of the bank - Database infrastructure analysis, Data structure logic design analysis, Performance analysis and optimization, etc."
 excerpt: "The new core database was replanned and adjusted, including parameter adjustment, integration and optimization of data tables and data dictionaries, and a variety of stress testing plans were formulated to ensure that the new core database can adapt to the needs of different business scenarios, thereby improving database performance, increasing data expansion capabilities, and enhancing database high availability, security, and stability."
 order: 6
+image: /assets/images/case-studies/Bank-core-online-project.svg
 tags: ["Oracle", "Oracle Exadata", "Backup Strategy Optimization", "Centralized Management", "Faster Recovery", "Zero Data Loss"]
 ---
 
