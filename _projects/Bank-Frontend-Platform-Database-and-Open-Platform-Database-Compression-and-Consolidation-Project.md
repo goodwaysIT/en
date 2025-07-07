@@ -4,6 +4,7 @@ title: "Bank Frontend Platform Database and Open Platform Database Compression a
 description: ""
 excerpt: "When multiple schemas, applications, or databases are hosted on target systems, hardware resource utilization can be improved through consolidation and compression, minimizing idle time cycles. Consequently, the same output can be achieved with fewer resources, thereby reducing costs."
 order: 8
+image: /assets/images/case-studies/Bank-Frontend-Platform-Database-and-Open-Platform-Database-Compression-and-Consolidation-Project.svg
 tags: ["Oracle", "Oracle Exadata", "Database Migration","Resource compression"]
 ---
 
