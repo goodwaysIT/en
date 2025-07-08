@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Assuring the Quality of Optimizer Statistics"
-excerpt: "This paper will discuss in detail, when and how to gather statistics for the most common scenarios seen in an Oracle Database."
+excerpt: "Good quality statistics are essential to be able to generate optimal SQL execution plans, but sometimes statistics
+can be of poor quality and this fact could remain unnoticed."
 date: 2025-07-03 11:00:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
 image: /assets/images/posts/Assuring-the-Quality-of-Optimizer-Statistics.jpg
 ---
 
-## Assuring the Quality of Optimizer Statistics
 Good quality statistics are essential to be able to generate optimal SQL execution plans, but sometimes statistics
 can be of poor quality and this fact could remain unnoticed. For example, older “inherited” systems might use scripts
 that are no longer understood by the database administrators and, understandably, there is a reluctance to change
