@@ -7,8 +7,7 @@ categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
 image: /assets/images/posts/When-Not-to-Gather-Statistics.jpg
 ---
-
-## When Not to Gather Statistics  
+ 
 Although the optimizer needs accurate statistics to select an optimal plan, there are scenarios where gathering statistics can be difficult, too costly, or cannot be accomplished in a timely manner and an alternative strategy is required.  
 
 ### Volatile Tables  
