@@ -1,14 +1,13 @@
 ---
 layout: post
 title: "Gathering Statistics More Quickly"
-excerpt: "This paper will discuss in detail, when and how to gather statistics for the most common scenarios seen in an Oracle Database."
+excerpt: "As data volumes grow and maintenance windows shrink, it is more important than ever to gather statistics in a timely manner. Oracle offers a variety of ways to speed up the statistics collection, from parallelizing the statistics gathering operations to generating statistics rather than collecting them."
 date: 2025-07-04 11:00:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
 image: /assets/images/posts/Gathering-Statistics-More-Quickly.jpg
 ---
-
-## Gathering Statistics More Quickly  
+ 
 As data volumes grow and maintenance windows shrink, it is more important than ever to gather statistics in a timely manner. Oracle offers a variety of ways to speed up the statistics collection, from parallelizing the statistics gathering operations to generating statistics rather than collecting them.  
 
 **Using Parallelism**  
