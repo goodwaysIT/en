@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "When to Gather Statistics"
-excerpt: "This paper will discuss in detail, when and how to gather statistics for the most common scenarios seen in an Oracle Database."
+excerpt: "In order to select an optimal execution plan the optimizer must have representative statistics. Representative statistics are not necessarily up to the minute statistics but a set of statistics that help the optimizer to determine the correct number of rows it should expect from each operation in the execution plan."
 date: 2025-06-23 11:40:00 +0800
 categories: [Oracle, Database]
 tags: [Database maintenance, Database deployment,Database optimization, oracle]
