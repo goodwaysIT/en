@@ -1,0 +1,207 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Database cylinder gradient -->
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E6CB3;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Process box gradient -->
+    <linearGradient id="processGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5CB85C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#449D44;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Checkpoint file gradient -->
+    <linearGradient id="checkpointGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0AD4E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC971F;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+    
+    <!-- Two-way arrow markers -->
+    <marker id="arrowstart" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    Oracle GoldenGate Checkpoint Mechanism Workflow
+  </text>
+  
+  <!-- Source Side -->
+  <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2E6CB3">
+    Source Side
+  </text>
+  
+  <!-- Source DB -->
+  <g id="sourceDB">
+    <ellipse cx="100" cy="200" rx="60" ry="20" fill="url(#dbGradient)" stroke="#2E6CB3" stroke-width="2"/>
+    <rect x="40" y="200" width="120" height="80" fill="url(#dbGradient)" stroke="none"/>
+    <ellipse cx="100" cy="280" rx="60" ry="20" fill="url(#dbGradient)" stroke="#2E6CB3" stroke-width="2"/>
+    <path d="M 40 200 L 40 280" stroke="#2E6CB3" stroke-width="2" fill="none"/>
+    <path d="M 160 200 L 160 280" stroke="#2E6CB3" stroke-width="2" fill="none"/>
+    <text x="100" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Source DB
+    </text>
+    <text x="100" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      (Redo Logs)
+    </text>
+  </g>
+  
+  <!-- Arrow from Source DB to Extract -->
+  <line x1="170" y1="240" x2="260" y2="240" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Extract Process -->
+  <g id="extract">
+    <rect x="270" y="210" width="120" height="60" rx="5" fill="url(#processGradient)" stroke="#449D44" stroke-width="2"/>
+    <text x="330" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Extract
+    </text>
+    <text x="330" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+      (EXT)
+    </text>
+  </g>
+  
+  <!-- EXT.cpe checkpoint file -->
+  <g id="extCheckpoint">
+    <rect x="300" y="100" width="60" height="70" rx="3" fill="url(#checkpointGradient)" stroke="#EC971F" stroke-width="3"/>
+    <line x1="310" y1="115" x2="350" y2="115" stroke="#fff" stroke-width="2"/>
+    <line x1="310" y1="125" x2="350" y2="125" stroke="#fff" stroke-width="2"/>
+    <line x1="310" y1="135" x2="350" y2="135" stroke="#fff" stroke-width="2"/>
+    <text x="330" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+      EXT.cpe
+    </text>
+  </g>
+  
+  <!-- Two-way arrow between Extract and EXT.cpe -->
+  <line x1="330" y1="170" x2="330" y2="205" stroke="#666" stroke-width="2" marker-start="url(#arrowstart)" marker-end="url(#arrowhead)"/>
+  
+  <!-- Label for EXT.cpe connection -->
+  <text x="340" y="185" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Read/Write Last Redo
+  </text>
+  <text x="340" y="197" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Position (SCN)
+  </text>
+  
+  <!-- Arrow from Extract to Trail File -->
+  <line x1="400" y1="240" x2="490" y2="240" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Trail File -->
+  <g id="trailFile">
+    <ellipse cx="550" cy="220" rx="50" ry="15" fill="#7C7C7C" stroke="#5A5A5A" stroke-width="2"/>
+    <rect x="500" y="220" width="100" height="60" fill="#7C7C7C" stroke="none"/>
+    <ellipse cx="550" cy="280" rx="50" ry="15" fill="#7C7C7C" stroke="#5A5A5A" stroke-width="2"/>
+    <path d="M 500 220 L 500 280" stroke="#5A5A5A" stroke-width="2" fill="none"/>
+    <path d="M 600 220 L 600 280" stroke="#5A5A5A" stroke-width="2" fill="none"/>
+    <text x="550" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Trail File
+    </text>
+  </g>
+  
+  <!-- Target Side -->
+  <text x="850" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2E6CB3">
+    Target Side
+  </text>
+  
+  <!-- Arrow from Trail File to Replicat -->
+  <line x1="610" y1="250" x2="700" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Replicat Process -->
+  <g id="replicat">
+    <rect x="710" y="220" width="120" height="60" rx="5" fill="url(#processGradient)" stroke="#449D44" stroke-width="2"/>
+    <text x="770" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Replicat
+    </text>
+    <text x="770" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+      (REP)
+    </text>
+  </g>
+  
+  <!-- REP.cpr checkpoint file -->
+  <g id="repCheckpoint">
+    <rect x="740" y="100" width="60" height="70" rx="3" fill="url(#checkpointGradient)" stroke="#EC971F" stroke-width="3"/>
+    <line x1="750" y1="115" x2="790" y2="115" stroke="#fff" stroke-width="2"/>
+    <line x1="750" y1="125" x2="790" y2="125" stroke="#fff" stroke-width="2"/>
+    <line x1="750" y1="135" x2="790" y2="135" stroke="#fff" stroke-width="2"/>
+    <text x="770" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+      REP.cpr
+    </text>
+  </g>
+  
+  <!-- Two-way arrow between Replicat and REP.cpr -->
+  <line x1="770" y1="170" x2="770" y2="215" stroke="#666" stroke-width="2" marker-start="url(#arrowstart)" marker-end="url(#arrowhead)"/>
+  
+  <!-- Label for REP.cpr connection -->
+  <text x="780" y="185" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Read/Write Last Applied
+  </text>
+  <text x="780" y="197" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Transaction RBA
+  </text>
+  
+  <!-- REP.cpt checkpoint table -->
+  <g id="repCheckpointTable">
+    <rect x="710" y="350" width="120" height="70" rx="3" fill="url(#checkpointGradient)" stroke="#EC971F" stroke-width="3"/>
+    <line x1="720" y1="365" x2="820" y2="365" stroke="#fff" stroke-width="2"/>
+    <line x1="720" y1="375" x2="820" y2="375" stroke="#fff" stroke-width="2"/>
+    <line x1="720" y1="385" x2="820" y2="385" stroke="#fff" stroke-width="2"/>
+    <text x="770" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+      REP.cpt
+    </text>
+    <text x="770" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      (or Checkpoint Table)
+    </text>
+  </g>
+  
+  <!-- Two-way arrow between Replicat and REP.cpt -->
+  <line x1="770" y1="285" x2="770" y2="345" stroke="#666" stroke-width="2" marker-start="url(#arrowstart)" marker-end="url(#arrowhead)"/>
+  
+  <!-- Label for REP.cpt connection -->
+  <text x="780" y="310" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Persist In-flight Large
+  </text>
+  <text x="780" y="322" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Transaction State
+  </text>
+  
+  <!-- Arrow from Replicat to Target DB -->
+  <line x1="840" y1="250" x2="930" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Target DB -->
+  <g id="targetDB">
+    <ellipse cx="990" cy="230" rx="60" ry="20" fill="url(#dbGradient)" stroke="#2E6CB3" stroke-width="2"/>
+    <rect x="930" y="230" width="120" height="80" fill="url(#dbGradient)" stroke="none"/>
+    <ellipse cx="990" cy="310" rx="60" ry="20" fill="url(#dbGradient)" stroke="#2E6CB3" stroke-width="2"/>
+    <path d="M 930 230 L 930 310" stroke="#2E6CB3" stroke-width="2" fill="none"/>
+    <path d="M 1050 230 L 1050 310" stroke="#2E6CB3" stroke-width="2" fill="none"/>
+    <text x="990" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Target DB
+    </text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(50, 470)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">
+      Legend:
+    </text>
+    <rect x="0" y="10" width="30" height="20" rx="3" fill="url(#dbGradient)" stroke="#2E6CB3" stroke-width="1"/>
+    <text x="40" y="25" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      Database
+    </text>
+    <rect x="120" y="10" width="30" height="20" rx="3" fill="url(#processGradient)" stroke="#449D44" stroke-width="1"/>
+    <text x="160" y="25" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      Process
+    </text>
+    <rect x="240" y="10" width="30" height="20" rx="3" fill="url(#checkpointGradient)" stroke="#EC971F" stroke-width="2"/>
+    <text x="280" y="25" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      Checkpoint File
+    </text>
+  </g>
+</svg>
