@@ -1,0 +1,125 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+    
+    <marker id="arrowhead-dotted" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0891b2"/>
+    </marker>
+    
+    <!-- Gradient for main CLI icon -->
+    <linearGradient id="cliGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for OGG Home boxes -->
+    <linearGradient id="oggGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for parser -->
+    <linearGradient id="parserGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- User Command Arrow -->
+  <line x1="200" y1="50" x2="340" y2="50" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="270" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">User Command</text>
+  <text x="270" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">(e.g., ggutil mon)</text>
+  
+  <!-- Central CLI Icon -->
+  <rect x="350" y="30" width="100" height="40" rx="8" fill="url(#cliGradient)" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="400" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ggutil CLI</text>
+  
+  <!-- Concurrent Goroutine arrows -->
+  <line x1="380" y1="70" x2="200" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="70" x2="400" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="420" y1="70" x2="600" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Goroutine labels -->
+  <text x="290" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Concurrent</text>
+  <text x="290" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Goroutine</text>
+  
+  <text x="400" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Concurrent</text>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Goroutine</text>
+  
+  <text x="510" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Concurrent</text>
+  <text x="510" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2563eb">Goroutine</text>
+  
+  <!-- OGG Home boxes -->
+  <rect x="130" y="170" width="140" height="80" rx="8" fill="url(#oggGradient)" stroke="#0e7490" stroke-width="1"/>
+  <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">OGG Home 1</text>
+  
+  <rect x="330" y="170" width="140" height="80" rx="8" fill="url(#oggGradient)" stroke="#0e7490" stroke-width="1"/>
+  <text x="400" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">OGG Home 2</text>
+  
+  <rect x="530" y="170" width="140" height="80" rx="8" fill="url(#oggGradient)" stroke="#0e7490" stroke-width="1"/>
+  <text x="600" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">OGG Home N</text>
+  
+  <!-- Terminal icons inside OGG Home boxes -->
+  <rect x="180" y="210" width="40" height="25" rx="3" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <text x="200" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22d3ee">ggsci</text>
+  <circle cx="185" cy="215" r="2" fill="#22d3ee"/>
+  <circle cx="190" cy="215" r="2" fill="#fbbf24"/>
+  <circle cx="195" cy="215" r="2" fill="#ef4444"/>
+  
+  <rect x="380" y="210" width="40" height="25" rx="3" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22d3ee">ggsci</text>
+  <circle cx="385" cy="215" r="2" fill="#22d3ee"/>
+  <circle cx="390" cy="215" r="2" fill="#fbbf24"/>
+  <circle cx="395" cy="215" r="2" fill="#ef4444"/>
+  
+  <rect x="580" y="210" width="40" height="25" rx="3" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22d3ee">ggsci</text>
+  <circle cx="585" cy="215" r="2" fill="#22d3ee"/>
+  <circle cx="590" cy="215" r="2" fill="#fbbf24"/>
+  <circle cx="595" cy="215" r="2" fill="#ef4444"/>
+  
+  <!-- Raw Text Output arrows (dotted) -->
+  <line x1="200" y1="250" x2="370" y2="340" stroke="#0891b2" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-dotted)"/>
+  <line x1="400" y1="250" x2="400" y2="340" stroke="#0891b2" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-dotted)"/>
+  <line x1="600" y1="250" x2="430" y2="340" stroke="#0891b2" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-dotted)"/>
+  
+  <!-- Raw Text Output labels -->
+  <text x="285" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Raw Text</text>
+  <text x="285" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Output</text>
+  
+  <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Raw Text</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Output</text>
+  
+  <text x="515" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Raw Text</text>
+  <text x="515" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0891b2">Output</text>
+  
+  <!-- Output Parser & Aggregator -->
+  <rect x="300" y="360" width="200" height="60" rx="8" fill="url(#parserGradient)" stroke="#1f2937" stroke-width="1"/>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Output Parser </text>
+  <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Aggregator</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">(Go Channel)</text>
+  
+  <!-- Final output arrow -->
+  <line x1="400" y1="420" x2="400" y2="480" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Structured Report output -->
+  <rect x="330" y="500" width="140" height="60" rx="8" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+  <text x="400" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Structured Report</text>
+  <text x="400" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">(stdout)</text>
+  
+  <!-- Table icon inside structured report -->
+  <rect x="360" y="540" width="80" height="3" fill="#2563eb"/>
+  <rect x="360" y="545" width="80" height="3" fill="#9ca3af"/>
+  <rect x="360" y="550" width="80" height="3" fill="#9ca3af"/>
+  <rect x="360" y="555" width="80" height="3" fill="#9ca3af"/>
+  
+  <!-- Vertical dividers for table -->
+  <rect x="385" y="540" width="1" height="18" fill="#d1d5db"/>
+  <rect x="415" y="540" width="1" height="18" fill="#d1d5db"/>
+</svg>
