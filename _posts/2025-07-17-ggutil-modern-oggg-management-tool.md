@@ -2,7 +2,7 @@
 layout: post
 title: "ggutil: Modernizing Oracle GoldenGate Management with Go"
 excerpt: "Discover ggutil, a modern, open-source CLI tool for efficient, concurrent management of multiple Oracle GoldenGate (OGG) environments. Learn about its core features, Go-based architecture, and how it streamlines OGG operations for DBAs."
-date: 2025-07-17 09:00:00 +0800
+date: 2025-07-17 09:01:00 +0800
 categories: [Oracle, Tools]
 tags: [oracle, goldengate, dba, go, open-source]
 author: Tony
