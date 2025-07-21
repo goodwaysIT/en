@@ -1,0 +1,126 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5A9FD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#306998;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B7B7B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A4A4A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goodProcessGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5CB85C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#449D44;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8E8E8E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5E5E5E;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="cloudGrad">
+      <stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CCCCCC;stop-opacity:1" />
+    </radialGradient>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5CB85C" />
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  <text x="350" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    OGG Architecture: With Data Pump
+  </text>
+  <g id="withDataPump">
+    <text x="350" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#5CB85C">
+      ✅ With Data Pump (Robust Architecture)
+    </text>
+    <g transform="translate(100, 200)">
+      <ellipse cx="50" cy="0" rx="50" ry="20" fill="url(#dbGrad)" stroke="#306998" stroke-width="2"/>
+      <rect x="0" y="0" width="100" height="60" fill="url(#dbGrad)" stroke="none"/>
+      <ellipse cx="50" cy="60" rx="50" ry="20" fill="url(#dbGrad)" stroke="#306998" stroke-width="2"/>
+      <path d="M 0 0 L 0 60" stroke="#306998" stroke-width="2" fill="none"/>
+      <path d="M 100 0 L 100 60" stroke="#306998" stroke-width="2" fill="none"/>
+      <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Source DB
+      </text>
+    </g>
+    <line x1="210" y1="230" x2="280" y2="230" stroke="#666" stroke-width="2" marker-end="url(#arrowGray)"/>
+    <rect x="290" y="200" width="120" height="60" rx="5" fill="url(#processGrad)" stroke="#4A4A4A" stroke-width="2"/>
+    <text x="350" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Primary
+    </text>
+    <text x="350" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Extract
+    </text>
+    <line x1="350" y1="265" x2="350" y2="310" stroke="#5CB85C" stroke-width="2" marker-end="url(#arrowGreen)"/>
+    <text x="420" y="290" font-family="Arial, sans-serif" font-size="11" fill="#5CB85C" font-weight="bold">
+      Capture Only
+    </text>
+    <text x="420" y="305" font-family="Arial, sans-serif" font-size="11" fill="#5CB85C">
+      (Fast + Safe)
+    </text>
+    <g transform="translate(310, 320)">
+      <ellipse cx="40" cy="0" rx="40" ry="12" fill="url(#trailGrad)" stroke="#5E5E5E" stroke-width="2"/>
+      <rect x="0" y="0" width="80" height="40" fill="url(#trailGrad)" stroke="none"/>
+      <ellipse cx="40" cy="40" rx="40" ry="12" fill="url(#trailGrad)" stroke="#5E5E5E" stroke-width="2"/>
+      <path d="M 0 0 L 0 40" stroke="#5E5E5E" stroke-width="2" fill="none"/>
+      <path d="M 80 0 L 80 40" stroke="#5E5E5E" stroke-width="2" fill="none"/>
+      <text x="40" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+        Local
+      </text>
+      <text x="40" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+        Trail File
+      </text>
+    </g>
+    <line x1="350" y1="365" x2="350" y2="400" stroke="#666" stroke-width="2" marker-end="url(#arrowGray)"/>
+    <rect x="290" y="410" width="120" height="60" rx="5" fill="url(#goodProcessGrad)" stroke="#449D44" stroke-width="2"/>
+    <text x="350" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Data Pump
+    </text>
+    <g transform="translate(450, 420)">
+      <path d="M 30 40 C 10 40, 0 25, 15 20 C 5 20, 5 5, 20 5 C 25 0, 40 0, 45 5 C 60 5, 65 15, 55 20 C 70 20, 70 35, 50 40 Z" 
+            fill="url(#cloudGrad)" stroke="#999" stroke-width="2"/>
+      <text x="35" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        Network
+      </text>
+    </g>
+    <line x1="520" y1="440" x2="640" y2="440" stroke="#5CB85C" stroke-width="3" marker-end="url(#arrowGreen)"/>
+    <text x="580" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#5CB85C">
+      Network I/O Only
+    </text>
+    <text x="580" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#5CB85C">
+      (Isolated)
+    </text>
+    <g transform="translate(650, 410)">
+      <ellipse cx="50" cy="0" rx="40" ry="15" fill="url(#trailGrad)" stroke="#5E5E5E" stroke-width="2"/>
+      <rect x="10" y="0" width="80" height="50" fill="url(#trailGrad)" stroke="none"/>
+      <ellipse cx="50" cy="50" rx="40" ry="15" fill="url(#trailGrad)" stroke="#5E5E5E" stroke-width="2"/>
+      <path d="M 10 0 L 10 50" stroke="#5E5E5E" stroke-width="2" fill="none"/>
+      <path d="M 90 0 L 90 50" stroke="#5E5E5E" stroke-width="2" fill="none"/>
+      <text x="50" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+        Remote
+      </text>
+      <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+        Trail File
+      </text>
+    </g>
+    <g transform="translate(200, 530)">
+      <rect x="0" y="0" width="300" height="120" rx="10" fill="#F5FFF5" stroke="#5CB85C" stroke-width="2"/>
+      <text x="150" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#5CB85C">
+        Benefits:
+      </text>
+      <text x="10" y="50" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        • Capture continues if network fails
+      </text>
+      <text x="10" y="70" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        • Can restart from local trail position
+      </text>
+      <text x="10" y="90" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        • Decoupled processes
+      </text>
+      <text x="10" y="110" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        • Better performance + reliability
+      </text>
+    </g>
+  </g>
+</svg> 

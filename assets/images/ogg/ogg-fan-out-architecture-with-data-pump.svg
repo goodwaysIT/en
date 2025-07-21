@@ -1,0 +1,210 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Tech Blue gradient for database -->
+    <linearGradient id="techBlueDB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565C0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Process box gradient -->
+    <linearGradient id="processBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#03A9F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0288D1;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Trail file gradient -->
+    <linearGradient id="trailBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5C6BC0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3949AB;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Target server gradient -->
+    <linearGradient id="targetBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BCD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0097A7;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow markers -->
+    <marker id="blueArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0" />
+    </marker>
+    
+    <!-- Glow effect for distribution point -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#1565C0">
+    Fan-Out Architecture with Data Pump
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+    One-to-Many Data Distribution Pattern
+  </text>
+  
+  <!-- LEFT SIDE - Source Group -->
+  <g id="sourceGroup">
+    <!-- Source DB -->
+    <g transform="translate(100, 250)">
+      <ellipse cx="60" cy="0" rx="60" ry="22" fill="url(#techBlueDB)" stroke="#1565C0" stroke-width="2"/>
+      <rect x="0" y="0" width="120" height="70" fill="url(#techBlueDB)" stroke="none"/>
+      <ellipse cx="60" cy="70" rx="60" ry="22" fill="url(#techBlueDB)" stroke="#1565C0" stroke-width="2"/>
+      <path d="M 0 0 L 0 70" stroke="#1565C0" stroke-width="2" fill="none"/>
+      <path d="M 120 0 L 120 70" stroke="#1565C0" stroke-width="2" fill="none"/>
+      <text x="60" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+        Source DB
+      </text>
+    </g>
+    
+    <!-- Arrow to Primary Extract -->
+    <line x1="230" y1="285" x2="310" y2="285" stroke="#1565C0" stroke-width="2" marker-end="url(#blueArrow)"/>
+    
+    <!-- Primary Extract -->
+    <rect x="320" y="250" width="140" height="70" rx="8" fill="url(#processBlue)" stroke="#0288D1" stroke-width="2"/>
+    <text x="390" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Primary
+    </text>
+    <text x="390" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Extract
+    </text>
+    
+    <!-- Arrow to Local Trail -->
+    <line x1="470" y1="285" x2="550" y2="285" stroke="#1565C0" stroke-width="2" marker-end="url(#blueArrow)"/>
+  </g>
+  
+  <!-- CENTER - Distribution Point -->
+  <g id="distributionPoint">
+    <!-- Local Trail -->
+    <g transform="translate(560, 250)" filter="url(#glow)">
+      <ellipse cx="50" cy="0" rx="50" ry="18" fill="url(#trailBlue)" stroke="#3949AB" stroke-width="2"/>
+      <rect x="0" y="0" width="100" height="60" fill="url(#trailBlue)" stroke="none"/>
+      <ellipse cx="50" cy="60" rx="50" ry="18" fill="url(#trailBlue)" stroke="#3949AB" stroke-width="2"/>
+      <path d="M 0 0 L 0 60" stroke="#3949AB" stroke-width="2" fill="none"/>
+      <path d="M 100 0 L 100 60" stroke="#3949AB" stroke-width="2" fill="none"/>
+      <text x="50" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Local Trail
+      </text>
+      <text x="50" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        (lt)
+      </text>
+    </g>
+    
+    <!-- Distribution indicator -->
+    <g transform="translate(610, 280)">
+      <circle cx="0" cy="0" r="8" fill="#FFD54F" stroke="#FFA000" stroke-width="2"/>
+      <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFA000">
+        Distribution
+      </text>
+      <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFA000">
+        Point
+      </text>
+    </g>
+  </g>
+  
+  <!-- RIGHT SIDE - Target Paths -->
+  <g id="targetPaths">
+    <!-- Top Branch - Target B -->
+    <g id="targetB">
+      <!-- Arrow from Local Trail to Data Pump B -->
+      <path d="M 670 270 Q 720 270, 720 180 T 790 180" 
+            stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+      
+      <!-- Data Pump B -->
+      <rect x="800" y="145" width="140" height="70" rx="8" fill="url(#processBlue)" stroke="#0288D1" stroke-width="2"/>
+      <text x="870" y="183" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+        Data Pump B
+      </text>
+      
+      <!-- Arrow to Target B -->
+      <line x1="950" y1="180" x2="1020" y2="180" stroke="#1565C0" stroke-width="2" marker-end="url(#blueArrow)"/>
+      
+      <!-- Target B Server -->
+      <g transform="translate(1030, 145)">
+        <rect x="0" y="0" width="100" height="70" rx="5" fill="url(#targetBlue)" stroke="#0097A7" stroke-width="2"/>
+        <rect x="10" y="10" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <rect x="10" y="25" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <rect x="10" y="40" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <circle cx="15" cy="58" r="3" fill="#4DD0E1"/>
+        <circle cx="50" cy="58" r="3" fill="#00E676"/>
+        <circle cx="85" cy="58" r="3" fill="#4DD0E1"/>
+        <text x="50" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0097A7">
+          Target B
+        </text>
+      </g>
+    </g>
+    
+    <!-- Bottom Branch - Target C -->
+    <g id="targetC">
+      <!-- Arrow from Local Trail to Data Pump C -->
+      <path d="M 670 290 Q 720 290, 720 380 T 790 380" 
+            stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+      
+      <!-- Data Pump C -->
+      <rect x="800" y="345" width="140" height="70" rx="8" fill="url(#processBlue)" stroke="#0288D1" stroke-width="2"/>
+      <text x="870" y="383" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+        Data Pump C
+      </text>
+      
+      <!-- Arrow to Target C -->
+      <line x1="950" y1="380" x2="1020" y2="380" stroke="#1565C0" stroke-width="2" marker-end="url(#blueArrow)"/>
+      
+      <!-- Target C Server -->
+      <g transform="translate(1030, 345)">
+        <rect x="0" y="0" width="100" height="70" rx="5" fill="url(#targetBlue)" stroke="#0097A7" stroke-width="2"/>
+        <rect x="10" y="10" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <rect x="10" y="25" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <rect x="10" y="40" width="80" height="8" rx="2" fill="#B2EBF2"/>
+        <circle cx="15" cy="58" r="3" fill="#4DD0E1"/>
+        <circle cx="50" cy="58" r="3" fill="#00E676"/>
+        <circle cx="85" cy="58" r="3" fill="#4DD0E1"/>
+        <text x="50" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0097A7">
+          Target C
+        </text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Flow indicators -->
+  <g id="flowIndicators">
+    <!-- Source flow label -->
+    <text x="280" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+      Capture
+    </text>
+    
+    <!-- Distribution flow labels -->
+    <text x="745" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+      Replicate to B
+    </text>
+    
+    <text x="745" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+      Replicate to C
+    </text>
+  </g>
+  
+  <!-- Key Benefits -->
+  <g transform="translate(200, 480)">
+    <rect x="0" y="0" width="800" height="80" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="400" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1565C0">
+      Key Benefits of Fan-Out Architecture
+    </text>
+    <text x="50" y="50" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      • Single capture point reduces source database load
+    </text>
+    <text x="420" y="50" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      • Independent target delivery paths
+    </text>
+    <text x="50" y="68" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      • Each pump can have different configurations
+    </text>
+    <text x="420" y="68" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      • Scalable to multiple targets
+    </text>
+  </g>
+</svg>
