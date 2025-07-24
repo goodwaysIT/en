@@ -1,0 +1,225 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for Default Mode (inefficient) -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EE5A24;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFA502;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF7675;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradients for BATCHSQL Mode (efficient) -->
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6BCF7F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B894;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#74B9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984E3;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Trail file gradient -->
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#95A5A6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7F8C8D;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow markers -->
+    <marker id="thinArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#EE5A24" />
+    </marker>
+    
+    <marker id="thickArrow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#00B894" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2C3E50">
+    How BATCHSQL Boosts Replicat Performance
+  </text>
+  
+  <!-- TOP SECTION: Default Mode -->
+  <g id="defaultMode">
+    <!-- Section header -->
+    <rect x="50" y="70" width="900" height="40" rx="5" fill="url(#redGrad)" opacity="0.2"/>
+    <text x="500" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#EE5A24">
+      Default Mode: One by One
+    </text>
+    
+    <!-- Trail File -->
+    <g transform="translate(100, 140)">
+      <ellipse cx="50" cy="0" rx="50" ry="18" fill="url(#trailGrad)" stroke="#7F8C8D" stroke-width="2"/>
+      <rect x="0" y="0" width="100" height="60" fill="url(#trailGrad)" stroke="none"/>
+      <ellipse cx="50" cy="60" rx="50" ry="18" fill="url(#trailGrad)" stroke="#7F8C8D" stroke-width="2"/>
+      <path d="M 0 0 L 0 60" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+      <path d="M 100 0 L 100 60" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+      <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Trail File
+      </text>
+    </g>
+    
+    <!-- DML Operations coming out -->
+    <g id="dmlOperations">
+      <!-- DML 1 -->
+      <rect x="220" y="140" width="60" height="25" rx="3" fill="url(#orangeGrad)" stroke="#FF7675" stroke-width="1"/>
+      <text x="250" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">DML 1</text>
+      
+      <!-- DML 2 -->
+      <rect x="220" y="170" width="60" height="25" rx="3" fill="url(#orangeGrad)" stroke="#FF7675" stroke-width="1"/>
+      <text x="250" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">DML 2</text>
+      
+      <!-- DML 3 -->
+      <rect x="220" y="200" width="60" height="25" rx="3" fill="url(#orangeGrad)" stroke="#FF7675" stroke-width="1"/>
+      <text x="250" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">DML 3</text>
+    </g>
+    
+    <!-- Arrows from DMLs to Replicat -->
+    <line x1="285" y1="152" x2="340" y2="170" stroke="#FF7675" stroke-width="1" opacity="0.7"/>
+    <line x1="285" y1="182" x2="340" y2="180" stroke="#FF7675" stroke-width="1" opacity="0.7"/>
+    <line x1="285" y1="212" x2="340" y2="190" stroke="#FF7675" stroke-width="1" opacity="0.7"/>
+    
+    <!-- Replicat Process -->
+    <rect x="350" y="150" width="120" height="60" rx="8" fill="url(#redGrad)" stroke="#EE5A24" stroke-width="2"/>
+    <text x="410" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Replicat
+    </text>
+    
+    <!-- Three separate arrows to Target DB -->
+    <line x1="480" y1="165" x2="680" y2="155" stroke="#EE5A24" stroke-width="2" marker-end="url(#thinArrow)"/>
+    <line x1="480" y1="180" x2="680" y2="180" stroke="#EE5A24" stroke-width="2" marker-end="url(#thinArrow)"/>
+    <line x1="480" y1="195" x2="680" y2="205" stroke="#EE5A24" stroke-width="2" marker-end="url(#thinArrow)"/>
+    
+    <!-- Labels on arrows -->
+    <text x="580" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#EE5A24">Execute DML 1</text>
+    <text x="580" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#EE5A24">Execute DML 2</text>
+    <text x="580" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#EE5A24">Execute DML 3</text>
+    
+    <!-- Target DB -->
+    <g transform="translate(700, 140)">
+      <rect x="0" y="0" width="120" height="80" rx="5" fill="url(#blueGrad)" stroke="#0984E3" stroke-width="2"/>
+      <rect x="10" y="10" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <rect x="10" y="30" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <rect x="10" y="50" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <text x="60" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Target DB
+      </text>
+    </g>
+    
+    <!-- Performance note -->
+    <rect x="200" y="250" width="600" height="35" rx="5" fill="#FFE5E5" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="500" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#C0392B">
+      ⚠️ High Network Round-trips + DB Parsing Overhead
+    </text>
+  </g>
+  
+  <!-- Separator line -->
+  <line x1="50" y1="330" x2="950" y2="330" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="10,5"/>
+  
+  <!-- BOTTOM SECTION: BATCHSQL Mode -->
+  <g id="batchsqlMode">
+    <!-- Section header -->
+    <rect x="50" y="370" width="900" height="40" rx="5" fill="url(#greenGrad)" opacity="0.2"/>
+    <text x="500" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#00B894">
+      BATCHSQL Mode: In a Batch
+    </text>
+    
+    <!-- Trail File -->
+    <g transform="translate(100, 440)">
+      <ellipse cx="50" cy="0" rx="50" ry="18" fill="url(#trailGrad)" stroke="#7F8C8D" stroke-width="2"/>
+      <rect x="0" y="0" width="100" height="60" fill="url(#trailGrad)" stroke="none"/>
+      <ellipse cx="50" cy="60" rx="50" ry="18" fill="url(#trailGrad)" stroke="#7F8C8D" stroke-width="2"/>
+      <path d="M 0 0 L 0 60" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+      <path d="M 100 0 L 100 60" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+      <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Trail File
+      </text>
+    </g>
+    
+    <!-- DML Operations being gathered -->
+    <g id="dmlGathering">
+      <!-- Moving DMLs -->
+      <rect x="220" y="445" width="50" height="20" rx="3" fill="#95A5A6" stroke="#7F8C8D" stroke-width="1" opacity="0.7"/>
+      <text x="245" y="458" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DML 1</text>
+      
+      <rect x="220" y="470" width="50" height="20" rx="3" fill="#95A5A6" stroke="#7F8C8D" stroke-width="1" opacity="0.7"/>
+      <text x="245" y="483" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DML 2</text>
+      
+      <rect x="220" y="495" width="50" height="20" rx="3" fill="#95A5A6" stroke="#7F8C8D" stroke-width="1" opacity="0.7"/>
+      <text x="245" y="508" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DML 3</text>
+      
+      <!-- Gathering arrows -->
+      <path d="M 275 455 Q 310 470, 340 470" stroke="#6BCF7F" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M 275 480 Q 310 480, 340 480" stroke="#6BCF7F" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M 275 505 Q 310 490, 340 490" stroke="#6BCF7F" stroke-width="2" fill="none" opacity="0.7"/>
+    </g>
+    
+    <!-- Replicat Process with Batch Buffer -->
+    <rect x="350" y="440" width="150" height="80" rx="8" fill="url(#greenGrad)" stroke="#00B894" stroke-width="2"/>
+    <text x="425" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      Replicat
+    </text>
+    
+    <!-- Batch Buffer inside Replicat -->
+    <rect x="365" y="470" width="120" height="40" rx="5" fill="#2ECC71" stroke="#27AE60" stroke-width="2"/>
+    <text x="425" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      Batch Buffer
+    </text>
+    <text x="425" y="502" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      DML 1, 2, 3
+    </text>
+    
+    <!-- Single thick arrow to Target DB -->
+    <line x1="510" y1="480" x2="680" y2="480" stroke="#00B894" stroke-width="8" marker-end="url(#thickArrow)"/>
+    
+    <!-- Label on arrow -->
+    <rect x="540" y="495" width="120" height="25" rx="12" fill="#00B894" stroke="none"/>
+    <text x="600" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      Single Array Execute
+    </text>
+    
+    <!-- Target DB -->
+    <g transform="translate(700, 440)">
+      <rect x="0" y="0" width="120" height="80" rx="5" fill="url(#blueGrad)" stroke="#0984E3" stroke-width="2"/>
+      <rect x="10" y="10" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <rect x="10" y="30" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <rect x="10" y="50" width="100" height="15" rx="2" fill="#74B9FF" opacity="0.5"/>
+      <text x="60" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+        Target DB
+      </text>
+    </g>
+    
+    <!-- Performance note -->
+    <rect x="200" y="550" width="600" height="35" rx="5" fill="#E8F8F5" stroke="#00B894" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="500" y="573" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00B894">
+      ✓ Minimal Round-trips + Overhead, High Throughput
+    </text>
+  </g>
+  
+  <!-- Performance metrics comparison -->
+  <g transform="translate(850, 250)">
+    <rect x="0" y="100" width="120" height="200" rx="10" fill="#F8F9FA" stroke="#BDC3C7" stroke-width="1"/>
+    <text x="60" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50">
+      Performance
+    </text>
+    <text x="60" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50">
+      Impact
+    </text>
+    
+    <!-- Default mode metrics -->
+    <text x="10" y="170" font-family="Arial, sans-serif" font-size="10" fill="#E74C3C">Default:</text>
+    <text x="10" y="185" font-family="Arial, sans-serif" font-size="9" fill="#666">• 3 round-trips</text>
+    <text x="10" y="200" font-family="Arial, sans-serif" font-size="9" fill="#666">• 3x parsing</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="9" fill="#666">• Low throughput</text>
+    
+    <!-- BATCHSQL metrics -->
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="10" fill="#27AE60">BATCHSQL:</text>
+    <text x="10" y="255" font-family="Arial, sans-serif" font-size="9" fill="#666">• 1 round-trip</text>
+    <text x="10" y="270" font-family="Arial, sans-serif" font-size="9" fill="#666">• 1x parsing</text>
+    <text x="10" y="285" font-family="Arial, sans-serif" font-size="9" fill="#666">• High throughput</text>
+  </g>
+</svg>
