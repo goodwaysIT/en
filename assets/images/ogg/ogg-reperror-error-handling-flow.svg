@@ -1,0 +1,237 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="startGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="abendGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="discardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="ignoreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="transactionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2C3E50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#2C3E50">
+    REPERROR: From ABEND to Automated Handling
+  </text>
+  
+  <!-- Start Node -->
+  <g id="startNode">
+    <circle cx="600" cy="100" r="60" fill="url(#startGrad)" stroke="#2980B9" stroke-width="3"/>
+    <text x="600" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      Replicat encounters
+    </text>
+    <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      a DB Error
+    </text>
+    <text x="600" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      (e.g., ORA-00001)
+    </text>
+  </g>
+  
+  <!-- Arrow to first decision -->
+  <line x1="600" y1="165" x2="600" y2="200" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- First Decision Diamond -->
+  <g id="firstDecision">
+    <path d="M 600 210 L 680 270 L 600 330 L 520 270 Z" fill="#ECF0F1" stroke="#34495E" stroke-width="2"/>
+    <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2C3E50">
+      REPERROR rule
+    </text>
+    <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2C3E50">
+      defined for
+    </text>
+    <text x="600" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2C3E50">
+      this error?
+    </text>
+  </g>
+  
+  <!-- NO PATH - Default Behavior -->
+  <g id="noPath">
+    <!-- Arrow labeled "No" -->
+    <line x1="520" y1="270" x2="300" y2="270" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="390" y="255" width="30" height="20" rx="10" fill="#E74C3C" stroke="none"/>
+    <text x="405" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      No
+    </text>
+    
+    <!-- ABEND Stop Sign -->
+    <g transform="translate(250, 270)">
+      <path d="M -30 -50 L 30 -50 L 50 0 L 30 50 L -30 50 L -50 0 Z" fill="url(#abendGrad)" stroke="#C0392B" stroke-width="3"/>
+      <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+        Process
+      </text>
+      <text x="0" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+        ABENDs
+      </text>
+    </g>
+    
+    <!-- Manual intervention note -->
+    <rect x="110" y="350" width="220" height="50" rx="5" fill="#FADBD8" stroke="#E74C3C" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="220" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#C0392B">
+      System Halts.
+    </text>
+    <text x="220" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#C0392B">
+      Manual Intervention Required.
+    </text>
+  </g>
+  
+  <!-- YES PATH - REPERROR Behavior -->
+  <g id="yesPath">
+    <!-- Arrow labeled "Yes" -->
+    <line x1="680" y1="270" x2="850" y2="270" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="740" y="255" width="35" height="20" rx="10" fill="#27AE60" stroke="none"/>
+    <text x="757" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      Yes
+    </text>
+    
+    <!-- Second Decision Diamond -->
+    <g transform="translate(900, 270)">
+      <path d="M 0 -60 L 80 0 L 0 60 L -80 0 Z" fill="#ECF0F1" stroke="#34495E" stroke-width="2"/>
+      <text x="0" y="-15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50">
+        What is the
+      </text>
+      <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50">
+        Action?
+      </text>
+      <text x="0" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2C3E50">
+        (IGNORE/DISCARD/
+      </text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2C3E50">
+        TRANSACTION)
+      </text>
+    </g>
+  </g>
+  
+  <!-- IGNORE PATH -->
+  <g id="ignorePath">
+    <!-- Arrow -->
+    <line x1="820" y1="270" x2="300" y2="450" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="520" y="340" width="60" height="22" rx="11" fill="#F39C12" stroke="none"/>
+    <text x="550" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      IGNORE
+    </text>
+    
+    <!-- IGNORE Action Box -->
+    <rect x="200" y="460" width="200" height="80" rx="8" fill="url(#ignoreGrad)" stroke="#D68910" stroke-width="2"/>
+    <text x="300" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Action:
+    </text>
+    <text x="300" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Continue to Next Operation
+    </text>
+    
+    <!-- Warning -->
+    <g transform="translate(410, 490)">
+      <circle cx="0" cy="0" r="15" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">!</text>
+    </g>
+    
+    <!-- Warning note -->
+    <rect x="220" y="550" width="140" height="40" rx="5" fill="#FADBD8" stroke="#E74C3C" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="290" y="567" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#C0392B">
+      Warning:
+    </text>
+    <text x="290" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#C0392B">
+      No Audit Trail!
+    </text>
+  </g>
+  
+  <!-- DISCARD PATH (Recommended) -->
+  <g id="discardPath">
+    <!-- Arrow -->
+    <line x1="900" y1="340" x2="600" y2="450" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="720" y="380" width="80" height="25" rx="12" fill="#27AE60" stroke="none"/>
+    <text x="760" y="396" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      DISCARD
+    </text>
+    <text x="760" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-style="italic" fill="#27AE60">
+      (Recommended)
+    </text>
+    
+    <!-- DISCARD Action Box -->
+    <rect x="500" y="460" width="200" height="100" rx="8" fill="url(#discardGrad)" stroke="#229954" stroke-width="2"/>
+    <text x="600" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Actions:
+    </text>
+    <text x="510" y="510" font-family="Arial, sans-serif" font-size="12" fill="white">
+      1. Write Error + SQL to
+    </text>
+    <text x="525" y="527" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      Discard File (.dsc)
+    </text>
+    <text x="510" y="550" font-family="Arial, sans-serif" font-size="12" fill="white">
+      2. Continue to Next Operation
+    </text>
+  </g>
+  
+  <!-- TRANSACTION PATH -->
+  <g id="transactionPath">
+    <!-- Arrow -->
+    <line x1="980" y1="270" x2="900" y2="450" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="930" y="340" width="90" height="22" rx="11" fill="#9B59B6" stroke="none"/>
+    <text x="975" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      TRANSACTION
+    </text>
+    
+    <!-- TRANSACTION Action Box -->
+    <rect x="800" y="460" width="200" height="110" rx="8" fill="url(#transactionGrad)" stroke="#8E44AD" stroke-width="2"/>
+    <text x="900" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Actions:
+    </text>
+    <text x="810" y="510" font-family="Arial, sans-serif" font-size="11" fill="white">
+      1. Write Entire Transaction
+    </text>
+    <text x="825" y="527" font-family="Arial, sans-serif" font-size="11" fill="white">
+      to Discard File
+    </text>
+    <text x="810" y="550" font-family="Arial, sans-serif" font-size="11" fill="white">
+      2. Skip to Next Transaction
+    </text>
+  </g>
+  
+  <!-- Flow Summary -->
+  <g transform="translate(300, 620)">
+    <rect x="0" y="0" width="600" height="120" rx="10" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1"/>
+    <text x="300" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">
+      Key Benefits of REPERROR
+    </text>
+    
+    <circle cx="30" cy="50" r="5" fill="#27AE60"/>
+    <text x="45" y="55" font-family="Arial, sans-serif" font-size="12" fill="#34495E">
+      Prevents process ABENDs - keeps replication running
+    </text>
+    
+    <circle cx="30" cy="75" r="5" fill="#27AE60"/>
+    <text x="45" y="80" font-family="Arial, sans-serif" font-size="12" fill="#34495E">
+      DISCARD action provides audit trail in .dsc file
+    </text>
+    
+    <circle cx="30" cy="100" r="5" fill="#27AE60"/>
+    <text x="45" y="105" font-family="Arial, sans-serif" font-size="12" fill="#34495E">
+      Flexible error handling based on error type
+    </text>
+  </g>
+</svg>
