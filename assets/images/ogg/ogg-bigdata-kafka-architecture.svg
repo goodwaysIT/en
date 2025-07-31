@@ -1,0 +1,288 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for different stages -->
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#90A4AE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#607D8B;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="readerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#66BB6A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43A047;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="converterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E88E5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="producerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF7043;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F4511E;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="kafkaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#424242;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#212121;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Data transformation gradient -->
+    <linearGradient id="dataFlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#90A4AE;stop-opacity:0.3" />
+      <stop offset="33%" style="stop-color:#66BB6A;stop-opacity:0.3" />
+      <stop offset="66%" style="stop-color:#42A5F5;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FF7043;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#37474F" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#263238">
+    Kafka Handler Internal Workflow
+  </text>
+  
+  <!-- Background flow indicator -->
+  <rect x="50" y="200" width="1100" height="200" rx="10" fill="url(#dataFlowGrad)" opacity="0.3"/>
+  
+  <!-- Trail File -->
+  <g id="trailFile">
+    <text x="150" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#37474F">
+      Trail File
+    </text>
+    
+    <g transform="translate(100, 100)">
+      <ellipse cx="50" cy="0" rx="50" ry="18" fill="url(#trailGrad)" stroke="#607D8B" stroke-width="2"/>
+      <rect x="0" y="0" width="100" height="180" fill="url(#trailGrad)" stroke="none"/>
+      <ellipse cx="50" cy="180" rx="50" ry="18" fill="url(#trailGrad)" stroke="#607D8B" stroke-width="2"/>
+      <path d="M 0 0 L 0 180" stroke="#607D8B" stroke-width="2" fill="none"/>
+      <path d="M 100 0 L 100 180" stroke="#607D8B" stroke-width="2" fill="none"/>
+      
+      <!-- Change records inside -->
+      <rect x="15" y="20" width="70" height="25" rx="3" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1"/>
+      <text x="50" y="37" text-anchor="middle" font-family="monospace" font-size="10" fill="#37474F">
+        INSERT HR.EMP
+      </text>
+      
+      <rect x="15" y="55" width="70" height="25" rx="3" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1"/>
+      <text x="50" y="72" text-anchor="middle" font-family="monospace" font-size="10" fill="#37474F">
+        UPDATE HR.EMP
+      </text>
+      
+      <rect x="15" y="90" width="70" height="25" rx="3" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1"/>
+      <text x="50" y="107" text-anchor="middle" font-family="monospace" font-size="10" fill="#37474F">
+        DELETE HR.DEPT
+      </text>
+      
+      <rect x="15" y="125" width="70" height="25" rx="3" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1"/>
+      <text x="50" y="142" text-anchor="middle" font-family="monospace" font-size="10" fill="#37474F">
+        INSERT HR.DEPT
+      </text>
+      
+      <text x="50" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#546E7A">
+        ...more records
+      </text>
+    </g>
+  </g>
+  
+  <!-- Arrow to Kafka Handler -->
+  <line x1="210" y1="190" x2="280" y2="190" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Kafka Handler Container -->
+  <g id="kafkaHandler">
+    <rect x="290" y="90" width="700" height="320" rx="10" fill="#FAFAFA" stroke="#37474F" stroke-width="2"/>
+    <text x="640" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#263238">
+      Kafka Handler Components
+    </text>
+    
+    <!-- Trail Reader -->
+    <g id="trailReader">
+      <rect x="320" y="150" width="120" height="80" rx="8" fill="url(#readerGrad)" stroke="#43A047" stroke-width="2"/>
+      <text x="380" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+        Trail Reader
+      </text>
+      <text x="380" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        Sequential
+      </text>
+      <text x="380" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        Read
+      </text>
+    </g>
+    
+    <!-- Arrow to Format Converter -->
+    <line x1="450" y1="190" x2="510" y2="190" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <!-- Format Converter -->
+    <g id="formatConverter">
+      <rect x="520" y="150" width="140" height="80" rx="8" fill="url(#converterGrad)" stroke="#1E88E5" stroke-width="2"/>
+      <text x="590" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+        Format
+      </text>
+      <text x="590" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+        Converter
+      </text>
+      <text x="590" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        (to JSON/Avro)
+      </text>
+    </g>
+    
+    <!-- JSON transformation example -->
+    <rect x="520" y="240" width="140" height="60" rx="5" fill="#E3F2FD" stroke="#1E88E5" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="590" y="255" text-anchor="middle" font-family="monospace" font-size="9" fill="#0D47A1">
+      {
+    </text>
+    <text x="590" y="270" text-anchor="middle" font-family="monospace" font-size="9" fill="#0D47A1">
+      "op_type": "INSERT",
+    </text>
+    <text x="590" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#0D47A1">
+      "table": "HR.EMP"...
+    </text>
+    <text x="590" y="295" text-anchor="middle" font-family="monospace" font-size="9" fill="#0D47A1">
+      }
+    </text>
+    
+    <!-- Message Batching Area -->
+    <g id="batching">
+      <rect x="470" y="320" width="240" height="70" rx="8" fill="#FFF3E0" stroke="#FFB74D" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="590" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E65100">
+        Message Batching + Buffering
+      </text>
+      
+      <!-- Mini batch visualization -->
+      <rect x="480" y="350" width="30" height="25" rx="3" fill="#FFE0B2" stroke="#FFB74D" stroke-width="1"/>
+      <rect x="520" y="350" width="30" height="25" rx="3" fill="#FFE0B2" stroke="#FFB74D" stroke-width="1"/>
+      <rect x="560" y="350" width="30" height="25" rx="3" fill="#FFE0B2" stroke="#FFB74D" stroke-width="1"/>
+      <text x="600" y="365" font-family="Arial, sans-serif" font-size="10" fill="#E65100">
+        → Batch of 100
+      </text>
+    </g>
+    
+    <!-- Arrow to Kafka Producer -->
+    <line x1="670" y1="190" x2="730" y2="190" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <!-- Kafka Producer -->
+    <g id="kafkaProducer">
+      <rect x="740" y="150" width="140" height="80" rx="8" fill="url(#producerGrad)" stroke="#F4511E" stroke-width="2"/>
+      <text x="810" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+        Kafka
+      </text>
+      <text x="810" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+        Producer
+      </text>
+      <text x="810" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        (Async Send)
+      </text>
+    </g>
+    
+    <!-- Performance metrics -->
+    <g id="metrics">
+      <rect x="890" y="150" width="80" height="80" rx="5" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
+      <text x="930" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1B5E20">
+        Metrics
+      </text>
+      <text x="930" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2E7D32">
+        TPS: 50K
+      </text>
+      <text x="930" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2E7D32">
+        Lag: &lt;1s
+      </text>
+      <text x="930" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2E7D32">
+        Buffer: 60%
+      </text>
+    </g>
+  </g>
+  
+  <!-- Arrow to Kafka -->
+  <line x1="890" y1="190" x2="920" y2="190" stroke="#37474F" stroke-width="3"/>
+  <line x1="920" y1="190" x2="1020" y2="190" stroke="#37474F" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Kafka Topic -->
+  <g id="kafkaTopic">
+    <text x="1100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#37474F">
+      Kafka Topic
+    </text>
+    
+    <!-- Kafka partitions -->
+    <g transform="translate(1030, 100)">
+      <!-- Topic container -->
+      <rect x="0" y="0" width="140" height="200" rx="8" fill="url(#kafkaGrad)" stroke="#212121" stroke-width="2"/>
+      <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+        HR.EMPLOYEES
+      </text>
+      
+      <!-- Partition 0 -->
+      <rect x="10" y="40" width="120" height="40" rx="3" fill="#616161" stroke="#424242" stroke-width="1"/>
+      <text x="70" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        Partition 0
+      </text>
+      <rect x="15" y="60" width="25" height="12" rx="2" fill="#81C784"/>
+      <rect x="45" y="60" width="25" height="12" rx="2" fill="#81C784"/>
+      <rect x="75" y="60" width="25" height="12" rx="2" fill="#81C784"/>
+      <text x="110" y="70" font-family="Arial, sans-serif" font-size="8" fill="#B0BEC5">...</text>
+      
+      <!-- Partition 1 -->
+      <rect x="10" y="90" width="120" height="40" rx="3" fill="#616161" stroke="#424242" stroke-width="1"/>
+      <text x="70" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        Partition 1
+      </text>
+      <rect x="15" y="110" width="25" height="12" rx="2" fill="#64B5F6"/>
+      <rect x="45" y="110" width="25" height="12" rx="2" fill="#64B5F6"/>
+      <rect x="75" y="110" width="25" height="12" rx="2" fill="#64B5F6"/>
+      <text x="110" y="120" font-family="Arial, sans-serif" font-size="8" fill="#B0BEC5">...</text>
+      
+      <!-- Partition 2 -->
+      <rect x="10" y="140" width="120" height="40" rx="3" fill="#616161" stroke="#424242" stroke-width="1"/>
+      <text x="70" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+        Partition 2
+      </text>
+      <rect x="15" y="160" width="25" height="12" rx="2" fill="#FFB74D"/>
+      <rect x="45" y="160" width="25" height="12" rx="2" fill="#FFB74D"/>
+      <rect x="75" y="160" width="25" height="12" rx="2" fill="#FFB74D"/>
+      <text x="110" y="170" font-family="Arial, sans-serif" font-size="8" fill="#B0BEC5">...</text>
+    </g>
+  </g>
+  
+  <!-- Processing flow labels -->
+  <text x="150" y="440" font-family="Arial, sans-serif" font-size="12" fill="#546E7A" font-style="italic">
+    Binary Format
+  </text>
+  
+  <text x="380" y="440" font-family="Arial, sans-serif" font-size="12" fill="#546E7A" font-style="italic">
+    Sequential Processing
+  </text>
+  
+  <text x="590" y="440" font-family="Arial, sans-serif" font-size="12" fill="#546E7A" font-style="italic">
+    JSON/Avro Transform
+  </text>
+  
+  <text x="810" y="440" font-family="Arial, sans-serif" font-size="12" fill="#546E7A" font-style="italic">
+    Async Publish
+  </text>
+  
+  <text x="1100" y="440" font-family="Arial, sans-serif" font-size="12" fill="#546E7A" font-style="italic">
+    Distributed Storage
+  </text>
+  
+  <!-- Key features callout -->
+  <g id="keyFeatures">
+    <rect x="350" y="470" width="500" height="80" rx="8" fill="#E8EAF6" stroke="#3F51B5" stroke-width="1"/>
+    <text x="600" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A237E">
+      Key Performance Features
+    </text>
+    <text x="370" y="510" font-family="Arial, sans-serif" font-size="11" fill="#283593">
+      • Batching reduces network overhead by 90%
+    </text>
+    <text x="370" y="530" font-family="Arial, sans-serif" font-size="11" fill="#283593">
+      • Async processing prevents backpressure
+    </text>
+    <text x="620" y="510" font-family="Arial, sans-serif" font-size="11" fill="#283593">
+      • JSON transformation is parallelized
+    </text>
+    <text x="620" y="530" font-family="Arial, sans-serif" font-size="11" fill="#283593">
+      • Producer compression saves bandwidth
+    </text>
+  </g>
+</svg>
