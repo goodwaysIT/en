@@ -2,7 +2,7 @@
 layout: post
 title: "Streaming Oracle CDC to Kafka with OGG for Big Data: A Configuration Guide"
 excerpt: "Learn how to use Oracle GoldenGate for Big Data with an end-to-end configuration guide to stream real-time Change Data Capture (CDC) from Oracle databases into Kafka. This article details the architecture, key parameter configurations, and best practices."
-date: 2025-07-31 09:05:00 +0800
+date: 2025-07-31 14:05:00 +0800
 categories: [Oracle GoldenGate, Big Data]
 tags: [ogg, big data, kafka, cdc, data integration, json, handler]
 author: Shane
@@ -134,8 +134,8 @@ The output message might look like this:
 {
   "table": "SOURCE_SCHEMA.SOURCE_TABLE",
   "op_type": "I",
-  "op_ts": "2023-10-27 16:30:00.123456",
-  "current_ts": "2023-10-27 16:30:02.789012",
+  "op_ts": "2025-07-30 16:30:00.123456",
+  "current_ts": "2025-07-30 16:30:02.789012",
   "pos": "00000000000000123456",
   "after": {
     "ID": 101,
