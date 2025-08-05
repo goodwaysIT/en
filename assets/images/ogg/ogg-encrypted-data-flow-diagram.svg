@@ -1,0 +1,223 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for gradients and effects -->
+  <defs>
+    <!-- Server gradient -->
+    <linearGradient id="serverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5aa0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Database gradient -->
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#20b2aa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008b8b;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Process box gradient -->
+    <linearGradient id="processGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5f7c8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#455a64;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Trail files gradient -->
+    <linearGradient id="trailGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#607d8b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#37474f;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gold padlock gradient -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb300;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect for network padlock -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  
+  <!-- Source System Section -->
+  <g id="sourceSystem">
+    <!-- Section background -->
+    <rect x="50" y="100" width="600" height="700" rx="20" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="350" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Source System</text>
+    
+    <!-- Source Server -->
+    <g transform="translate(220,180)">
+      <!-- Server icon -->
+      <rect x="0" y="0" width="260" height="140" rx="10" fill="url(#serverGradient)" stroke="#1e40af" stroke-width="2"/>
+      <rect x="15" y="15" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      <rect x="15" y="38" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.5"/>
+      <rect x="15" y="61" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      <rect x="15" y="84" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.5"/>
+      <rect x="15" y="107" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      
+      <!-- Server ports -->
+      <circle cx="25" cy="23" r="3" fill="#22c55e"/>
+      <circle cx="38" cy="23" r="3" fill="#22c55e"/>
+      <circle cx="51" cy="23" r="3" fill="#fbbf24"/>
+      
+      <text x="130" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Source Server</text>
+    </g>
+    
+    <!-- Oracle Database -->
+    <g transform="translate(270,380)">
+      <!-- Database cylinder -->
+      <ellipse cx="80" cy="12" rx="80" ry="12" fill="url(#dbGradient)"/>
+      <rect x="0" y="12" width="160" height="60" fill="url(#dbGradient)"/>
+      <ellipse cx="80" cy="72" rx="80" ry="12" fill="#006666"/>
+      
+      <!-- Database icon -->
+      <rect x="65" y="28" width="30" height="30" rx="3" fill="white" opacity="0.9"/>
+      <rect x="68" y="32" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="38" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="44" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="50" width="24" height="4" fill="#008b8b"/>
+      
+      <text x="80" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Oracle DB</text>
+    </g>
+    
+    <!-- OGG Extract/Pump Process -->
+    <g transform="translate(160,550)">
+      <rect x="0" y="0" width="140" height="70" rx="6" fill="url(#processGradient)" stroke="#37474f" stroke-width="2"/>
+      <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">OGG</text>
+      <text x="70" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Extract/Pump</text>
+    </g>
+    
+    <!-- Encrypted Local Trail Files -->
+    <g transform="translate(380,570)">
+      <!-- Trail file stack -->
+      <rect x="4" y="12" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="2" y="8" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="0" y="4" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="0" y="0" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      
+      <!-- Gold padlock on trail files -->
+      <g transform="translate(105,2)">
+        <rect x="0" y="6" width="18" height="12" rx="2" fill="url(#goldGradient)" stroke="#ff8f00" stroke-width="1"/>
+        <path d="M4,6 Q4,2 9,2 Q14,2 14,6" fill="none" stroke="url(#goldGradient)" stroke-width="2"/>
+        <circle cx="9" cy="12" r="1.5" fill="#ff8f00"/>
+      </g>
+      
+      <text x="50" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">Encrypted Local Trail</text>
+    </g>
+  </g>
+  
+  <!-- Network Data Path -->
+  <g id="networkPath">
+    <!-- Thick directional arrow -->
+    <path d="M680 450 L900 450 L900 440 L930 460 L900 480 L900 470 L680 470 Z" fill="#2c5aa0" stroke="#1e40af" stroke-width="1"/>
+    
+    <!-- Large glowing gold padlock on network arrow -->
+    <g transform="translate(780,430)" filter="url(#glow)">
+      <!-- Padlock body -->
+      <rect x="0" y="15" width="30" height="22" rx="4" fill="url(#goldGradient)" stroke="#ff8f00" stroke-width="2"/>
+      <!-- Padlock shackle -->
+      <path d="M6,15 Q6,6 15,6 Q24,6 24,15" fill="none" stroke="url(#goldGradient)" stroke-width="3"/>
+      <!-- Keyhole -->
+      <circle cx="15" cy="26" r="3" fill="#ff8f00"/>
+      <rect x="13" y="26" width="4" height="6" fill="#ff8f00"/>
+      
+      <!-- Glow effect -->
+      <circle cx="15" cy="26" r="20" fill="#ffd700" opacity="0.15"/>
+    </g>
+    
+    <text x="800" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">SSL/TLS Encryption</text>
+  </g>
+  
+  <!-- Target System Section -->
+  <g id="targetSystem">
+    <!-- Section background -->
+    <rect x="950" y="100" width="600" height="700" rx="20" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="1250" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Target System</text>
+    
+    <!-- Target Server -->
+    <g transform="translate(1120,180)">
+      <!-- Server icon -->
+      <rect x="0" y="0" width="260" height="140" rx="10" fill="url(#serverGradient)" stroke="#1e40af" stroke-width="2"/>
+      <rect x="15" y="15" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      <rect x="15" y="38" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.5"/>
+      <rect x="15" y="61" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      <rect x="15" y="84" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.5"/>
+      <rect x="15" y="107" width="230" height="16" rx="3" fill="#3b82f6" opacity="0.7"/>
+      
+      <!-- Server ports -->
+      <circle cx="25" cy="23" r="3" fill="#22c55e"/>
+      <circle cx="38" cy="23" r="3" fill="#22c55e"/>
+      <circle cx="51" cy="23" r="3" fill="#fbbf24"/>
+      
+      <text x="130" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Target Server</text>
+    </g>
+    
+    <!-- Oracle Database -->
+    <g transform="translate(1170,380)">
+      <!-- Database cylinder -->
+      <ellipse cx="80" cy="12" rx="80" ry="12" fill="url(#dbGradient)"/>
+      <rect x="0" y="12" width="160" height="60" fill="url(#dbGradient)"/>
+      <ellipse cx="80" cy="72" rx="80" ry="12" fill="#006666"/>
+      
+      <!-- Database icon -->
+      <rect x="65" y="28" width="30" height="30" rx="3" fill="white" opacity="0.9"/>
+      <rect x="68" y="32" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="38" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="44" width="24" height="4" fill="#008b8b"/>
+      <rect x="68" y="50" width="24" height="4" fill="#008b8b"/>
+      
+      <text x="80" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Oracle DB</text>
+    </g>
+    
+    <!-- OGG Replicat Process -->
+    <g transform="translate(1300,550)">
+      <rect x="0" y="0" width="140" height="70" rx="6" fill="url(#processGradient)" stroke="#37474f" stroke-width="2"/>
+      <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">OGG</text>
+      <text x="70" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Replicat</text>
+    </g>
+    
+    <!-- Encrypted Remote Trail Files -->
+    <g transform="translate(1100,570)">
+      <!-- Trail file stack -->
+      <rect x="4" y="12" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="2" y="8" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="0" y="4" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      <rect x="0" y="0" width="100" height="16" rx="3" fill="url(#trailGradient)" stroke="#37474f"/>
+      
+      <!-- Gold padlock on trail files -->
+      <g transform="translate(105,2)">
+        <rect x="0" y="6" width="18" height="12" rx="2" fill="url(#goldGradient)" stroke="#ff8f00" stroke-width="1"/>
+        <path d="M4,6 Q4,2 9,2 Q14,2 14,6" fill="none" stroke="url(#goldGradient)" stroke-width="2"/>
+        <circle cx="9" cy="12" r="1.5" fill="#ff8f00"/>
+      </g>
+      
+      <text x="50" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">Encrypted Remote Trail</text>
+    </g>
+  </g>
+  
+  <!-- Data flow arrows -->
+  <!-- Source DB to Extract/Pump -->
+  <path d="M350 480 Q350 490 280 490 Q230 490 230 550" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Extract/Pump to Trail Files -->
+  <path d="M300 585 Q340 585 380 585" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Trail Files to Replicat -->
+  <path d="M1200 585 Q1250 585 1300 585" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Replicat to Target DB -->
+  <path d="M1370 550 Q1370 520 1300 520 Q1250 520 1250 480" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Title -->
+  <text x="800" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1e293b">Oracle GoldenGate Secure Data Replication Architecture</text>
+</svg>

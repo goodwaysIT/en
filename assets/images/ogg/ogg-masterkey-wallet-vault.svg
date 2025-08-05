@@ -1,0 +1,234 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for gradients and effects -->
+  <defs>
+    <!-- Dark background gradient -->
+    <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#1a2332;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1419;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Oracle Wallet gradient -->
+    <linearGradient id="walletGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Master Key gradient -->
+    <linearGradient id="keyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffb300;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f00;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Cyan glow gradient -->
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0080ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gold glow gradient -->
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb300;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter for central elements -->
+    <filter id="centralGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glow filter for conduits -->
+    <filter id="conduitGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glow filter for small elements -->
+    <filter id="smallGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#backgroundGradient)"/>
+  
+  <!-- Central Oracle Wallet -->
+  <g id="oracleWallet" transform="translate(600,300)">
+    <!-- Outer shield/vault -->
+    <path d="M-80,-120 Q-80,-140 -60,-140 L60,-140 Q80,-140 80,-120 L80,80 Q80,120 40,140 L0,160 L-40,140 Q-80,120 -80,80 Z" 
+          fill="url(#walletGradient)" 
+          stroke="url(#cyanGlow)" 
+          stroke-width="3" 
+          filter="url(#centralGlow)"/>
+    
+    <!-- Inner security layer -->
+    <path d="M-60,-100 Q-60,-115 -45,-115 L45,-115 Q60,-115 60,-100 L60,60 Q60,95 30,110 L0,125 L-30,110 Q-60,95 -60,60 Z" 
+          fill="none" 
+          stroke="url(#cyanGlow)" 
+          stroke-width="2" 
+          opacity="0.6"/>
+    
+    <!-- Wallet lock mechanism -->
+    <circle cx="0" cy="-80" r="12" fill="url(#goldGlow)" stroke="url(#keyGradient)" stroke-width="2" filter="url(#smallGlow)"/>
+    
+    <!-- Master Key inside wallet -->
+    <g transform="translate(0,-20)" filter="url(#centralGlow)">
+      <!-- Key shaft -->
+      <rect x="-40" y="-8" width="60" height="16" rx="8" fill="url(#keyGradient)" stroke="url(#goldGlow)" stroke-width="2"/>
+      
+      <!-- Key head (circular) -->
+      <circle cx="-40" cy="0" r="20" fill="url(#keyGradient)" stroke="url(#goldGlow)" stroke-width="2"/>
+      <circle cx="-40" cy="0" r="12" fill="none" stroke="url(#goldGlow)" stroke-width="2"/>
+      
+      <!-- Key teeth -->
+      <rect x="20" y="-8" width="8" height="12" fill="url(#keyGradient)"/>
+      <rect x="32" y="-8" width="6" height="16" fill="url(#keyGradient)"/>
+      <rect x="42" y="-8" width="8" height="8" fill="url(#keyGradient)"/>
+      
+      <!-- Key glow effect -->
+      <circle cx="0" cy="0" r="50" fill="url(#goldGlow)" opacity="0.2"/>
+    </g>
+    
+    <!-- Oracle Wallet Label -->
+    <text x="0" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#00ffff" filter="url(#smallGlow)">Oracle Wallet</text>
+    <text x="0" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#87ceeb">Master Key Repository</text>
+  </g>
+  
+  <!-- Left Conduit to Credential Store -->
+  <g id="leftConduit">
+    <!-- Armored conduit line -->
+    <path d="M520,300 Q400,300 300,300" 
+          fill="none" 
+          stroke="url(#cyanGlow)" 
+          stroke-width="6" 
+          filter="url(#conduitGlow)"
+          stroke-dasharray="0"/>
+    
+    <!-- Energy flow particles -->
+    <circle cx="480" cy="300" r="4" fill="url(#cyanGlow)" opacity="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -180,0; 0,0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="460" cy="300" r="3" fill="url(#cyanGlow)" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -160,0; 0,0" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Conduit armor segments -->
+    <rect x="450" y="295" width="15" height="10" rx="2" fill="url(#cyanGlow)" opacity="0.7"/>
+    <rect x="400" y="295" width="15" height="10" rx="2" fill="url(#cyanGlow)" opacity="0.7"/>
+    <rect x="350" y="295" width="15" height="10" rx="2" fill="url(#cyanGlow)" opacity="0.7"/>
+  </g>
+  
+  <!-- Right Conduit to Trail Files -->
+  <g id="rightConduit">
+    <!-- Armored conduit line -->
+    <path d="M680,300 Q800,300 900,300" 
+          fill="none" 
+          stroke="url(#goldGlow)" 
+          stroke-width="6" 
+          filter="url(#conduitGlow)"
+          stroke-dasharray="0"/>
+    
+    <!-- Energy flow particles -->
+    <circle cx="720" cy="300" r="4" fill="url(#goldGlow)" opacity="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 180,0; 0,0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="740" cy="300" r="3" fill="url(#goldGlow)" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 160,0; 0,0" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Conduit armor segments -->
+    <rect x="735" y="295" width="15" height="10" rx="2" fill="url(#goldGlow)" opacity="0.7"/>
+    <rect x="785" y="295" width="15" height="10" rx="2" fill="url(#goldGlow)" opacity="0.7"/>
+    <rect x="835" y="295" width="15" height="10" rx="2" fill="url(#goldGlow)" opacity="0.7"/>
+  </g>
+  
+  <!-- Left: Credential Store -->
+  <g id="credentialStore" transform="translate(200,300)">
+    <!-- Credential card/database -->
+    <rect x="-60" y="-80" width="120" height="160" rx="12" fill="#1e3a8a" stroke="url(#cyanGlow)" stroke-width="2" filter="url(#smallGlow)"/>
+    
+    <!-- Inner card details -->
+    <rect x="-50" y="-60" width="100" height="20" rx="4" fill="#2563eb"/>
+    <text x="0" y="-45" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#00ffff">CREDENTIALS</text>
+    
+    <!-- Password fields (asterisks) -->
+    <text x="-40" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#87ceeb">User:</text>
+    <text x="10" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#00ffff">*******</text>
+    
+    <text x="-40" y="5" font-family="Arial, sans-serif" font-size="14" fill="#87ceeb">Pass:</text>
+    <text x="10" y="5" font-family="Arial, sans-serif" font-size="14" fill="#00ffff">*******</text>
+    
+    <text x="-40" y="25" font-family="Arial, sans-serif" font-size="14" fill="#87ceeb">Key:</text>
+    <text x="10" y="25" font-family="Arial, sans-serif" font-size="14" fill="#00ffff">*******</text>
+    
+    <!-- Keyhole icon -->
+    <circle cx="0" cy="50" r="12" fill="none" stroke="url(#cyanGlow)" stroke-width="2"/>
+    <rect x="-3" y="50" width="6" height="15" rx="2" fill="url(#cyanGlow)"/>
+    
+    <!-- Small lock icon -->
+    <g transform="translate(40,-60)" filter="url(#smallGlow)">
+      <rect x="0" y="8" width="16" height="12" rx="2" fill="url(#cyanGlow)"/>
+      <path d="M3,8 Q3,3 8,3 Q13,3 13,8" fill="none" stroke="url(#cyanGlow)" stroke-width="2"/>
+      <circle cx="8" cy="14" r="2" fill="#0f1419"/>
+    </g>
+    
+    <!-- Label -->
+    <text x="0" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00ffff" filter="url(#smallGlow)">Credential Store</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#87ceeb">(Passwords)</text>
+  </g>
+  
+  <!-- Right: Encrypted Trail Files -->
+  <g id="trailFiles" transform="translate(1000,300)">
+    <!-- File stack/cylinder -->
+    <g filter="url(#smallGlow)">
+      <!-- Database cylinder representation -->
+      <ellipse cx="0" cy="-60" rx="50" ry="12" fill="#1e3a8a" stroke="url(#goldGlow)" stroke-width="2"/>
+      <rect x="-50" y="-60" width="100" height="120" fill="#1e3a8a" stroke="url(#goldGlow)" stroke-width="2"/>
+      <ellipse cx="0" cy="60" rx="50" ry="12" fill="#0f1419" stroke="url(#goldGlow)" stroke-width="2"/>
+      
+      <!-- File stack layers -->
+      <rect x="-45" y="-40" width="90" height="8" fill="#2563eb" opacity="0.8"/>
+      <rect x="-45" y="-25" width="90" height="8" fill="#2563eb" opacity="0.6"/>
+      <rect x="-45" y="-10" width="90" height="8" fill="#2563eb" opacity="0.8"/>
+      <rect x="-45" y="5" width="90" height="8" fill="#2563eb" opacity="0.6"/>
+      <rect x="-45" y="20" width="90" height="8" fill="#2563eb" opacity="0.8"/>
+      <rect x="-45" y="35" width="90" height="8" fill="#2563eb" opacity="0.6"/>
+      
+      <!-- Data encryption indicators -->
+      <text x="0" y="-30" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ffd700">ENCRYPTED</text>
+      <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ffd700">ENCRYPTED</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ffd700">ENCRYPTED</text>
+    </g>
+    
+    <!-- Small lock icon -->
+    <g transform="translate(35,-80)" filter="url(#smallGlow)">
+      <rect x="0" y="8" width="16" height="12" rx="2" fill="url(#goldGlow)"/>
+      <path d="M3,8 Q3,3 8,3 Q13,3 13,8" fill="none" stroke="url(#goldGlow)" stroke-width="2"/>
+      <circle cx="8" cy="14" r="2" fill="#0f1419"/>
+    </g>
+    
+    <!-- Label -->
+    <text x="0" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffd700" filter="url(#smallGlow)">Encrypted Trail Files</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffb300">(Data at Rest)</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#00ffff" filter="url(#smallGlow)">Oracle GoldenGate Security Architecture</text>
+  <text x="600" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#87ceeb">Master Key and Wallet Management</text>
+  
+  <!-- Security flow indicators -->
+  <text x="350" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#00ffff" opacity="0.8">Secure Authentication</text>
+  <text x="850" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffd700" opacity="0.8">Data Encryption</text>
+</svg>
