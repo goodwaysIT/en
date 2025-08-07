@@ -1,0 +1,220 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for gradients and effects -->
+  <defs>
+    <!-- Database gradient -->
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Extract lag gradient -->
+    <linearGradient id="extractGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Network lag gradient -->
+    <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Replicat lag gradient -->
+    <linearGradient id="replicatGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#374151"/>
+    </marker>
+    
+    <!-- Shadow filter -->
+    <filter id="dropShadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#f9fafb"/>
+  
+  <!-- Title -->
+  <text x="800" y="80" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="36" font-weight="bold" fill="#1f2937">Oracle GoldenGate Data Replication Latency</text>
+  <text x="800" y="115" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" fill="#6b7280">End-to-End Timing Components</text>
+  
+  <!-- Source Database -->
+  <g transform="translate(150,400)">
+    <!-- Database cylinder -->
+    <ellipse cx="60" cy="20" rx="60" ry="20" fill="url(#dbGradient)" filter="url(#dropShadow)"/>
+    <rect x="0" y="20" width="120" height="100" fill="url(#dbGradient)" filter="url(#dropShadow)"/>
+    <ellipse cx="60" cy="120" rx="60" ry="20" fill="#1e40af"/>
+    
+    <!-- Database icon details -->
+    <rect x="30" y="50" width="60" height="50" rx="4" fill="white" opacity="0.9"/>
+    <rect x="35" y="60" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="70" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="80" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="90" width="50" height="6" fill="#1e40af"/>
+    
+    <!-- Label -->
+    <text x="60" y="170" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" font-weight="bold" fill="#1f2937">Source Database</text>
+    <text x="60" y="190" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">Oracle DB</text>
+  </g>
+  
+  <!-- Target Database -->
+  <g transform="translate(1330,400)">
+    <!-- Database cylinder -->
+    <ellipse cx="60" cy="20" rx="60" ry="20" fill="url(#dbGradient)" filter="url(#dropShadow)"/>
+    <rect x="0" y="20" width="120" height="100" fill="url(#dbGradient)" filter="url(#dropShadow)"/>
+    <ellipse cx="60" cy="120" rx="60" ry="20" fill="#1e40af"/>
+    
+    <!-- Database icon details -->
+    <rect x="30" y="50" width="60" height="50" rx="4" fill="white" opacity="0.9"/>
+    <rect x="35" y="60" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="70" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="80" width="50" height="6" fill="#1e40af"/>
+    <rect x="35" y="90" width="50" height="6" fill="#1e40af"/>
+    
+    <!-- Label -->
+    <text x="60" y="170" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" font-weight="bold" fill="#1f2937">Target Database</text>
+    <text x="60" y="190" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">Oracle DB</text>
+  </g>
+  
+  <!-- Main Timeline Arrow -->
+  <g id="timelineArrow">
+    <!-- Extract Lag Segment -->
+    <g id="extractLag">
+      <!-- Arrow segment -->
+      <rect x="290" y="345" width="350" height="30" fill="url(#extractGradient)" rx="15" filter="url(#dropShadow)"/>
+      <polygon points="640,345 670,360 640,375" fill="url(#extractGradient)"/>
+      
+      <!-- Clock icon -->
+      <g transform="translate(460,325)">
+        <circle cx="0" cy="0" r="15" fill="white" stroke="#f59e0b" stroke-width="2" filter="url(#dropShadow)"/>
+        <line x1="0" y1="0" x2="0" y2="-8" stroke="#f59e0b" stroke-width="2"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="#f59e0b" stroke-width="2"/>
+        <circle cx="0" cy="0" r="1.5" fill="#f59e0b"/>
+      </g>
+      
+      <!-- Label -->
+      <text x="465" y="305" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Extract Lag</text>
+      <text x="465" y="415" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="13" fill="#6b7280">Data capture &amp; processing delay</text>
+      <text x="465" y="435" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="15" font-weight="bold" fill="#f59e0b">~5-50ms</text>
+    </g>
+    
+    <!-- Network Lag Segment -->
+    <g id="networkLag">
+      <!-- Wavy arrow segment -->
+      <path d="M670,360 Q730,345 790,360 T910,360 Q970,345 1030,360" 
+            fill="none" 
+            stroke="url(#networkGradient)" 
+            stroke-width="30" 
+            stroke-linecap="round"
+            filter="url(#dropShadow)"/>
+      <polygon points="1030,345 1060,360 1030,375" fill="url(#networkGradient)"/>
+      
+      <!-- Data packets -->
+      <g transform="translate(820,360)">
+        <rect x="-6" y="-6" width="12" height="12" rx="2" fill="#10b981" opacity="0.8">
+          <animateTransform attributeName="transform" type="translate" values="-100,0; 240,0; -100,0" dur="4s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <g transform="translate(850,360)">
+        <rect x="-5" y="-5" width="10" height="10" rx="2" fill="#10b981" opacity="0.6">
+          <animateTransform attributeName="transform" type="translate" values="-130,0; 210,0; -130,0" dur="4.5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <g transform="translate(880,360)">
+        <rect x="-4" y="-4" width="8" height="8" rx="2" fill="#10b981" opacity="0.4">
+          <animateTransform attributeName="transform" type="translate" values="-160,0; 180,0; -160,0" dur="5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      
+      <!-- Clock icon -->
+      <g transform="translate(850,325)">
+        <circle cx="0" cy="0" r="15" fill="white" stroke="#10b981" stroke-width="2" filter="url(#dropShadow)"/>
+        <line x1="0" y1="0" x2="0" y2="-8" stroke="#10b981" stroke-width="2"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="#10b981" stroke-width="2"/>
+        <circle cx="0" cy="0" r="1.5" fill="#10b981"/>
+      </g>
+      
+      <!-- Label -->
+      <text x="850" y="305" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" font-weight="bold" fill="#047857">Network Lag</text>
+      <text x="850" y="415" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="13" fill="#6b7280">Data transmission delay</text>
+      <text x="850" y="435" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="15" font-weight="bold" fill="#10b981">~1-100ms</text>
+    </g>
+    
+    <!-- Replicat Lag Segment -->
+    <g id="replicatLag">
+      <!-- Arrow segment -->
+      <rect x="1060" y="345" width="240" height="30" fill="url(#replicatGradient)" rx="15" filter="url(#dropShadow)"/>
+      <polygon points="1300,345 1330,360 1300,375" fill="url(#replicatGradient)"/>
+      
+      <!-- Clock icon -->
+      <g transform="translate(1180,325)">
+        <circle cx="0" cy="0" r="15" fill="white" stroke="#8b5cf6" stroke-width="2" filter="url(#dropShadow)"/>
+        <line x1="0" y1="0" x2="0" y2="-8" stroke="#8b5cf6" stroke-width="2"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="#8b5cf6" stroke-width="2"/>
+        <circle cx="0" cy="0" r="1.5" fill="#8b5cf6"/>
+      </g>
+      
+      <!-- Label -->
+      <text x="1180" y="305" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="18" font-weight="bold" fill="#6b46c1">Replicat Lag</text>
+      <text x="1180" y="415" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="13" fill="#6b7280">Data application delay</text>
+      <text x="1180" y="435" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="15" font-weight="bold" fill="#8b5cf6">~10-100ms</text>
+    </g>
+  </g>
+  
+  <!-- Process Labels -->
+  <g id="processLabels">
+    <!-- Extract Process -->
+    <g transform="translate(380,255)">
+      <rect x="-35" y="-12" width="70" height="24" rx="12" fill="#fbbf24" filter="url(#dropShadow)"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="11" font-weight="bold" fill="white">EXTRACT</text>
+    </g>
+    
+    <!-- Pump Process -->
+    <g transform="translate(560,255)">
+      <rect x="-25" y="-12" width="50" height="24" rx="12" fill="#f59e0b" filter="url(#dropShadow)"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="11" font-weight="bold" fill="white">PUMP</text>
+    </g>
+    
+    <!-- Network -->
+    <g transform="translate(850,255)">
+      <rect x="-30" y="-12" width="60" height="24" rx="12" fill="#10b981" filter="url(#dropShadow)"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="11" font-weight="bold" fill="white">NETWORK</text>
+    </g>
+    
+    <!-- Replicat Process -->
+    <g transform="translate(1180,255)">
+      <rect x="-35" y="-12" width="70" height="24" rx="12" fill="#8b5cf6" filter="url(#dropShadow)"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="11" font-weight="bold" fill="white">REPLICAT</text>
+    </g>
+  </g>
+  
+  <!-- Total Latency Summary -->
+  <g transform="translate(800,600)">
+    <rect x="-180" y="-35" width="360" height="70" rx="8" fill="white" stroke="#d1d5db" stroke-width="2" filter="url(#dropShadow)"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">Total End-to-End Latency</text>
+    <text x="0" y="18" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="22" font-weight="bold" fill="#dc2626">~16-250ms</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(100,700)">
+    <text x="0" y="0" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">Key Factors Affecting Latency:</text>
+    <text x="0" y="25" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">• Transaction volume and complexity</text>
+    <text x="0" y="45" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">• Network bandwidth and distance</text>
+    <text x="0" y="65" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">• Target database load and configuration</text>
+    <text x="0" y="85" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#6b7280">• GoldenGate parameter optimization</text>
+  </g>
+  
+  <!-- Performance Note -->
+  <g transform="translate(1000,720)">
+    <rect x="0" y="-20" width="500" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="250" y="0" text-anchor="middle" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="14" font-weight="bold" fill="#92400e">Performance Tip</text>
+    <text x="10" y="20" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="12" fill="#92400e">Optimize batch sizes, configure parallel processing, and</text>
+    <text x="10" y="35" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="12" fill="#92400e">tune network parameters to minimize end-to-end latency.</text>
+    <text x="10" y="55" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="12" fill="#92400e">Typical production environments achieve &lt;50ms latency.</text>
+  </g>
+</svg>
