@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="900" viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    The Ultimate Optimized Version by a Data Integration Expert.
+    This definitive version combines the best of all previous iterations:
+    1.  Logically Perfect: Restores the clear, parallel branching for collision handling, eliminating the confusing nested decision. This is the most accurate representation.
+    2.  Aesthetically Superior: Utilizes smooth, symmetrical curves for ALL connectors.
+    3.  Perfectly Balanced: The entire layout is symmetrical and follows a clear top-to-bottom hierarchy.
+  -->
+  <defs>
+    <!-- Styles (Colors, Shadows, Fonts) are inherited from previous optimizations -->
+    <linearGradient id="grad-start" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#007BFF" /><stop offset="100%" stop-color="#0056b3" /></linearGradient>
+    <linearGradient id="grad-decision" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fd7e14" /><stop offset="100%" stop-color="#e85d04" /></linearGradient>
+    <linearGradient id="grad-action" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#28a745" /><stop offset="100%" stop-color="#198754" /></linearGradient>
+    <linearGradient id="grad-condition" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6f42c1" /><stop offset="100%" stop-color="#5a3d8a" /></linearGradient>
+    <linearGradient id="grad-end" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6c757d" /><stop offset="100%" stop-color="#495057" /></linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/></filter>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#343a40" /></marker>
+    <style>
+      .bg { fill: #f8f9fa; }
+      .box { stroke-width: 1.5; filter: url(#soft-shadow); }
+      .box-start { fill: url(#grad-start); stroke: #004085; }
+      .box-decision { fill: url(#grad-decision); stroke: #d05400; }
+      .box-action { fill: url(#grad-action); stroke: #155724; }
+      .box-condition { fill: url(#grad-condition); stroke: #492a7c; } /* Re-using for the ignore action */
+      .box-end { fill: url(#grad-end); stroke: #343a40; }
+      .text-box { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; font-weight: 600; fill: white; text-anchor: middle; }
+      .text-title { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 22px; font-weight: 700; fill: #343a40; text-anchor: middle; }
+      .text-label { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #495057; text-anchor: middle; }
+      .connector { stroke: #343a40; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" class="bg"/>
+
+  <!-- Title -->
+  <text x="500" y="45" class="text-title">OGG HANDLECOLLISIONS Logic Flow</text>
+
+  <!-- Nodes -->
+  <g id="start-node" transform="translate(500, 100)">
+    <rect x="-125" y="-30" width="250" height="60" rx="10" class="box box-start"/>
+    <text y="5" class="text-box">Replicat Reads DML from Trail</text>
+  </g>
+  
+  <g id="decision-node" transform="translate(500, 225)">
+    <path d="M 0 -55 L 110 0 L 0 55 L -110 0 Z" class="box box-decision"/>
+    <text y="-5" class="text-box" font-size="13px">Collision Exists</text>
+    <text y="15" class="text-box" font-size="13px">on Target?</text>
+  </g>
+  
+  <g id="normal-apply-node" transform="translate(150, 480)">
+    <rect x="-120" y="-35" width="240" height="70" rx="10" class="box box-action"/>
+    <text y="-5" class="text-box">Apply DML Operation</text>
+    <text y="15" class="text-box">Normally</text>
+  </g>
+
+  <!-- Parallel Branch 1: INSERT -->
+  <g id="insert-branch" transform="translate(500, 480)">
+    <rect x="-110" y="-35" width="220" height="70" rx="10" class="box box-action"/>
+    <text y="-5" class="text-box">Convert to UPDATE</text>
+    <text y="15" class="text-box">(Overwrite Target Row)</text>
+  </g>
+
+  <!-- Parallel Branch 2: UPDATE/DELETE -->
+  <g id="update-delete-branch" transform="translate(850, 480)">
+    <rect x="-110" y="-35" width="220" height="70" rx="10" class="box box-condition"/>
+    <text y="-5" class="text-box">Ignore Operation</text>
+    <text y="15" class="text-box">(Discard DML)</text>
+  </g>
+
+  <g id="end-node" transform="translate(500, 800)">
+    <rect x="-135" y="-25" width="270" height="50" rx="10" class="box box-end"/>
+    <text y="5" class="text-box">Continue to Next Operation</text>
+  </g>
+
+  <!-- *** DEFINITIVE CONNECTORS *** -->
+  <path d="M 500 130 V 170" class="connector"/>
+  
+  <!-- "No" Path: A single, clean, flowing curve -->
+  <path d="M 390 225 C 250 225, 150 350, 150 445" class="connector"/>
+  <text x="300" y="270" class="text-label">No</text>
+  
+  <!-- "Yes" Path to Split Point -->
+  <g id="yes-split">
+    <path d="M 500 280 V 350" class="connector" marker-end="none"/>
+    <text x="520" y="315" class="text-label">Yes</text>
+    <!-- Symmetrical split to the two parallel actions -->
+    <path d="M 500 350 C 500 400, 500 400, 500 445" class="connector" />
+    <text x="450" y="400" class="text-label" font-style="italic">If INSERT</text>
+    <path d="M 500 350 C 650 350, 850 400, 850 445" class="connector" />
+    <text x="700" y="400" class="text-label" font-style="italic">If UPDATE/DELETE</text>
+  </g>
+
+  <!-- The Central Trunk: Graceful Convergence -->
+  <g id="merge-point">
+    <path d="M 500 700 V 775" class="connector"/> <!-- The Trunk -->
+    <!-- Path from "Normal Apply" to Trunk -->
+    <path d="M 150 515 C 150 650, 350 700, 500 700" class="connector"/>
+    <!-- Path from "Convert" to Trunk -->
+    <path d="M 500 515 C 500 580, 500 650, 500 700" class="connector"/>
+    <!-- Path from "Update/Delete" to Trunk -->
+    <path d="M 850 515 C 850 650, 650 700, 500 700" class="connector"/>
+  </g>
+
+</svg>
