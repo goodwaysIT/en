@@ -2,7 +2,7 @@
 layout: post
 title: "Demystifying OGG `HANDLECOLLISIONS`: A Deep Dive from Firefighting to Data Consistency"
 excerpt: "Learn how to correctly use Oracle GoldenGate's HANDLECOLLISIONS parameter. This article provides a detailed explanation of its mechanics, risks, use cases, and best practices to help you avoid data inconsistency pitfalls."
-date: 2025-08-11 09:05:00 +0800
+date: 2025-08-11 17:35:00 +0800
 categories: [Oracle GoldenGate, Data Consistency]
 tags: [ogg, handlecollisions, reperror, data conflict, data consistency, replicat]
 author: Shane
