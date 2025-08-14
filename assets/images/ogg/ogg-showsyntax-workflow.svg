@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="620" viewBox="0 0 720 620" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"></path>
+        </marker>
+        <style>
+            .label-bg {
+                fill: #fff;
+                stroke: #fff;
+                stroke-width: 4px;
+                paint-order: stroke;
+            }
+        </style>
+    </defs>
+    <style>
+        .node-rect { fill: #fff; stroke: #555; stroke-width: 1px; }
+        .node-text { font-family: Calibri, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; text-anchor: middle; dominant-baseline: central; fill: #222; }
+        .edge-path { stroke: #333; stroke-width: 1px; fill: none; marker-end: url(#arrowhead); }
+        .edge-label { font-family: Calibri, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; fill: #333; }
+        .subgraph-label { font-family: Calibri, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; text-anchor: middle; font-weight: bold; }
+    </style>
+
+    <!-- Nodes -->
+    <g id="node-a">
+        <rect class="node-rect" x="285" y="20" width="150" height="50" rx="3"></rect>
+        <text class="node-text">
+            <tspan x="360" y="37">Source Database</tspan>
+            <tspan x="360" y="53">Redo Log</tspan>
+        </text>
+    </g>
+    <g id="node-b">
+        <rect class="node-rect" x="285" y="110" width="150" height="40" rx="3"></rect>
+        <text class="node-text" x="360" y="130">Trail File</text>
+    </g>
+    
+    <text class="subgraph-label" x="360" y="195">Replicat Process</text>
+    <g id="node-c-subgraph">
+        <rect x="30" y="210" width="660" height="100" stroke-dasharray="5,5" stroke="#555" fill="none" stroke-width="1px"></rect>
+        
+        <g id="node-c1">
+            <rect class="node-rect" x="60" y="235" width="140" height="50" rx="3"></rect>
+            <text class="node-text" x="130" y="260">Read Trail</text>
+        </g>
+        <g id="node-c2">
+            <rect class="node-rect" x="280" y="235" width="160" height="50" rx="3"></rect>
+            <text class="node-text">
+                <tspan x="360" y="252">Parse &amp; Map</tspan>
+                <tspan x="360" y="270">(e.g., COLMAP)</tspan>
+            </text>
+        </g>
+        <g id="node-c3">
+            <rect class="node-rect" x="520" y="235" width="150" height="50" rx="3"></rect>
+            <text class="node-text" x="595" y="260">Generate Final SQL</text>
+        </g>
+    </g>
+
+    <g id="node-d">
+        <path d="M360 360 L460 410 L360 460 L260 410 Z" fill="#ffc8dd" stroke="#c43e74" stroke-width="1px"></path>
+        <text class="node-text" font-size="13px">
+            <tspan x="360" y="405" font-weight="bold">SHOWSYNTAX</tspan>
+            <tspan x="360" y="420">Intercept &amp; Display</tspan>
+        </text>
+    </g>
+    <g id="node-e">
+        <rect class="node-rect" x="240" y="520" width="240" height="50" rx="3"></rect>
+        <text class="node-text">
+            <tspan x="360" y="537">Command Line</tspan>
+            <tspan x="360" y="555">Display SQL &amp; wait for input</tspan>
+        </text>
+    </g>
+    <g id="node-f">
+        <rect class="node-rect" x="520" y="390" width="150" height="40" rx="3"></rect>
+        <text class="node-text" x="600" y="410">Target Database</text>
+    </g>
+    <g id="node-g">
+        <circle cx="100" cy="410" r="40" stroke="#555" stroke-width="1px" fill="none"></circle>
+        <circle cx="100" cy="410" r="35" stroke="#777" stroke-width="1px" fill="none"></circle>
+        <text class="node-text" x="100" y="410">Discarded</text>
+    </g>
+
+    <!-- Edges -->
+    <path class="edge-path" d="M360 70 V 110"></path>
+    <text class="edge-label label-bg" x="360" y="90">Captured by Extract</text>
+    
+    <path class="edge-path" d="M360 150 V 180"></path>
+    
+    <path class="edge-path" d="M200 260 H 280"></path>
+    <path class="edge-path" d="M440 260 H 520"></path>
+
+    <path class="edge-path" d="M360 310 V 360"></path>
+
+    <path class="edge-path" d="M360 460 V 520"></path>
+
+    <path class="edge-path" d="M460 410 H 520" stroke-dasharray="3,3"></path>
+    <text class="edge-label" x="485" y="380">User confirms Apply (APPLY)</text>
+    
+    <path class="edge-path" d="M260 410 H 150" stroke-dasharray="3,3"></path>
+    <text class="edge-label" x="225" y="380">User chooses Skip (NOAPPLY)</text>
+</svg>
