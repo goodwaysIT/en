@@ -2,7 +2,7 @@
 layout: post
 title: "Deep Dive into OGG `SHOWSYNTAX`: The Ultimate Guide from SQL Generation to Problem Solving"
 excerpt: "`SHOWSYNTAX` is one of the most powerful interactive debugging tools in OGG. This article provides a deep dive into its working principles, contrasts it with Report and TRACE, and through hands-on practice, teaches you how to use it to precisely pinpoint data transformation errors and performance bottlenecks to solve tricky Replicat issues."
-date: 2025-08-14 08:30:00 +0800
+date: 2025-08-14 09:30:00 +0800
 categories: [Oracle GoldenGate, Troubleshooting]
 tags: [ogg, showsyntax, replicat, sql debugging, performance tuning, data synchronization, interactive debug]
 author: Shane
@@ -81,7 +81,8 @@ INSERT INTO "TUSER"."T2" ("ID", "NAME", "DESCRIPTION", "CLOB_DATA", "CATE") VALU
 ('1','zhang', 'YkilH...', 'NATPA0...', TO_TIMESTAMP('2024-12-02 17:00:40...'))
 Statement length: 4,203
 
-(S)top display, (K)eep displaying (default):```
+(S)top display, (K)eep displaying (default):
+```
 At this point, you have two choices:
 *   **Press Enter (default is K)**: "Keep Displaying." This executes the current SQL statement and continues to the next one.
 *   **Type S and press Enter**: "Stop Display." This executes the current SQL statement and then exits interactive mode, allowing Replicat to resume automated batch processing without displaying each statement.
