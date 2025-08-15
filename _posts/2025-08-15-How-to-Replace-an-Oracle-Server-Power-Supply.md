@@ -2,7 +2,7 @@
 layout: post
 title: "How to Replace an Oracle Server X7-2L or X8-2L Power Supply"
 excerpt: "The server's redundant power supplies support concurrent maintenance, which enables you to remove and replace a power supply without shutting down the server, provided that the other power supply is online and working."
-date: 2025-08-12 10:00:00 +0800
+date: 2025-08-15 11:00:00 +0800
 categories: [Oracle, Database]
 tags: [ODA Power Supply, X7-2L, X8-2L, power supply fails, oracle]
 image: /assets/images/posts/How-to-Replace-an-Oracle-Server-Power-Supply.jpg
@@ -67,3 +67,4 @@ Oracle Server X7-2L Documentation:
 http://docs.oracle.com/cd/E72463_01/index.html  
 Oracle Server X8-2L Documentation  
 https://docs.oracle.com/cd/E93361_01/index.html  
+
