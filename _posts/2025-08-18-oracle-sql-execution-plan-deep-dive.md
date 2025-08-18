@@ -159,7 +159,7 @@ This is like retrieving data from a car's Event Data Recorder (EDR), which faith
 
 **Steps:**
 
-1.  **Find the `SQL_ID` of the target SQL**:
+*  **Find the `SQL_ID` of the target SQL**:
 
 ```sql
 -- Find the SQL_ID from v$sql using a fragment of the SQL text
@@ -174,7 +174,7 @@ fanswvakttff4            1 SELECT /* BAD_SQL */ * FROM t_users WHERE TRIM(status
 
 ```
 
-2.  **Extract and display the real execution plan**:
+*  **Extract and display the real execution plan**:
 
 ```sql
 -- Assuming the found sql_id is 'fanswvakttff4'
