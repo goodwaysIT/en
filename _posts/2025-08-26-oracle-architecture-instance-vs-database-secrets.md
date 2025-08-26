@@ -2,7 +2,7 @@
 layout: post
 title: "A Deep Dive into Oracle Database Architecture: The Secrets of Instance and Database Interaction"
 excerpt: "This article aims to thoroughly clarify the two most core and easily confused concepts in Oracle: Instance and Database. Using vivid analogies and practical examples, it delves into the memory structures (SGA), background processes, and the startup sequence to reveal their dynamic interaction, helping readers gain a transformative understanding of Oracle's architecture."
-date: 2025-08-26 08:50:00 +0800
+date: 2025-08-26 08:45:00 +0800
 categories: [Oracle, Database Architecture, DBA]
 tags: [Oracle, Oracle Architecture, Instance, Database, SGA, Background Process, DBA, Oracle Concepts]
 author: Shane
